@@ -95,7 +95,7 @@ export default {
 
       ajoutermessageService(this.user.username, this.idchat, this.usermsg);
       this.socket.emit("msg", this.user.username, this.usermsg, this.idchat);
-     this.socket.on("get", function(chat) {
+      this.socket.on("get", function(chat) {
                 console.log("why")
         for (var i = 0; i < chat.length; i++) {
           if (chat[i].id == self.idchat) {
@@ -103,10 +103,6 @@ export default {
           }
         }
       });
-    /*  this.socket.on("get", function(messages) {
-        console.log("heyyyy")
-          self.messages = messages;
-      });*/
       this.usermsg = "";
       this.$nextTick(() => {
         this.$refs.chatbox.scrollTop = this.$refs.chatbox.scrollHeight;
