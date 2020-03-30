@@ -13,6 +13,7 @@
 </template>
 
 <script>
+
 import { setToken, getInfo, refresh } from "@/api/auth.service.js";
 import sidebarcomponent from '@/components/shared/sidebar/sidebar.vue'
 import headercomponent from '@/components/shared/header/header.vue'
@@ -34,6 +35,8 @@ export default {
         getInfo(token).then(user => {
           console.log('test app useer', user)
        // this.$store.dispatch('setCurrentUser', user)
+
+         
       
         })
       })

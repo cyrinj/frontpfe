@@ -1,65 +1,92 @@
-
 <template>
-  <section class="chat-box">
-    <div class="chat-box-list-container" ref="chatbox">
-      <ul class="chat-box-list">
-        <li class="message" v-for="(obj, idx) in messages" :key="idx">
-          <p>
-            <span class="me" v-if="obj.sender===user.username">{{ obj.contenu }}</span>
-            <span class="notme" v-else>{{ obj.contenu }}</span>
-          </p>
-        </li>
-      </ul>
+  <div>
+    <section class="chat-box">
+      <div class="chat-box-list-container" ref="chatbox">
+        <ul class="chat-box-list">
+          <li class="message" v-for="(obj, idx) in messages" :key="idx">
+            <p>
+              <span class="me" v-if="obj.sender===user.username">{{ obj.contenu }}</span>
+              <span class="notme" v-else>{{ obj.contenu }}</span>
+            </p>
+          </li>
+        </ul>
+      </div>
+      <div class="chat-inputs">
+        <textarea rows="1" type="text" v-model="usermsg" @keyup.enter="send" />
+      </div>
+      <div class="soustext">
+        <button @click="send">
+          <i class="fas fa-paper-plane"></i>
+        </button>
+      </div>
+    </section>
+
+    <br />
+    <br />
+    <br />
+    <br />
+    <br />
+    <br />
+    <br />
+    <br />
+    <br />
+    <br />
+    <br />
+    <br />
+    <br />
+    <br />
+    <br />
+    <br />
+    <br />
+    <br />
+    <br />
+    <br />
+    <br />
+    <br />
+    <br />
+    <br />
+    <br />
+    <br />
+    <div class="conth">
+      <input v-model="idtripper" />
+      <button class="button is-info" @click="getChat()">get</button>
     </div>
-    <div class="chat-inputs">
-      <textarea rows="1" type="text" v-model="usermsg" @keyup.enter="send" />
-    </div>
-    <div class="soustext">
-      <button @click="send">
-        <i class="fas fa-paper-plane"></i>
-      </button>
-    </div>
-  </section>
+  </div>
 </template>
 
+
 <script>
-import UserMixin from "@/mixins/user.mixin.js";
+import axios from "axios";
 import {
-  getchatService,
+  getchatbyadminService,
   ajoutermessageService
 } from "@/api/tripper.service.js";
 import io from "socket.io-client";
 
-import { connectionSocket } from "@/socket/Chat/chat.socket.js";
 export default {
-  mixins: [UserMixin],
-
-  name: "chat",
+  name: "dashboardadmin",
   data() {
     return {
-      messageVal: "",
+      idtripper: "",
       messages: [],
-      messages1: [],
-      usermsg: "",
       idchat: "",
-      obj: {},
-      listusers: [],
-      monchat: [],
-      socket: io.connect("http://localhost:3000")
+      usermsg: "",
+      socket: io.connect("http://localhost:3000"),
+      user: { username: "admin" }
     };
   },
 
-  mounted() {
-    var self = this;
-      getchatService(this.user.id).then(data => {
-      this.idchat = data[0]._id;
-      this.messages = data[0].messages;
-      this.socket.emit("first", this.messages, this.idchat);
-    });
-
-  },
-
   methods: {
+    getChat() {
+      let x = {};
+      x.id = this.idtripper;
+      getchatbyadminService(x).then(data => {
+        console.log("gh",data)
+        this.idchat = data[0]._id;
+        this.messages = data[0].messages;
+      });
+      this.socket.emit("first", this.messages, this.idchat);
+    },
     send() {
       var self = this;
 
@@ -73,7 +100,6 @@ export default {
         }
       });
       this.usermsg = "";
-
       this.$nextTick(() => {
         this.$refs.chatbox.scrollTop = this.$refs.chatbox.scrollHeight;
       });
@@ -81,7 +107,6 @@ export default {
   }
 };
 </script>
-
 
 <style scoped>
 .mon_cadre {
@@ -105,7 +130,7 @@ export default {
 .chat-box-list-container {
   overflow-y: scroll;
   scrollbar-color: rgb(208, 207, 228) rgb(226, 233, 226);
-  height: 280px;
+
   scrollbar-width: thin;
 }
 
@@ -180,4 +205,12 @@ button {
   height: 31px;
   background-color: white;
 }
+
+.conth {
+  width: 300px;
+  height: 100px;
+  left: 10px;
+}
 </style>
+
+

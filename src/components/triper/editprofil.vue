@@ -75,7 +75,7 @@
           </div>
           <div class="column is-4">
             <button
-              class="button boutton_edit is-link is-light "
+              class="button boutton_edit is-link is-rounded "
               @click="editProfile()"
               type="submit"
             >Edit</button>
@@ -131,7 +131,7 @@ export default {
   margin-bottom: 25px;
   margin-top: 25px;
   margin-left: 25px;
-     color: rgb(82, 79, 79);
+     color: rgb(114, 132, 180);
 }
 
 .input_edit_x:focus {

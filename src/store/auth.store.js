@@ -29,7 +29,7 @@ export default {
         async login(context, user) {
             let obj = await loginService(user)
             context.commit('setCurrentUser', obj.userq)
-            return obj.msg
+            return obj
         },
 
         async logout(context, user) {

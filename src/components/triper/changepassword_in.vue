@@ -4,29 +4,29 @@
       <fieldset class="cadre_edit">
        
         <hr class="ligne_edit" />
-          <label class="label f1">Write password : </label>
+         
          <input
-              class="input_edit_y f22"
+              class="input_edit_y "
               type="password"
               v-model="user.password"
-              placeholder=">10_MAJ_MIN_PONCTUATION"
+              placeholder="New password"
             /><br><br>
 
-                      <label class="label f1">Confirm password : </label>
+                    
 
              <input
-              class="input_edit_y f2"
+              class="input_edit_y "
               type="text"
               v-model="user.confirmpassword"
               placeholder="Confirm Password"
             /><br><br>
 
              <button
-              class="button boutton_edit is-link is-light  "
+              class="button boutton_edit is-link   "
               @click="editProfile()"
               type="submit"
             ><strong>Confirm</strong></button>
-               <hr class="ligne_edit" />
+             
 
       </fieldset>
     </form>
@@ -73,7 +73,7 @@ export default {
 
         this.$store.dispatch('changepassword_in',{current: this.current, password: this.password}).then(data => {
             // this.mounted()
-           console.log("aaaaaaaaaaaaaaaaa")
+        //   console.log("aaaaaaaaaaaaaaaaa")
               this.$router.push({
                 name: "dashboardtriper"
               });
@@ -128,7 +128,7 @@ export default {
 .input_edit_y {
   border-style: none none solid none;
   border-width: 1px;
-
+  margin-left: 70px;
   border-block-end-color: rgb(228, 223, 223);
   width: 255px;
 
@@ -181,7 +181,7 @@ export default {
   padding-left: 15px;
   padding-top: 20px;
   background-color: white;
-  height: 305px;
+  height: 280px;
   
   border: 1px solid rgb(230, 224, 224);
 }

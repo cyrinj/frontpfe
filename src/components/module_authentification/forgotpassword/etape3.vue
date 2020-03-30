@@ -12,7 +12,7 @@
                 <div class="field">
                   <div class="control">
                     <input
-                    id="password"
+                      id="password"
                       class="input"
                       type="password"
                       placeholder="password"
@@ -36,7 +36,8 @@
                 <br>
                 <button
                   class="button is-info  is-fullwidth"
-                 
+                   @click="myFunction()"
+                 type="submit"
                 >Reset</button>
               </form>
               <p class="informationcolor"><strong>{{information}}</strong></p>
@@ -62,6 +63,42 @@ export default {
     };
   },
   methods: {
+      myFunction() { 
+                var inpObjpassword = document.getElementById("password");
+               var inpObjconfirmpassword = document.getElementById("confirmpassword"); 
+
+                console.log(inpObjpassword)
+                if ((this.user.password==null)|| (this.user.password=='')) { 
+                    inpObjpassword.setCustomValidity('Please enter your password'); 
+                    
+                }
+                    else if(this.validate()==false){
+                     inpObjpassword.setCustomValidity('Password : A-Z,a-z,$!*/-+,0-9,length>8');
+                }
+
+                 else  {
+                  inpObjpassword.setCustomValidity(''); }
+
+                    if ((this.confirmpassword==null)|| (this.confirmpassword=='')) { 
+                    inpObjconfirmpassword.setCustomValidity('Please enter your password'); 
+                }
+                 else if(this.confirmpassword!=this.user.password)
+                 {
+                     inpObjconfirmpassword.setCustomValidity('Please write the same password'); 
+                 }
+                  else  {
+                  inpObjconfirmpassword.setCustomValidity(''); }
+
+                 if ((this.user.password==null)|| (this.user.password==''))
+                 {
+                   return false
+                 }
+                   else  {
+                 
+                 
+                  return true}
+            } ,
+   
     validate() {
      
       if (
@@ -77,26 +114,29 @@ export default {
 
     changePassword() {
 
+  let x = this.myFunction()
+      if(x==true)
+      {
          this.$store.dispatch('resetpassword', this.user).then(data => {
-         this.information="You will be oriented to the reset page after 3 secondes"
+         this.information="You will be oriented to your profil after 3 secondes"
 
-                               setTimeout(function () {
+                 setTimeout(function () {
     this.information="1.."
-}.bind(this), 1000)
+}.bind(this), 3000)
         setTimeout(function () {
     this.information="2.."
-}.bind(this), 2000)
+}.bind(this), 4000)
 
 setTimeout(function () {
    this.$router.push({
                 name: "dashboardtriper"
               });
-}.bind(this), 3000)
+}.bind(this), 5000)
             
          })
              //  resetpasswordService(this.user)
              
-        
+      }
               
             }
      

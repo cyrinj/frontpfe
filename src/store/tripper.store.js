@@ -24,7 +24,7 @@ export default {
         },
 
         setCurrenttripsUpdate(state, form) {
-            console.log("afficher", state.trips[0])
+           // console.log("afficher", state.trips[0])
             for (var i = 0; i < state.trips.length; i++) {
                 if (state.trips[i]._id == form._id) {
                     state.trips[i] = form
@@ -34,6 +34,17 @@ export default {
 
             console.log("hettt", state.trips[i])
         },
+
+        setCurrenttripsdelete(state, trip_id) {
+            // console.log("afficher", state.trips[0])
+            for (var i = 0; i <state.trips.length; i++) {
+                if (state.trips[i]._id == trip_id) {
+                   state.trips.splice(i, 1);
+                    break
+                }
+ 
+            }
+         },
 
 
 
@@ -57,18 +68,11 @@ export default {
         },
 
         async tripdelete(context, item) {
-            //  console.log("111",item)
-            await tripdeleteService(item)
-            for (var i = 0; i < this.getters.getCurrenttrips.data.data.length; i++) {
-                if (this.getters.getCurrenttrips.data.data[i]._id == item._id) {
-                    this.getters.getCurrenttrips.data.data.splice(i, 1);
-                    break
-                }
-
-
-            }
-            let tripsnew = this.getters.getCurrenttrips.data.data
-            context.commit('setCurrenttrips', tripsnew)
+            //  console.log("111",this.getters.getCurrenttrips)
+           // await tripdeleteService(item)
+            console.log("hey",item._id)
+            //let tripsnew = this.getters.getCurrenttrips.data.data
+            context.commit('setCurrenttripsdelete', item._id)
 
         },
         async tripupdate(context, form) {

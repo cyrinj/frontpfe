@@ -187,13 +187,7 @@ export default {
                     return false
                   }
                 else  {
-                  inpObjemail.setCustomValidity(''); 
-                  inpObjpassword.setCustomValidity(''); 
-                   inpObjusername.setCustomValidity(''); 
-                  inpObjsecurityquestion.setCustomValidity(''); 
-                   inpObjresponse.setCustomValidity(''); 
-                  inpObjbackupemail.setCustomValidity(''); 
-                  inpObjconfirmpassword.setCustomValidity(''); 
+                 
                   return true}
             } ,
     validate() {

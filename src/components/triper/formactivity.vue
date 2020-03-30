@@ -351,7 +351,7 @@ label.label {
 }
  
 .t1{
-   width: 522px;
+   width:570px;
    height: 280px;
    border: 2px solid rgb(224, 224, 216);
     scrollbar-color: rgb(112, 106, 202) green;

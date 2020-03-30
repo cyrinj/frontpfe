@@ -1,3 +1,4 @@
+
 import axios from 'axios';
 //import VUe from 'vue';
 import config from '../config/dev.json';
@@ -50,7 +51,37 @@ export function tripsuggestService(form) {
     }) 
 }
 
+export function ajoutermessageService(username,idchat,message) {
+    return new Promise((resolve, reject) => {
+        axios.post(url + '/ajoutermessage',{username,idchat,message}).then(response => {
+            console.log(response.data.data)
+        //  resolve(userq)
+            resolve(response.data.data)
+        }).catch(err => reject(err))
+    }) 
+}
 
+export function getchatService(id) {
+    return new Promise((resolve, reject) => {
+      // console.log(url + '/alltripsbyuser')
+        axios.post(url + '/allmessagesbyuser',id).then(response => {
+            console.log(response.data.data)
+        //  resolve(userq)
+            resolve(response.data.data)
+        }).catch(err => reject(err))
+    }) 
+}
+
+export function getchatbyadminService(x) {
+    return new Promise((resolve, reject) => {
+      // console.log(url + '/alltripsbyuser')
+        axios.post(url + '/allmessagesbyadmin',x).then(response => {
+            console.log("res",response.data.data)
+        //  resolve(userq)
+            resolve(response.data.data)
+        }).catch(err => reject(err))
+    }) 
+}
 
 export function tripstatusService() {
     return new Promise((resolve, reject) => {
@@ -68,7 +99,7 @@ export function tripdeleteService(item) {
     return new Promise((resolve, reject) => {
       // console.log(url + '/alltripsbyuser')
         axios.post(url + '/annulertriproposition',item).then(response => {
-            console.log("fff",item)
+           // console.log("fff",item)
         //  resolve(userq)
             resolve(response.data.data)
         }).catch(err => reject(err))
@@ -84,20 +115,3 @@ export function tripupdateService(form) {
     }) 
 }
 
-/*supprimer(item){
- 
-    var r = confirm("Do you want to delete the trip");
-    if(r==true){
-           return new Promise((resolve, reject) => {
-         //   console.log("before", window.localStorage.token)
-           // axios.defaults.headers.common['Authorization'] = `Bearer ${window.localStorage.token}`;
-           axios.post("http://localhost:3000/api/v2/tripper/annulertriproposition", item).then(data => {
-           //   console.log("the data",data.data.data.username)
-           // this.u1=data.data.data.username
-           console.log(data.data.data)
-              resolve(data.data.data)
-               this.afterdelete()
-             })
-             .catch(error => {});
-         });}
-   }*/

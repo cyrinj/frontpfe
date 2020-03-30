@@ -103,9 +103,7 @@ export default {
                     return false
                   }
                 else  {
-                  inpObjemail.setCustomValidity(''); 
-                  inpObjresponse.setCustomValidity(''); 
-                  inpObjsecurityquestion.setCustomValidity(''); 
+                
                   return true}
             } ,
 

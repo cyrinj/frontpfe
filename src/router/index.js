@@ -1,6 +1,9 @@
 import Vue from 'vue'
 import Router from 'vue-router'
 import dashboardtriper from '@/components/users/dashboardtriper'
+import dashboardadmin from '@/components/users/dashboardadmin'
+import notification from '@/components/triper/notification'
+
 import formtrip from '@/components/triper/formtrip'
 import editprofil from '@/components/triper/editprofil'
 import updatetrip from '@/components/triper/updatetrip'
@@ -53,6 +56,11 @@ export default new Router({
       component: etape3
     },
     {
+      path: '/dashboardadmin',
+      name: 'dashboardadmin',
+      component: dashboardadmin,
+    }, 
+    {
       path: '/dashboardtriper',
       name: 'dashboardtriper',
       component: dashboardtriper,
@@ -67,6 +75,11 @@ export default new Router({
           path: "/header",
           name: "header",
           component: header
+        },
+        {
+          path: "/notification",
+          name: "notification",
+          component:notification
         },
         {
           path: "/footer",

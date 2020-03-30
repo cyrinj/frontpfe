@@ -29,10 +29,9 @@
   </div>
     <button class="dropdown-btn " @click="zz()"><span class="icon e3"><i class="fas fa-rss"></i></span>News <i class="fa fa-caret-down si"></i></button>
   <div class="dropdown-container">
-           <router-link to="/chat" > <button class="dgh"><span class="icon has-text-success e3"><i class="fas fa-comments"></i></span>Chat</button></router-link>
-
-            <router-link to="/changepassword_in" >  <button class="dgh"><span class="icon has-text-success e3"><i class="fas fa-coins"></i></span>Wallet</button></router-link>
-            <router-link to="/changepassword_in" >  <button class="dgh"><span class="icon has-text-success e3"><i class="fas fa-bell"></i></span>Notifications</button></router-link>
+       <router-link to="/chat" >        <button class="dgh"><span class="icon has-text-success e3"><i class="fas fa-comments"></i></span>Chat</button></router-link>
+  <button class="dgh"><span class="icon has-text-success e3"><i class="fas fa-coins"></i></span>Wallet</button>
+     <router-link to="/notification" >   <button class="dgh"><span class="icon has-text-success e3"><i class="fas fa-bell"></i></span>Notifications</button></router-link>
  
   </div>
     </div> 

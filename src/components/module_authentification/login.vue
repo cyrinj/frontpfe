@@ -115,19 +115,29 @@ export default {
       let x = this.myFunction()
       if(x==true){
          this.$store.dispatch('login', this.userL).then(data => {
-  
-     if (data=="!password") {
+      console.log("ffffff",data)
+     if (data.msg=="!password") {
         this.reponse="Wrong password!"
      }
-     else if (data=="!email")
+     else if (data.msg=="!email")
      {
        this.reponse="Email don't exist!"
      }
      else
      {
-        this.$router.push({
+       if(data.userq.role=="a")
+
+       {
+            this.$router.push({
+                name: "dashboardadmin"
+              }); 
+       }
+       else
+       this.$router.push({
                 name: "dashboardtriper"
               });
+
+             
               }
      })
       }

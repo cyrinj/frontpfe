@@ -288,7 +288,7 @@ export default {
     return {
       bestperiode:"fromto",
        form: {
-        title: null,
+        title: '',
         continent: "",
         bestperiode1:"",
         country: "",
@@ -541,7 +541,7 @@ label.label {
 }
  
 .t1{
-   width: 522px;
+   width: 602px;
    height: 280px;
    border: 2px solid rgb(224, 224, 216);
     overflow:hidden
