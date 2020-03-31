@@ -1,7 +1,7 @@
 <template>
   <div class="sidebar is-fixed xx4">
     <div class="cnt">
-      <img src="@/assets/logo.png" width="270" height="200" />
+      <img src="@/assets/logo.png" width="310" height="250" />
     </div>
 
     <div class="DivWithScroll">
@@ -316,7 +316,7 @@ hr {
   padding: 6px 8px 6px 16px;
   text-decoration: none;
   font-size: 20px;
-  color: rgb(168, 175, 171);
+  color: rgb(104, 109, 106);
   display: block;
   border: none;
   background: none;

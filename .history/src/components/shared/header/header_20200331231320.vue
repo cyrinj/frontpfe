@@ -173,7 +173,7 @@ export default {
   color: rgb(56, 228, 113);
 }
 .kz {
-  color: rgb(152, 146, 187);
+  color: rgb(123, 107, 214);
   border-radius: 2em / 5em;
   font-size: 18px;
 }

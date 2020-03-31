@@ -1,7 +1,7 @@
 <template>
   <div class="sidebar is-fixed xx4">
     <div class="cnt">
-      <img src="@/assets/logo.png" width="270" height="200" />
+      <img src="@/assets/logo.png" width="310" height="250" />
     </div>
 
     <div class="DivWithScroll">

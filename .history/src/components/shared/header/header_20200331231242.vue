@@ -3,10 +3,10 @@
     <div class="navbar-menu ss">
       <div class="navbar-start">
         <a class="navbar-item kz" href="http://wantotrip.net/">
-          Home
+          <strong>Home</strong>
         </a>
         <a class="navbar-item kz" href="http://wantotrip.net/about.html">
-         About us
+          <strong>About us</strong>
         </a>
       </div>
       <div class="navbar-end">
@@ -173,7 +173,7 @@ export default {
   color: rgb(56, 228, 113);
 }
 .kz {
-  color: rgb(152, 146, 187);
+  color: rgb(123, 107, 214);
   border-radius: 2em / 5em;
   font-size: 18px;
 }
@@ -230,7 +230,7 @@ ul.nn {
   border-width: 0.1px;
   background-color: rgb(252, 247, 247);
   left: 315px;
-  height: 83px;
+  height: 78px;
 }
 a.arr {
   background-color: rgb(235, 226, 226);

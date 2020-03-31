@@ -1,36 +1,10 @@
 <template>
   <div class="sidebar is-fixed xx4">
     <div class="cnt">
-      <img src="@/assets/logo.png" width="270" height="200" />
+      <img src="@/assets/logo.png" width="310" height="250" />
     </div>
 
     <div class="DivWithScroll">
-
-       <div v-if="user.role=='blogger'">
-        <button class="dropdown-btn" @click="zz()">
-        <span class="icon e3">
-          <i class="fas fa-star"></i>
-        </span>Programs
-        <i class="fa fa-caret-down si"></i>
-      </button>
-      <div class="dropdown-container">
-        <router-link to="/editprofil">
-          <button class="dgh">
-            <span class="icon has-text-success e3">
-              <i class="fas fa-poll-h"></i>
-            </span>See all
-          </button>
-        </router-link>
-
-        <router-link to="/changepassword_in">
-          <button class="dgh">
-            <span class="icon has-text-success e3">
-              <i class="fas fa-history"></i>
-            </span>Reservations
-          </button>
-        </router-link>
-      </div>
-      </div>
       <button class="dropdown-btn" @click="zz()">
         <span class="icon e3">
           <i class="fas fa-lightbulb"></i>
@@ -108,7 +82,31 @@
         </router-link>
       </div>
       <!------------------------->
-     
+      <div v-if="">
+        <button class="dropdown-btn" @click="zz()">
+        <span class="icon e3">
+          <i class="fas fa-cog"></i>
+        </span>Settings
+        <i class="fa fa-caret-down si"></i>
+      </button>
+      <div class="dropdown-container">
+        <router-link to="/editprofil">
+          <button class="dgh">
+            <span class="icon has-text-success e3">
+              <i class="fas fa-user-tie"></i>
+            </span>Edit Profil
+          </button>
+        </router-link>
+
+        <router-link to="/changepassword_in">
+          <button class="dgh">
+            <span class="icon has-text-success e3">
+              <i class="fas fa-key"></i>
+            </span>Edit password
+          </button>
+        </router-link>
+      </div>
+      </>
       <!------------------------->
       <button class="dropdown-btn" @click="zz()">
         <span class="icon e3">
@@ -316,7 +314,7 @@ hr {
   padding: 6px 8px 6px 16px;
   text-decoration: none;
   font-size: 20px;
-  color: rgb(168, 175, 171);
+  color: rgb(43, 177, 87);
   display: block;
   border: none;
   background: none;
