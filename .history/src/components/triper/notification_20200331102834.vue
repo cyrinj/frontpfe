@@ -107,6 +107,7 @@ export default {
   background-color: white;
   height: 505px;
   border: 1px solid rgb(235, 229, 229);
+  overflow: auto;
   padding-top: 15px;
   scrollbar-color: rgb(241, 240, 243) rgb(56, 228, 113);
   scrollbar-width: thin;

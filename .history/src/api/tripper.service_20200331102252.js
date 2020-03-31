@@ -94,13 +94,13 @@ export function tripstatusService() {
     }) 
 }
 
-/*export function getnotifService() {
+export function getnotifService() {
     return new Promise((resolve, reject) => {
         axios.post(url + '/allnotifbyuser').then(response => {
             resolve(response.data.data)
         }).catch(err => reject(err))
     }) 
-}*/
+}
 
 export function tripdeleteService(item) {
   

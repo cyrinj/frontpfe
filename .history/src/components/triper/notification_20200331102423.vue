@@ -4,8 +4,8 @@
       <ul>
         <li class="message" v-for="(obj, idx) in rows" :key="idx">
                      <i class="fas fa-bell has-text-danger"></i>
-    <span class="titlestyle">     <strong>{{obj.title}} </strong> </span>
-        <span class="contenustyle">  : {{obj.contenu}}</span> <br>
+        <strong>{{obj.title}} : </strong> 
+        <span class="contenustyle"> {{obj.contenu}}</span> <br>
       <span class="datestyle">{{obj.date}}</span>  
         </li>
       </ul>
@@ -86,8 +86,8 @@ export default {
 
 <style scoped>
 .titlestyle{
-     color: rgb(32, 5, 5);
-     text-decoration: underline;
+      font-size: 25px;
+     color: rgb(53, 99, 11);
 
 }
 .contenustyle{
@@ -107,6 +107,7 @@ export default {
   background-color: white;
   height: 505px;
   border: 1px solid rgb(235, 229, 229);
+  overflow: auto;
   padding-top: 15px;
   scrollbar-color: rgb(241, 240, 243) rgb(56, 228, 113);
   scrollbar-width: thin;

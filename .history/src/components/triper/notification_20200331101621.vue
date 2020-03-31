@@ -4,8 +4,8 @@
       <ul>
         <li class="message" v-for="(obj, idx) in rows" :key="idx">
                      <i class="fas fa-bell has-text-danger"></i>
-    <span class="titlestyle">     <strong>{{obj.title}} </strong> </span>
-        <span class="contenustyle">  : {{obj.contenu}}</span> <br>
+        <strong>{{obj.title}} : </strong> 
+        <span class="contenustyle"> {{obj.contenu}}</span> <br>
       <span class="datestyle">{{obj.date}}</span>  
         </li>
       </ul>
@@ -14,14 +14,31 @@
 </template>
 
 <script>
-//import { getnotifService } from "@/api/tripper.service.js";
+import { tripstatusService } from "@/api/tripper.service.js";
+
+import axios from "axios";
 export default {
 
   name: "status",
   data() {
     return {
-        tablenotif:[],
-        rows: [
+      affiche_delete: true,
+      affiche_oui: false,
+      affiche_non: false,
+      my_object: {
+        country: "",
+        program: "",
+        status: "",
+        wallet: "",
+        supp: true,
+        oui: "false"
+      },
+      rowData1: [],
+      rowData2: [],
+      milieu: 0,
+
+      rowData: [],
+      rows: [
         {
           title: "Trip wallet",
           contenu: "On vous informe que votre trip est accepté",
@@ -71,23 +88,44 @@ export default {
     };
   },
   methods: {
-   
+    update(item) {
+      this.$router.push({
+        name: "updatetrip",
+        params: { objtrip: item }
+      });
+    },
 
-   
+    supprimer(item) {
+      var r = confirm("Do you want to delete the trip");
+      if (r == true) {
+        this.$store.dispatch("tripdelete", item).then(data => {
+          // console.log("aziz")
+        });
+      }
+    }
   },
-  
- /* mounted() {
-     getnotifService().then(data=>{
-       this.tablenotif=data
-     })
-  }*/
+  /* watch : {
+               rowData:function(val) {
+                  this.trips = val;
+                  this.rowData = val 
+               },
+               
+            },*/
+  mounted() {
+   //this.$store.dispatch("tripstatus").then(data => {
+
+     // this.rowData = data;
+     /* this.milieu = this.rowData.length / 2;
+      this.rowData1 = this.rowData.slice(0, this.milieu);
+      this.rowData2 = this.rowData.slice(this.milieu, this.rows.length);*/
+  //  });
+  }
 };
 </script>
 
 <style scoped>
 .titlestyle{
-     color: rgb(32, 5, 5);
-     text-decoration: underline;
+      font-size: 25px;
 
 }
 .contenustyle{
@@ -107,8 +145,9 @@ export default {
   background-color: white;
   height: 505px;
   border: 1px solid rgb(235, 229, 229);
+  overflow: auto;
   padding-top: 15px;
-  scrollbar-color: rgb(241, 240, 243) rgb(56, 228, 113);
+  scrollbar-color: rgb(230, 226, 235) rgb(56, 228, 113);
   scrollbar-width: thin;
 }
 ul {

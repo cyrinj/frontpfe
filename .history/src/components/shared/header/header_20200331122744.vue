@@ -123,7 +123,6 @@ export default {
 
   data() {
     return {
-        tablenotif:[],
       rows: [
         {
           title: "Trip wallet",

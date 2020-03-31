@@ -31,7 +31,7 @@
             </div>
             <div>
               <router-link to="/notification">
-                <a class="seeall">See all</a>
+                <a >see all</a>
               </router-link>
             </div>
           </div>
@@ -116,14 +116,12 @@
 <script>
 import axios from "axios";
 import UserMixin from "@/mixins/user.mixin.js";
-//import { getnotifService } from "@/api/tripper.service.js";
 
 export default {
   mixins: [UserMixin],
 
   data() {
     return {
-        tablenotif:[],
       rows: [
         {
           title: "Trip wallet",
@@ -189,13 +187,8 @@ export default {
       }
     }
   },
-   /* mounted() {
-     getnotifService().then(data=>{
-       this.tablenotif=data
-     })
-  }*/
- /* mounted() {
-     return new Promise((resolve, reject) => {
+  mounted() {
+    /* return new Promise((resolve, reject) => {
       axios
         .get("http://localhost:3000/api/v2/tripper/profile")
         .then(data => {
@@ -203,13 +196,13 @@ export default {
            console.log("aaa",this.username)
         })
         .catch(error => {});
-    });
-  }*/
+    });*/
+  }
 };
 </script>
 <style scoped>
 .titlestyle {
-  color: rgb(114, 108, 108);
+  color: rgb(75, 18, 18);
 }
 .contenustyle {
   color: rgb(8, 0, 15);
@@ -315,9 +308,5 @@ nav {
   scrollbar-color: rgb(208, 207, 228) rgb(226, 233, 226);
   height: 225px;
   scrollbar-width: thin;
-}
-.seeall{
-    color: black;
-    margin-left: 130px;
 }
 </style>
