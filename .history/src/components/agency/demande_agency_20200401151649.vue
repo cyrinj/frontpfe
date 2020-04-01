@@ -84,14 +84,9 @@ export default {
   },
   methods: {
        sendDemande(){
-                  this.demande.trip=this.objtrip
-
              this.$store.dispatch('demandesuggest',this.demande).then(data => {
            // console.log("aziz")
      })    
-        this.$router.push({
-        name: "status_demande",
-      });
        }
    
   },

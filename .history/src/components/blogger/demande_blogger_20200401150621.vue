@@ -1,62 +1,7 @@
 <template>
-  <div id="demande_agency">
+  <div id="demande_blogger">
     <fieldset class="cadre_status box-shadow-form">
-      <div class="columns is-multiple l">
-        <div class="column">
-            <div>
-              <div>
-                <h3 class="titre">
-                  {{item.title}}
-                 
-                </h3>
-                <br />
-                 <span class="icon has-text-warning ei">
-                  <i class="fas fa-user-shield"></i>
-                </span>
-                {{item.blogger}}
-                <br />
-              
-                <span class="icon has-text-success ei">
-                  <i class="fas fa-map-marker-alt"></i>
-                </span>
-                {{item.country}}
-                <br />
-                <span class="icon has-text-info ei">
-                  <i class="fas fa-calendar-alt"></i>
-                </span>
-                {{item.from}} - {{item.to}}
-                <br />
-                <span class="icon has-text-danger ei">
-                  <i class="fas fa-heart"></i>
-                </span>
-                {{item.theme}}
-                <br />
-
-                <hr />
-                <ul class="b" v-for="(item1,id1) in item.program" :key="item1.id1">
-                  <li>
-                    <p>
-                      <strong>Day {{id1+1}}</strong>
-                    </p>
-                    {{item1}}
-                  </li>
-                  <hr />
-                </ul>
-                <br />
-               
-              </div>
-            
-            </div>
-              <textarea
-                  class="t1"
-                  placeholder="Any suggestion?"
-                   v-model="demande.suggestion"
-                ></textarea>
-                <br>
-                    <button @click="sendDemande()" class="button is-link">Send</button>
-
-        </div>
-      </div>
+     
     </fieldset>
   </div>
 </template>
@@ -68,7 +13,7 @@ import UserMixin from '@/mixins/user.mixin.js';
 import axios from "axios";
 export default {
 
-  name: "demande_agency",
+  name: "demande_blogger",
     mixins: [UserMixin],
 
    props: ['objtrip'],
@@ -77,21 +22,16 @@ export default {
         demande: {
             owner :this.user,
              suggestion : "",
-             trip : ""
+             trip : item
         },
-        item:{},
+        item:null,
     };
   },
   methods: {
        sendDemande(){
-                  this.demande.trip=this.objtrip
-
              this.$store.dispatch('demandesuggest',this.demande).then(data => {
            // console.log("aziz")
      })    
-        this.$router.push({
-        name: "status_demande",
-      });
        }
    
   },
@@ -105,6 +45,7 @@ export default {
   mounted() {
    // this.$store.dispatch("tripstatus").then(data => {
      //console.log("ggg",this.objtrip)
+     console.log("hhh",this.objtrip)
       this.item = this.objtrip;
      // console.log("whta",his.item, this.objtrip)
      /* this.milieu = this.rowData.length / 2;

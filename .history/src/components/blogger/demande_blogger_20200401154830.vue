@@ -1,19 +1,14 @@
 <template>
-  <div id="demande_agency">
-    <fieldset class="cadre_status box-shadow-form">
-      <div class="columns is-multiple l">
-        <div class="column">
-            <div>
-              <div>
+  <div id="demande_blogger">
+    <fieldset class="cadre_status box-shadow-form ">
+      
+           
+              <div class="l">
                 <h3 class="titre">
                   {{item.title}}
                  
                 </h3>
-                <br />
-                 <span class="icon has-text-warning ei">
-                  <i class="fas fa-user-shield"></i>
-                </span>
-                {{item.blogger}}
+               
                 <br />
               
                 <span class="icon has-text-success ei">
@@ -43,20 +38,48 @@
                   <hr />
                 </ul>
                 <br />
-               
-              </div>
             
-            </div>
+           <div class="columns is-multiple sous">
+             <div class="column is-6">
               <textarea
                   class="t1"
                   placeholder="Any suggestion?"
-                   v-model="demande.suggestion"
+                   v-model="reservation.suggestion"
                 ></textarea>
-                <br>
+             </div>
+             <div class="column is-4 xnb">
+               <label>Number of participants</label><br>
+                 <input
+                        class="input is-small "
+                        type="number"
+                         placeholder="Number participants"
+                         min="5" max="20"
+                        v-model="reservation.participants"
+                      />
+                     
+<label>Start Date</label>
+ <input
+                        class="input is-small "
+                        type="date"
+                         placeholder="Number participants"
+                        
+                        v-model="reservation.from"
+                      /> 
+                      <br>
+                      <label>End Date</label>
+                      <input
+                        class="input is-small "
+                        type="date"
+                         placeholder="Number participants"
+                    
+                        v-model="reservation.to"
+                      />
+            </div>
+          
+           </div>    
                     <button @click="sendDemande()" class="button is-link">Send</button>
 
-        </div>
-      </div>
+       </div>
     </fieldset>
   </div>
 </template>
@@ -65,33 +88,31 @@
 import { sendDemandeService } from "@/api/agency.service.js";
 import UserMixin from '@/mixins/user.mixin.js';
 
-import axios from "axios";
 export default {
 
-  name: "demande_agency",
+  name: "demande_blogger",
     mixins: [UserMixin],
 
    props: ['objtrip'],
   data() {
     return {
-        demande: {
+      
+        item:{},
+          reservation: {
             owner :this.user,
              suggestion : "",
-             trip : ""
-        },
-        item:{},
+             trip : "",
+             participants :"",
+             from : "",
+             to:""
+        }
     };
   },
   methods: {
        sendDemande(){
-                  this.demande.trip=this.objtrip
-
              this.$store.dispatch('demandesuggest',this.demande).then(data => {
            // console.log("aziz")
      })    
-        this.$router.push({
-        name: "status_demande",
-      });
        }
    
   },
@@ -105,6 +126,7 @@ export default {
   mounted() {
    // this.$store.dispatch("tripstatus").then(data => {
      //console.log("ggg",this.objtrip)
+     console.log("hhh",this.objtrip)
       this.item = this.objtrip;
      // console.log("whta",his.item, this.objtrip)
      /* this.milieu = this.rowData.length / 2;
@@ -227,16 +249,31 @@ table {
   background-color: red;
 }
 .t1{
-   width: 602px;
+   width: 380px;
+
    height: 280px;
    border: 2px solid rgb(224, 224, 216);
     overflow:hidden;
-    margin-left:110px;
+    margin-left: 60px;
+    
 }
 
 .button{
     margin-top: 15px;
     margin-left: 350px;
 }
+
+.cntr{
+  width: 300px;
+  border: black;
+  border: solid;
+}
+
+.input{
+  margin-top: 20px;
+}
  
+ .xnb{
+   margin-left: 90px;
+ }
 </style>

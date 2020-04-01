@@ -31,8 +31,6 @@ import demande_agency from '@/components/agency/demande_agency'
 import status_demande from '@/components/agency/status_demande'
 
 import seealltrips from '@/components/blogger/seealltrips'
-import demande_blogger from '@/components/blogger/demande_blogger'
-import status_reservation from '@/components/blogger/status_reservation'
 
 
 //const Hello = () => import('@/components/Hello.vue')
@@ -125,21 +123,9 @@ export default new Router({
           props: true
         },
         {
-          path: "/demande_blogger",
-          name: "demande_blogger",
-          component: demande_blogger,
-          props: true
-        },
-        {
           path: "/status_demande",
           name: "status_demande",
           component: status_demande,
-         
-        },
-        {
-          path: "/status_reservation",
-          name: "status_reservation",
-          component: status_reservation,
          
         },
         {

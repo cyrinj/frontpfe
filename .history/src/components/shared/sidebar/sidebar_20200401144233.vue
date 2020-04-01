@@ -5,15 +5,15 @@
     </div>
 
     <div class="DivWithScroll">
-       <div v-if="user.role=='blogger'">
+       <div v-if="user.role=='agency'">
         <button class="dropdown-btn" @click="zz()">
         <span class="icon e3">
           <i class="fas fa-star"></i>
-        </span>Partnership-B
+        </span>Partnership
         <i class="fa fa-caret-down si"></i>
       </button>
       <div class="dropdown-container">
-        <router-link to="/seealltrips">
+        <router-link to="/seealltrip">
           <button class="dgh">
             <span class="icon has-text-success e3">
               <i class="fas fa-poll-h"></i>
@@ -21,7 +21,7 @@
           </button>
         </router-link>
 
-        <router-link to="/status_reservation">
+        <router-link to="/status_demande">
           <button class="dgh">
             <span class="icon has-text-success e3">
               <i class="fas fa-history"></i>
@@ -35,7 +35,7 @@
         <button class="dropdown-btn" @click="zz()">
         <span class="icon e3">
           <i class="fas fa-star"></i>
-        </span>Partnership-A
+        </span>Partnership
         <i class="fa fa-caret-down si"></i>
       </button>
       <div class="dropdown-container">

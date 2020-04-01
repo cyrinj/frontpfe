@@ -32,7 +32,7 @@ import status_demande from '@/components/agency/status_demande'
 
 import seealltrips from '@/components/blogger/seealltrips'
 import demande_blogger from '@/components/blogger/demande_blogger'
-import status_reservation from '@/components/blogger/status_reservation'
+import status_reservation from '@/components/agency/status_reservation'
 
 
 //const Hello = () => import('@/components/Hello.vue')

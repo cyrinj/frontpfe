@@ -1,7 +1,7 @@
 <template>
-  <div id="demande_agency">
+  <div id="demande_blogger">
     <fieldset class="cadre_status box-shadow-form">
-      <div class="columns is-multiple l">
+       <div class="columns is-multiple l">
         <div class="column">
             <div>
               <div>
@@ -9,11 +9,7 @@
                   {{item.title}}
                  
                 </h3>
-                <br />
-                 <span class="icon has-text-warning ei">
-                  <i class="fas fa-user-shield"></i>
-                </span>
-                {{item.blogger}}
+               
                 <br />
               
                 <span class="icon has-text-success ei">
@@ -53,6 +49,28 @@
                    v-model="demande.suggestion"
                 ></textarea>
                 <br>
+
+                 <input
+                        class="input is-small "
+                        type="number"
+                         placeholder="Number participants"
+                         min="5" max="20"
+                        v-model="reservartion.participants"
+                      />
+ <input
+                        class="input is-small "
+                        type="date"
+                         placeholder="Number participants"
+                        
+                        v-model="reservartion.participants"
+                      /> <input
+                        class="input is-small "
+                        type="date"
+                         placeholder="Number participants"
+                    
+                        v-model="reservartion.participants"
+                      />
+                      
                     <button @click="sendDemande()" class="button is-link">Send</button>
 
         </div>
@@ -65,33 +83,31 @@
 import { sendDemandeService } from "@/api/agency.service.js";
 import UserMixin from '@/mixins/user.mixin.js';
 
-import axios from "axios";
 export default {
 
-  name: "demande_agency",
+  name: "demande_blogger",
     mixins: [UserMixin],
 
    props: ['objtrip'],
   data() {
     return {
-        demande: {
+      
+        item:{},
+          reservation: {
             owner :this.user,
              suggestion : "",
-             trip : ""
-        },
-        item:{},
+             trip : "",
+             participants :"",
+             from : "",
+             to:""
+        }
     };
   },
   methods: {
        sendDemande(){
-                  this.demande.trip=this.objtrip
-
              this.$store.dispatch('demandesuggest',this.demande).then(data => {
            // console.log("aziz")
      })    
-        this.$router.push({
-        name: "status_demande",
-      });
        }
    
   },
@@ -105,6 +121,7 @@ export default {
   mounted() {
    // this.$store.dispatch("tripstatus").then(data => {
      //console.log("ggg",this.objtrip)
+     console.log("hhh",this.objtrip)
       this.item = this.objtrip;
      // console.log("whta",his.item, this.objtrip)
      /* this.milieu = this.rowData.length / 2;

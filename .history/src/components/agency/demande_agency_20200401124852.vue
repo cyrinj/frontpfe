@@ -77,21 +77,16 @@ export default {
         demande: {
             owner :this.user,
              suggestion : "",
-             trip : ""
+             trip : item
         },
-        item:{},
+        item:null,
     };
   },
   methods: {
        sendDemande(){
-                  this.demande.trip=this.objtrip
-
              this.$store.dispatch('demandesuggest',this.demande).then(data => {
            // console.log("aziz")
      })    
-        this.$router.push({
-        name: "status_demande",
-      });
        }
    
   },

@@ -21,7 +21,7 @@
           </button>
         </router-link>
 
-        <router-link to="/status_reservation">
+        <router-link to="/status_demande">
           <button class="dgh">
             <span class="icon has-text-success e3">
               <i class="fas fa-history"></i>
