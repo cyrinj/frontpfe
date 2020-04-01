@@ -28,7 +28,6 @@ import status from '@/components/triper/status'
 
 import seealltrip from '@/components/blogger/seealltrip'
 import demande_agency from '@/components/blogger/demande_agency'
-import status_demande from '@/components/blogger/status_demande'
 
 //const Hello = () => import('@/components/Hello.vue')
 
@@ -111,14 +110,7 @@ export default new Router({
         {
           path: "/demande_agency",
           name: "demande_agency",
-          component: demande_agency,
-          props: true
-        },
-        {
-          path: "/status_demande",
-          name: "status_demande",
-          component: status_demande,
-         
+          component: demande_agency
         },
         {
           path: "/wallet",

@@ -359,7 +359,6 @@ export default {
     };
   },
   mounted(){
-   
       this.form=this.objtrip
       this.ancienduration=this.form.duration
   },

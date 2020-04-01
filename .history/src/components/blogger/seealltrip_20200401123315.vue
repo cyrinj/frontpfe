@@ -48,7 +48,6 @@
 </template>
 
 <script>
-
 export default {
   name: "seealltrip",
   data() {
@@ -138,18 +137,18 @@ export default {
   },
 
   mounted() {
-    // this.$store.dispatch("tripsproposés").then(data => {
+    // this.$store.dispatch("demandestatus").then(data => {
 
     //  this.rowData = data;
      /* this.milieu = this.rowData.length / 2;
       this.rowData1 = this.rowData.slice(0, this.milieu);
       this.rowData2 = this.rowData.slice(this.milieu, this.rows.length);*/
   //  });
-  /*  this.milieu1 = this.rowData.length / 3;
+    this.milieu1 = this.rowData.length / 3;
     this.milieu2 = (this.rowData.length / 3) * 2;
     this.rowData1 = this.rowData.slice(0, this.milieu1);
     this.rowData2 = this.rowData.slice(this.milieu1, this.milieu2);
-    this.rowData3 = this.rowData.slice(this.milieu2, this.rowData.length);*/
+    this.rowData3 = this.rowData.slice(this.milieu2, this.rowData.length);
   
   },
 

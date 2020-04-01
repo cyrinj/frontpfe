@@ -48,7 +48,6 @@
 </template>
 
 <script>
-
 export default {
   name: "seealltrip",
   data() {
@@ -61,25 +60,15 @@ export default {
       milieu2: null,
       rowData: [
         {
-          id:"1",
-          country:"France",
           image:
             "http://localhost:3000/uploads/5e7392d2b331251c1b872619/france.jpg",
-          title: "Discover France with Rahalista ",
+          title: "Discover Kilimanjaro with Rahalista ",
           from: "15 Juin",
           to: "20 Juin",
-          blogger: "Rahalista",
-          price: "1500",
-          theme: "Adventure",
-            program: [
-        "On this day, we will meet at our hotel in Moshi which is situated in a quiet location in the foothills of Kilimanjaro. There, we will have our trip briefing and welcoming ceremony. Night at the Hotel. ",
-        "An early start of the first day will allow us to take some time for any adjustments to our packing before leaving for the park gate. From the gate (1800m) the path climbs with a gradual gradient and a never-tiring route in a forest full of flowers. A last ramp leads to the lovely rocky rise and metal constructions of the Machame Hut (3000m).(B,L,D) Climb 1200 meters walking time: 4 to 5 hours ",
-        "On this day, we will enjoy our path rising with a charming route along a lava ridge that offers splendid views of the Kibo and Meru peaks before crossing a number of clearings surrounded by very high, tree-like heathers. A stony stretch with the odd zigzag leads to the edge of the remarkable lava plateau of Shira. Along those paths, we will move to our camp (3840 meters) near a large cave. (B,L,D) Climb 840 meters, walking time: 4 to 5 hours. ",
-        "This adventure that used to be quite tiring at first, explains why hikers who started from Machame suffer from the altitude less on the final stage to the Kibo summit. Also, Zigzagging up and down on any mountain is the best way to get acclimatized. High up, we will encounter the walls of Western Breach. Once at the ridge at the base of the Lava Tower (4600m) a rather steep leads to the Barranco Hut (3950m), a splendid view of the Breach Wall and the Heim and Decken glaciers. (B,L,D) Climb 760 meters, descend 650 meters, walking time: 7 to 8 hours. ",
-        "A long but spectacular day which will give us a changing vista of the summit. We will start by crossing the valley and scrambling up the Barranco wall by a series of easy rocky ledges. Once at the top, we will amaze our eyes by the wonderful views of the Heim glacier. Then, we will reach Karanga Valley (4000m) followed by a short climb to the Karanga campsite. The final stretch of the approach will follow a rocky wind-beaten ridge close under the south flank of Kibo that crosses a large desolate bowl before climbing up onto the obvious ridge to the Barafu Hut (4500 meters) and our camp. (B,L,D) Climb 850 meters; descend 200m, walking time: 7 to 8 hours."
-    ],
+          blogger: "Aziz",
+          price: "1500"
         },
-        {id:"2",
+        {
           image:
             "http://localhost:3000/uploads/5e7392d2b331251c1b872619/espagne.jpg",
 
@@ -90,7 +79,6 @@ export default {
           price: "1500"
         },
         {
-          id:"3",
           image:
             "http://localhost:3000/uploads/5e7392d2b331251c1b872619/indonisia.jpg",
 
@@ -101,9 +89,8 @@ export default {
           price: "1500"
         },
         {
-          id:"4",
           image:
-            "http://localhost:3000/uploads/5e7392d2b331251c1b872619/peru.jpg",
+            "http://localhost:3000/uploads/5e7392d2b331251c1b872619/peru.png",
 
           title: "Discover Kilimanjaro with Rahalista ",
           from: "15 Juin",
@@ -112,7 +99,6 @@ export default {
           price: "1500"
         },
         {
-          id:"5",
           image:
             "http://localhost:3000/uploads/5e7392d2b331251c1b872619/bresil.jpg",
 
@@ -123,7 +109,6 @@ export default {
           price: "1500"
         },
         {
-          id:"6",
           image:
             "http://localhost:3000/uploads/5e7392d2b331251c1b872619/marooc.jpg",
 
@@ -138,30 +123,14 @@ export default {
   },
 
   mounted() {
-    // this.$store.dispatch("tripsproposés").then(data => {
-
-    //  this.rowData = data;
-     /* this.milieu = this.rowData.length / 2;
-      this.rowData1 = this.rowData.slice(0, this.milieu);
-      this.rowData2 = this.rowData.slice(this.milieu, this.rows.length);*/
-  //  });
-  /*  this.milieu1 = this.rowData.length / 3;
+    this.milieu1 = this.rowData.length / 3;
     this.milieu2 = (this.rowData.length / 3) * 2;
     this.rowData1 = this.rowData.slice(0, this.milieu1);
     this.rowData2 = this.rowData.slice(this.milieu1, this.milieu2);
-    this.rowData3 = this.rowData.slice(this.milieu2, this.rowData.length);*/
-  
-  },
-
-  methods:{
-    showme(item) {
-      //console.log("thisseeall",item)
-      this.$router.push({
-        name: "demande_agency",
-        params: { objtrip : item}
-      });
-        },
-
+    this.rowData3 = this.rowData.slice(this.milieu2, this.rowData.length);
+    console.log("d1", this.rowData1);
+    console.log("d2", this.rowData2);
+    console.log("d3", this.rowData3);
   }
 };
 </script>
@@ -188,7 +157,6 @@ export default {
   color: white;
   background-color: white;
   border: none;
-   cursor:pointer;
 }
 
 /* Bottom left text */

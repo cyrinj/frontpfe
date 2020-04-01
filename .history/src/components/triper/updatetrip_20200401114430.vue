@@ -359,7 +359,7 @@ export default {
     };
   },
   mounted(){
-   
+    console.log("hh",this.objtrip)
       this.form=this.objtrip
       this.ancienduration=this.form.duration
   },

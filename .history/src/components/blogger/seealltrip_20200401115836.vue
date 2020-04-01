@@ -48,7 +48,6 @@
 </template>
 
 <script>
-
 export default {
   name: "seealltrip",
   data() {
@@ -62,13 +61,12 @@ export default {
       rowData: [
         {
           id:"1",
-          country:"France",
           image:
             "http://localhost:3000/uploads/5e7392d2b331251c1b872619/france.jpg",
           title: "Discover France with Rahalista ",
           from: "15 Juin",
           to: "20 Juin",
-          blogger: "Rahalista",
+          blogger: "Aziz",
           price: "1500",
           theme: "Adventure",
             program: [
@@ -138,18 +136,11 @@ export default {
   },
 
   mounted() {
-    // this.$store.dispatch("tripsproposés").then(data => {
-
-    //  this.rowData = data;
-     /* this.milieu = this.rowData.length / 2;
-      this.rowData1 = this.rowData.slice(0, this.milieu);
-      this.rowData2 = this.rowData.slice(this.milieu, this.rows.length);*/
-  //  });
-  /*  this.milieu1 = this.rowData.length / 3;
+    this.milieu1 = this.rowData.length / 3;
     this.milieu2 = (this.rowData.length / 3) * 2;
     this.rowData1 = this.rowData.slice(0, this.milieu1);
     this.rowData2 = this.rowData.slice(this.milieu1, this.milieu2);
-    this.rowData3 = this.rowData.slice(this.milieu2, this.rowData.length);*/
+    this.rowData3 = this.rowData.slice(this.milieu2, this.rowData.length);
   
   },
 
