@@ -343,10 +343,10 @@ export default {
     };
   },
  beforeDestroy(){
-           if(((this.form.continent!=null)&&(this.form.continent!=""))||((this.form.country!=null)&&(this.form.country!=""))||((this.form.theme!=null)&&(this.form.theme!="")))
+         /*  if(((this.form.continent!=null)&&(this.form.continent!=""))||((this.form.country!=null)&&(this.form.country!=""))||((this.form.theme!=null)&&(this.form.theme!="")))
           {this.$store.dispatch('tripsuggest',this.form).then(data => {
            // console.log("aziz")
-     }) }
+     }) }*/
   },
  
   methods: {
@@ -360,9 +360,9 @@ export default {
              console.log("32")
           }
           else{
-                       
+                        console.log("aziz")
 
-          this.form.draft=false
+          this.for.draft=false
           this.$store.dispatch('tripsuggest',this.form).then(data => {
      })    
         this.$router.push({

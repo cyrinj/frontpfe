@@ -85,7 +85,8 @@ export function getchatbyadminService(x) {
 
 export function tripsdraftsService() {
     return new Promise((resolve, reject) => {
-        axios.post(url + '/alltripsdraftbyuser').then(response => {
+       console.log(url + '/alltripsbyuser')
+        axios.post(url + '/alltripsbyuser').then(response => {
             console.log(response)
         //  resolve(userq)
             resolve(response.data.data)

@@ -39,17 +39,6 @@ export default {
 
             console.log("hettt", state.trips[i])
         },
-        setCurrenttripsdraftUpdate(state, form) {
-            // console.log("afficher", state.trips[0])
-             for (var i = 0; i < state.drafts.length; i++) {
-                 if (state.drafts[i]._id == form._id) {
-                     state.drafts[i] = form
-                     return 
-                 }
-             }
- 
-             console.log("hettt", state.drafts[i])
-         },
 
         setCurrenttripsdelete(state, trip_id) {
             // console.log("afficher", state.trips[0])
@@ -95,6 +84,7 @@ export default {
         },
 
         async tripsdrafts(context) {
+            console.log("xxxx")
             let tripdraftsnew = await tripsdraftsService()
             context.commit('setCurrentdrafttrips', tripdraftsnew)
             return tripdraftsnew
@@ -122,13 +112,6 @@ export default {
             //  console.log("111",item)
             await tripupdateService(form)
             context.commit('setCurrenttripsUpdate', form)
-
-        },
-
-        async draftupdate(context, form) {
-            //  console.log("111",item)
-            await tripupdateService(form)
-            context.commit('setCurrenttripsdraftUpdate', form)
 
         },
 

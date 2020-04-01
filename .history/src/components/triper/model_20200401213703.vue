@@ -293,7 +293,6 @@ export default {
         bestperiode1:"",
         country: "",
         theme: "",
-        draft:true,
         duration: 1,
         month:"",
         from: "",
@@ -343,10 +342,7 @@ export default {
     };
   },
  beforeDestroy(){
-           if(((this.form.continent!=null)&&(this.form.continent!=""))||((this.form.country!=null)&&(this.form.country!=""))||((this.form.theme!=null)&&(this.form.theme!="")))
-          {this.$store.dispatch('tripsuggest',this.form).then(data => {
-           // console.log("aziz")
-     }) }
+    console.log("aziz")
   },
  
   methods: {
@@ -357,13 +353,12 @@ export default {
           if(((this.form.try1=="alone")&&(((this.form.inspiration=="")||(this.form.inspiration==null))||((this.form.price=="")||(this.form.price==null))))|| ( (this.form.try1=="travel_agency") && ( ((this.form.agencyname=="")||(this.form.agencyname==null)) || ((this.form.agencyemail=="")||(this.form.agencyemail==null))||((this.form.agencynumber=="")||(this.form.agencynumber==null))||((this.form.price=="")||(this.form.price==null)) )))
             {
                                reject('This is a custom validation error message. Click next again to get rid of the validation')
-             console.log("32")
+           //  console.log("32")
           }
           else{
-                       
-
-          this.form.draft=false
+            
           this.$store.dispatch('tripsuggest',this.form).then(data => {
+           // console.log("aziz")
      })    
         this.$router.push({
                 name: "status"
