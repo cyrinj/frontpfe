@@ -9,7 +9,7 @@ let url = config.host + path + '/tripper'
 
 export function editprofilService(user) {
     return new Promise((resolve, reject) => {
-     
+      //  console.log('test url ', url)
         axios.post(url  + '/editprofile', user).then(response => {
             
       // console.log('test response', response)
@@ -20,7 +20,6 @@ export function editprofilService(user) {
         }).catch(err => reject(err))
     }) 
   }
-
 
   export function changepassword_inService(user) {
     return new Promise((resolve, reject) => {

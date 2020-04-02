@@ -6,8 +6,16 @@
        
       
           
-          <img src="https://bulma.io/images/placeholders/96x96.png" class="cercle f1" alt="Placeholder image">
-          
+           <img :src="user.profilePictureUrl"  class="cercle f1" alt="Placeholder image"/>
+          <div class="field">
+  <div class="file">
+    <label class="file-label">
+      <input class="file-input" type="file" name="resume">
+        <span class="file-label">
+        </span>
+    </label>
+  </div>
+</div>
            
         <div class="columns is-multiple">
           <div class="column is-4">
@@ -97,6 +105,7 @@ export default {
     return {
     };
   },
+
   methods: {
     editProfile() {
     //  var token = localStorage.getItem("token");
@@ -132,51 +141,63 @@ export default {
   margin-left: 25px;
      color: rgb(114, 132, 180);
 }
+
 .input_edit_x:focus {
   border-block-end-style: solid;
   border-block-end-color: rgb(56, 228, 113);
   border-width: 2px;
 }
+
 .input_edit_y {
   border-style: none none solid none;
   border-width: 1px;
      color:  rgb(82, 79, 79);
+
+
   border-block-end-color: rgb(250, 247, 247);
   width: 255px;
   margin-left: 25px;
 }
+
 .input_edit_y:focus {
   border-block-end-style: solid;
   border-block-end-color: rgb(56, 228, 113);
   border-width: 2px;
      color: #00008B;
+
 }
+
 .input_edit_z {
   border-style: none none solid none;
   border-width: 1px;
  
     color: rgb(82, 79, 79);
+
   border-block-end-color: rgb(250, 247, 247);
   width: 590px;
   margin-left: 25px;
   margin-bottom: 25px;
 }
+
 .input_edit_z:focus {
    color: #00008B;
   border-block-end-style: solid;
   border-block-end-color: rgb(56, 228, 113);
   border-width: 2px;
 }
+
 .titre_edit {
   margin-top: 15px;
   margin-left: 30px;
   color: rgb(107, 85, 184);
 }
+
 .ligne_edit {
   background-color: rgb(56, 228, 113);
   margin-left: 26px;
   width: 92%;
 }
+
 .cadre_edit {
   position: absolute;
   left: 490px;
@@ -186,11 +207,13 @@ export default {
   height: 500px;
   padding: 5px 30px 10px 30px;
 }
+
 .boutton_edit {
   margin-left: 25px;
   margin-top: 15px;
   width: 150px;
 }
+
 .df{
   position: absolute;
   left: 1030px;
@@ -199,8 +222,20 @@ export default {
   height: 300px;
   background-color: white;
        border-radius: 200px;
+
 }
+
 .x{
   height: 140px;
+
+}
+
+.file{
+  margin-left: 310px;
+  width: 20px;
+  height: 20px;
+  border-radius:10px;
+
+  background-color: rgb(196, 43, 43)
 }
 </style>

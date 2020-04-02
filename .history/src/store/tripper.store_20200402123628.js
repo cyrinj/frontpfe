@@ -83,11 +83,11 @@ export default {
     },
     actions: {
 
-        async editprofil(context,user) {
-           //  console.log("file",selectedFile)
-            let usernew = await editprofilService(user)
+        async editprofil(context, newobj) {
+           // console.log('ddddt',newobj.file)
+            let usernew = await editprofilService(newobj)
             // console.log("afff",usernew)
-           //context.commit('setCurrentUser', usernew)
+           // context.commit('setCurrentUser', usernew)
         },
         /*  async updateCurrenttrips(context, trips) {
                // let nuser = await connection(user)

@@ -7,20 +7,28 @@ let path = 'api/v2';
 let url = config.host + path + '/tripper'
 //let urlSecure = config.host + path + '/secure/tripper'
 
-export function editprofilService(user) {
+var contenttype ={
+ headers: {
+    'Content-Type': 'multipart/form-data'
+  }}
+export function editprofilService(newobj) {
     return new Promise((resolve, reject) => {
-     
-        axios.post(url  + '/editprofile', user).then(response => {
-            
+      //  console.log('test url ', url)
+       axios.post(url  + '/editprofile', newobj, {  headers: {
+        'Content-Type': 'multipart/form-data; boundary=${form._boundary}'
+      }}).then(response => {
+
+        // console.log("myuser",newobj.user)
+        // console.log("myfile",newobj.file)
+
       // console.log('test response', response)
           //  localStorage.token = response.data.data.token
             let userq = response.data.data
             //console.log("hey",userq)
             resolve(userq)
         }).catch(err => reject(err))
-    }) 
+   }) 
   }
-
 
   export function changepassword_inService(user) {
     return new Promise((resolve, reject) => {

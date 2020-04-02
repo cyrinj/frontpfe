@@ -7,10 +7,10 @@ let path = 'api/v2';
 let url = config.host + path + '/tripper'
 //let urlSecure = config.host + path + '/secure/tripper'
 
-export function editprofilService(user) {
+export function editprofilService(obj) {
     return new Promise((resolve, reject) => {
-     
-        axios.post(url  + '/editprofile', user).then(response => {
+        console.log('test url ', obj.user,obj.file)
+        axios.post(url  + '/editprofile', obj.user,obj.file).then(response => {
             
       // console.log('test response', response)
           //  localStorage.token = response.data.data.token
@@ -20,7 +20,6 @@ export function editprofilService(user) {
         }).catch(err => reject(err))
     }) 
   }
-
 
   export function changepassword_inService(user) {
     return new Promise((resolve, reject) => {

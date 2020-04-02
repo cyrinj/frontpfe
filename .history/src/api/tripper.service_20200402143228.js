@@ -7,17 +7,17 @@ let path = 'api/v2';
 let url = config.host + path + '/tripper'
 //let urlSecure = config.host + path + '/secure/tripper'
 
-export function editprofilService(user) {
+export function editprofilService(obj) {
     return new Promise((resolve, reject) => {
-     
-        axios.post(url  + '/editprofile', user).then(response => {
+        console.log('test url ', obj.user,obj.file)
+      /*  axios.post(url  + '/editprofile', obj.user,obj.file).then(response => {
             
       // console.log('test response', response)
           //  localStorage.token = response.data.data.token
             let userq = response.data.data
             //console.log("hey",userq)
             resolve(userq)
-        }).catch(err => reject(err))
+        }).catch(err => reject(err))*/
     }) 
   }
 

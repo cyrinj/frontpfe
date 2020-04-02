@@ -97,6 +97,7 @@ export default {
     return {
     };
   },
+
   methods: {
     editProfile() {
     //  var token = localStorage.getItem("token");
@@ -132,51 +133,63 @@ export default {
   margin-left: 25px;
      color: rgb(114, 132, 180);
 }
+
 .input_edit_x:focus {
   border-block-end-style: solid;
   border-block-end-color: rgb(56, 228, 113);
   border-width: 2px;
 }
+
 .input_edit_y {
   border-style: none none solid none;
   border-width: 1px;
      color:  rgb(82, 79, 79);
+
+
   border-block-end-color: rgb(250, 247, 247);
   width: 255px;
   margin-left: 25px;
 }
+
 .input_edit_y:focus {
   border-block-end-style: solid;
   border-block-end-color: rgb(56, 228, 113);
   border-width: 2px;
      color: #00008B;
+
 }
+
 .input_edit_z {
   border-style: none none solid none;
   border-width: 1px;
  
     color: rgb(82, 79, 79);
+
   border-block-end-color: rgb(250, 247, 247);
   width: 590px;
   margin-left: 25px;
   margin-bottom: 25px;
 }
+
 .input_edit_z:focus {
    color: #00008B;
   border-block-end-style: solid;
   border-block-end-color: rgb(56, 228, 113);
   border-width: 2px;
 }
+
 .titre_edit {
   margin-top: 15px;
   margin-left: 30px;
   color: rgb(107, 85, 184);
 }
+
 .ligne_edit {
   background-color: rgb(56, 228, 113);
   margin-left: 26px;
   width: 92%;
 }
+
 .cadre_edit {
   position: absolute;
   left: 490px;
@@ -186,11 +199,13 @@ export default {
   height: 500px;
   padding: 5px 30px 10px 30px;
 }
+
 .boutton_edit {
   margin-left: 25px;
   margin-top: 15px;
   width: 150px;
 }
+
 .df{
   position: absolute;
   left: 1030px;
@@ -199,8 +214,11 @@ export default {
   height: 300px;
   background-color: white;
        border-radius: 200px;
+
 }
+
 .x{
   height: 140px;
+
 }
 </style>
