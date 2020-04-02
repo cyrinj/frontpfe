@@ -5,9 +5,9 @@
                        subtitle=""
                        back-button-text="Go back!"
                        next-button-text="Go next!"
-                       finish-button-text="Send it"
+                       finish-button-text="We're there"
                         shape="circle"
-                  color="#9e7cc0">
+                  color="#1E90FF">
       <tab-content title="Primary informations"
                    icon="ti-rocket"
                     :before-change="validateAsync1">
@@ -18,17 +18,17 @@
                   <label class="label">Continent</label>
                   <div class="control">
                     <div class="select ma_select is-small is-fullwidth">
-                      <select id="firstInput"  @change="secondInputOptions()" v-model="form.continent">
+                      <select id="firstInput"  @change="secondInputOptions()" v-model=" form.continent">
                         <option v-for="option in firstInputOptions" :key="option">{{option}}</option>
                       </select>
                     </div>
                   </div>
                 </div>
                 <div class="field">
-                  <label class="label">Theme </label>
+                  <label class="label">Theme {{form.theme}} </label>
                   <div class="control">
                     <div class="select is-small is-fullwidth">
-                      <select v-model="form.theme">
+                      <select v-model="objtrip.theme">
                         <option>Fitness</option>
                         <option>Photography</option>
                         <option>Videography</option>
@@ -66,11 +66,11 @@
               <label class="label">Best trip periode</label>
               <div class="control">
                 <label class="radio">
-                  <input type="radio" value="fromto" v-model="bestperiode" @click="showfromto()" />
+                  <input type="radio" value="fromto" v-model="form.bestperiode1" @click="showfromto()" />
                   From-To
                 </label>
                 <label class="radio">
-                  <input type="radio" value="months" v-model="bestperiode" @click="showmonths()" />
+                  <input type="radio" value="months" v-model="form.bestperiode1" @click="showmonths()" />
                   Months
                 </label>
               </div>
@@ -147,20 +147,35 @@
             </div>
             
       </tab-content>
-      <tab-content title="Trip program"
+      <tab-content  title="Trip program"
                    icon="ti-list"
                    :before-change="validateAsync2">
-         <div class="scroller_form">
+                    <div class="scroller_form">
         <div v-for="(item,idx) in parseInt(form.duration)" :key="idx" >
+
                 <textarea
                   class="t1"
                   placeholder="Describe the day you suggest"
                  v-bind:id="idx"  
+                                  v-model="form.program[idx]"
+
                 ></textarea>
              <br><br>
             </div>
      
         </div>
+      <!--   <div class="scroller_form">
+        <div v-for="(item,idx) in parseInt(form.duration)" :key="idx" >
+                <textarea
+                  class="t1"
+                  placeholder="Describe the day you suggest"
+                 v-bind:id="idx"  
+                 v-model="form.program[idx]"
+                ></textarea>
+             <br><br>
+            </div>
+     
+        </div>-->
       </tab-content>
       <tab-content title="Trip inspiration"
                    icon="ti-wand"
@@ -269,7 +284,7 @@
                   />
                 </div>
               </div>
-              
+             
             </div>
            
       </tab-content>
@@ -278,26 +293,26 @@
 </template>
 
 <script>
-import { tripformService } from '@/api/tripper.service.js'
-
 import axios from "axios";
 import ThemifyIcon from "vue-themify-icons";
+
 export default {
   name: 'model',
+  props: ['objtrip'],
   data(){
     return {
-      bestperiode:"fromto",
+    
+       newprogram :[],
        form: {
-        title: '',
+        title: "",
         continent: "",
-        bestperiode1:"",
         country: "",
         theme: "",
-        draft:true,
         duration: 1,
         month:"",
         from: "",
         to: "",
+          bestperiode1:"",
         program: [],
         try1: "",
         inspiration: "",
@@ -307,7 +322,7 @@ export default {
         owner:"",
         price: 10
       },
-      testdraft:1,
+      ancienduration:0,
       fromto: "",
       months: "",
       firstInputOptions: ["Africa", "Europe", "Asia", "North_Amarica", "South_Amarica"],
@@ -323,7 +338,7 @@ export default {
       count:0,
       textshow: false,
       inputagencyshow: false,
-      inputfromtoshow: true,
+      inputfromtoshow: false,
       monthshow: false,
   
       steps: [
@@ -343,34 +358,44 @@ export default {
       ],
     };
   },
- beforeDestroy(){
-           if((((this.form.continent!=null)&&(this.form.continent!=""))||((this.form.country!=null)&&(this.form.country!=""))||((this.form.theme!=null)&&(this.form.theme!="")))&&(this.form.draft==true))
-          {this.$store.dispatch('tripdraftsuggest',this.form).then(data => {
-           // console.log("aziz")
-     }) }
+  mounted(){
+   
+      this.form=this.objtrip
+      this.ancienduration=this.form.duration
+  },
+  beforeDestroy(){
+           if(((this.form.continent!=null)&&(this.form.continent!=""))||((this.form.country!=null)&&(this.form.country!=""))||((this.form.theme!=null)&&(this.form.theme!="")))
+          {this.updateDraft() 
+           console.log('dddd')}
   },
  
   methods: {
-     onComplete: function(){
+    onComplete: function(){
          
 
         return new Promise((resolve, reject) => {
+        
           if(((this.form.try1=="alone")&&(((this.form.inspiration=="")||(this.form.inspiration==null))||((this.form.price=="")||(this.form.price==null))))|| ( (this.form.try1=="travel_agency") && ( ((this.form.agencyname=="")||(this.form.agencyname==null)) || ((this.form.agencyemail=="")||(this.form.agencyemail==null))||((this.form.agencynumber=="")||(this.form.agencynumber==null))||((this.form.price=="")||(this.form.price==null)) )))
             {
                                reject('This is a custom validation error message. Click next again to get rid of the validation')
-             console.log("32")
+            // console.log("32")
           }
           else{
-                       
+            if(this.form.draft==true){
+                  this.form.draft=false
+            }
 
-          this.form.draft=false
-    
-          this.$store.dispatch('tripsuggest',this.form).then(data => {
-     })    
-        this.$router.push({
+            else {
+                this.updateTrip()
+            }
+             
+            
+        
+              this.$router.push({
                 name: "status"
               });
-     
+        
+             resolve(true)
           }
         })
         },
@@ -386,13 +411,13 @@ export default {
             
           })*/
     // console.log(this.bestperiode)
-
+ // this.form=this.objtrip
+ // console.log(this.form)
          return new Promise((resolve, reject) => {
                 
-                if(((this.bestperiode=="fromto")&&((this.form.continent=="")||(this.form.country=="")||(this.form.theme=="")||(this.form.duration=="")||(this.form.from=="")||(this.form.to=="")))||((this.bestperiode=="months")&&((this.form.continent=="")||(this.form.country=="")||(this.form.theme=="")||(this.form.duration=="")||(this.form.month=="")))||(this.bestperiode==null)){
+                if(((this.form.bestperiode1=="fromto")&&((this.form.continent=="")||(this.form.country=="")||(this.form.theme=="")||(this.form.duration=="")||(this.form.from=="")||(this.form.to=="")))||((this.form.bestperiode1=="months")&&((this.form.continent=="")||(this.form.country=="")||(this.form.theme=="")||(this.form.duration=="")||(this.form.month=="")))||(this.form.bestperiode1==null)){
                   reject('This is a custom validation error message. Click next again to get rid of the validation')
               }else{
-                this.form.bestperiode1=this.bestperiode
                resolve(true)
               }   
             
@@ -408,11 +433,17 @@ export default {
               }   
             
           })*/
-            for (let i = 0; i < this.form.duration; i++) {
+          
+             for (let i = 0; i <this.form.duration; i++) {
           // console.log(i)
-        this.form.program[i]=document.getElementById(i).value;
-      //  console.log(document.getElementById(i).value)
+        this.newprogram[i]=document.getElementById(i).value;
        }
+      // this.form.program.lenght=this.form.duration
+          //  for (let i = 0; i < this.form.duration; i++) {
+          // console.log(i)
+        this.form.program=this.newprogram
+      //  console.log(document.getElementById(i).value)
+     //  }
           return new Promise((resolve, reject) => {
             let i;
            // console.log("ap",this.form.program)
@@ -478,40 +509,18 @@ export default {
       if(this.form.continent === "North_Amarica" ) {this.listcountry=this.North_Amarica} 
       if(this.form.continent === "South_Amarica" ) {this.listcountry=this.South_Amarica} 
     },
-    submit() {
-     
-      return new Promise((rresolve, reject) => {
-        axios
-          .post("http://localhost:3000/api/v2/tripper/submitform", this.form)
-          .then(data => {
-             console.log("aziz")
-            resolve(form);
-          })
-          .catch(error => {});
-      });
-      /* console.log(this.form.try1);
-      if (this.form.try1 === "travel_agency") {
-        if (
-          this.form.agencyname === null ||
-          this.form.agencynumber === null ||
-          this.form.agencyemail === null ||
-          this.form.price === null
-        ) {
-          alert("please complete the form");
-          console.log(this.form.try1);
-        } else alert("form added");
-      } else if (this.form.try1 === "alone") {
-        if (this.form.inspiration === null || this.form.price === null) {
-          alert("please complete the form");
-          console.log(this.form.try1);
-        } else alert("form added");
-      } else {
-        alert("please complete the form");
-        console.log(this.form.try1);
-      }*/
- 
-      
+    updateTrip() {
+             this.$store.dispatch('tripupdate',this.form).then(data => {
+           // console.log("aziz")
+     })     
+    },
+
+     updateDraft() {
+             this.$store.dispatch('draftupdate',this.form).then(data => {
+           // console.log("aziz")
+     })     
     }
+
   },
 };
 </script>
@@ -523,8 +532,8 @@ label.label {
   text-decoration: underline;
 }
 .x{
-  position:absolute;
-  top:100px;
+   position:absolute;
+  top:106px;
   margin-left: 400px;
   width:850px;
   background-color: white;
@@ -557,7 +566,6 @@ label.label {
    border: 2px solid rgb(224, 224, 216);
     overflow:hidden
 }
- 
  
 .mon_cadre {
   position: absolute;
@@ -616,9 +624,6 @@ label.label {
   margin-top: 20px;
 }
  
- .z45{
-   margin-top: 10px;
- }
 .mon_ligne1 {
   background-color: rgb(56, 228, 113);
 }

@@ -345,7 +345,7 @@ export default {
   },
  beforeDestroy(){
            if((((this.form.continent!=null)&&(this.form.continent!=""))||((this.form.country!=null)&&(this.form.country!=""))||((this.form.theme!=null)&&(this.form.theme!="")))&&(this.form.draft==true))
-          {this.$store.dispatch('tripdraftsuggest',this.form).then(data => {
+          {this.$store.dispatch('tripsuggest',this.form).then(data => {
            // console.log("aziz")
      }) }
   },

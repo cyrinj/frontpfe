@@ -282,6 +282,10 @@ ul.nnn {
   width: 315px;
   background-color: rgb(0, 0, 0);
   height: 650px;
+   overflow-y: scroll;
+  scrollbar-width: thin;
+  height: 100%;
+  scrollbar-color: rebeccapurple;
 }
 
 a.changecolor:hover {
@@ -404,10 +408,7 @@ hr {
 }
 
 .DivWithScroll {
-  overflow-y: scroll;
-  scrollbar-width: thin;
-  height: 555px;
-  scrollbar-color: rebeccapurple;
+ 
 }
 
 .firstligne {

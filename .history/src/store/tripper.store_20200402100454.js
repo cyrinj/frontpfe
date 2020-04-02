@@ -28,7 +28,7 @@ export default {
             state.trips.push(trip)
         },
 
-        AddDraftTrip(state, drafttrip) {
+        AdddraftTrip(state, drafttrip) {
             state.drafts.push(drafttrip)
         },
 
@@ -146,7 +146,7 @@ export default {
          async tripdraftsuggest(context, form) {
             //  console.log("111",item)
             let tripdraftNew = await tripsuggestService(form)
-            context.commit('AddDraftTrip', tripdraftNew)
+            context.commit('AddDraft', tripdraftNew)
 
         },
 

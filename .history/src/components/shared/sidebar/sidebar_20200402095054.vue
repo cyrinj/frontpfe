@@ -406,7 +406,7 @@ hr {
 .DivWithScroll {
   overflow-y: scroll;
   scrollbar-width: thin;
-  height: 555px;
+;
   scrollbar-color: rebeccapurple;
 }
 

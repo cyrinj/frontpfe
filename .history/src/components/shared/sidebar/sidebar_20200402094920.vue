@@ -9,7 +9,7 @@
         <button class="dropdown-btn" @click="zz()">
         <span class="icon e3">
           <i class="fas fa-star"></i>
-        </span>Partnership
+        </span>Partnership-B
         <i class="fa fa-caret-down si"></i>
       </button>
       <div class="dropdown-container">
@@ -35,7 +35,7 @@
         <button class="dropdown-btn" @click="zz()">
         <span class="icon e3">
           <i class="fas fa-star"></i>
-        </span>Partnership
+        </span>Partnership-A
         <i class="fa fa-caret-down si"></i>
       </button>
       <div class="dropdown-container">
