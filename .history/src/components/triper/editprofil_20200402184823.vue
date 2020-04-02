@@ -1,7 +1,7 @@
 <template>
   <div id="editprofil">
   
-    <form method="POST"  encType="multipart/form-data" @submit.prevent="editProfile">
+    <form  enctype="multipart/form-data"  @submit.prevent="editProfile">
       <fieldset class="cadre_edit">
        
     
@@ -105,16 +105,30 @@ export default {
       console.log(this.selectedFile)
     },
     editProfile() {
-      var formData = new FormData();
-formData.append("image", this.selectedFile);
-
     //  var token = localStorage.getItem("token");
-      this.$store.dispatch('editprofil', formData).then(data => {
+    //  this.$store.dispatch('editprofil',{user : this.user, file : this.selectedFile}).then(data => {
             // this.mounted()
              /* this.$router.push({
                 name: "dashboardtriper"
               });*/
-     })     
+   //  })     
+
+   var formData = new FormData();
+formData.append("image", this.selectedFile);
+    axios.get( 'http://localhost:3000/api/v2/tripper/testedite',
+                formData,
+              {
+        headers: {
+          'Content-Type': 'multipart/form-data'
+        }
+    }
+            ).then(function(){
+          console.log('SUCCESS!!');
+        })
+        .catch(function(){
+          console.log('FAILURE!!');
+        });
+      
     }
   },
   mounted() {

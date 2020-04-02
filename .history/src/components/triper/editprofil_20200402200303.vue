@@ -109,7 +109,7 @@ export default {
 formData.append("image", this.selectedFile);
 
     //  var token = localStorage.getItem("token");
-      this.$store.dispatch('editprofil', formData).then(data => {
+      this.$store.dispatch('editprofil',{user : this.user, file :  formData}).then(data => {
             // this.mounted()
              /* this.$router.push({
                 name: "dashboardtriper"

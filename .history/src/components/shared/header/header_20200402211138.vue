@@ -52,73 +52,31 @@
             </a>
             <a v-on:click="userLogout()" class="navbar-item arr changecolor">Logout</a>
           </div>
-        </div>
-         <div class="navbar-item has-dropdown x is-hoverable kz1">
-          <a class="kzspecial">
-            <i class="fas fa-user-ninja fa-lg"></i>
-          </a>
-          <!--  <a class="navbar-link kzspecial"></a> -->
-          <div class="navbar-dropdown">
+           <div class="navbar-dropdown">
             <a class="navbar-item arr changecolor">
               <router-link to="/editprofil">Edit Profil</router-link>
             </a>
             <a v-on:click="userLogout()" class="navbar-item arr changecolor">Logout</a>
           </div>
-        </div>
-         <div class="navbar-item has-dropdown x is-hoverable kz1">
-          <a class="kzspecial">
-            <i class="fas fa-user-ninja fa-lg"></i>
-          </a>
-          <!--  <a class="navbar-link kzspecial"></a> -->
-          <div class="navbar-dropdown">
+           <div class="navbar-dropdown">
             <a class="navbar-item arr changecolor">
               <router-link to="/editprofil">Edit Profil</router-link>
             </a>
             <a v-on:click="userLogout()" class="navbar-item arr changecolor">Logout</a>
           </div>
-        </div>
-         <div class="navbar-item has-dropdown x is-hoverable kz1">
-          <a class="kzspecial">
-            <i class="fas fa-user-ninja fa-lg"></i>
-          </a>
-          <!--  <a class="navbar-link kzspecial"></a> -->
-          <div class="navbar-dropdown">
+           <div class="navbar-dropdown">
             <a class="navbar-item arr changecolor">
               <router-link to="/editprofil">Edit Profil</router-link>
             </a>
             <a v-on:click="userLogout()" class="navbar-item arr changecolor">Logout</a>
           </div>
-        </div>
-         <div class="navbar-item has-dropdown x is-hoverable kz1">
-          <a class="kzspecial">
-            <i class="fas fa-user-ninja fa-lg"></i>
-          </a>
-          <!--  <a class="navbar-link kzspecial"></a> -->
-          <div class="navbar-dropdown">
+           <div class="navbar-dropdown">
             <a class="navbar-item arr changecolor">
               <router-link to="/editprofil">Edit Profil</router-link>
             </a>
             <a v-on:click="userLogout()" class="navbar-item arr changecolor">Logout</a>
           </div>
-        </div>
-         <div class="navbar-item has-dropdown x is-hoverable kz1">
-          <a class="kzspecial">
-            <i class="fas fa-user-ninja fa-lg"></i>
-          </a>
-          <!--  <a class="navbar-link kzspecial"></a> -->
-          <div class="navbar-dropdown">
-            <a class="navbar-item arr changecolor">
-              <router-link to="/editprofil">Edit Profil</router-link>
-            </a>
-            <a v-on:click="userLogout()" class="navbar-item arr changecolor">Logout</a>
-          </div>
-        </div>
-         <div class="navbar-item has-dropdown x is-hoverable kz1">
-          <a class="kzspecial">
-            <i class="fas fa-user-ninja fa-lg"></i>
-          </a>
-          <!--  <a class="navbar-link kzspecial"></a> -->
-          <div class="navbar-dropdown">
+           <div class="navbar-dropdown">
             <a class="navbar-item arr changecolor">
               <router-link to="/editprofil">Edit Profil</router-link>
             </a>

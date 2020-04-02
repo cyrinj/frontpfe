@@ -13,7 +13,7 @@ export function editprofilService(file) {
       /*  for (var key of obj.file.entries()) {
 			console.log(key[0] + ', ' + key[1])
 		}*/
-        axios.post(url + '/editprofile',file,{
+        axios.get(url + '/editprofile',file,{
             headers: {
                 "Content-Type": "multipart/form-data",
                  

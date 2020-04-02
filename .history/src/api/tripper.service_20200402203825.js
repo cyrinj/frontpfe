@@ -15,8 +15,7 @@ export function editprofilService(file) {
 		}*/
         axios.post(url + '/editprofile',file,{
             headers: {
-                "Content-Type": "multipart/form-data",
-                 
+                "Content-type":"multipart/form-data"
             }
         }).then(response => {
             

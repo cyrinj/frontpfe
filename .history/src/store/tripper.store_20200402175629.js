@@ -83,9 +83,10 @@ export default {
     },
     actions: {
 
-        async editprofil(context,file) {
+        async editprofil(context,user) {
             
-            let usernew = await editprofilService(file)
+             console.log("user",user)
+          //  let usernew = await editprofilService(user)
             // console.log("afff",usernew)
            //context.commit('setCurrentUser', usernew)
         },

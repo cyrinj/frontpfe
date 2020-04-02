@@ -7,18 +7,10 @@ let path = 'api/v2';
 let url = config.host + path + '/tripper'
 //let urlSecure = config.host + path + '/secure/tripper'
 
-export function editprofilService(file) {
-    console.log("fff",file.get("image"))
+export function editprofilService(user) {
     return new Promise((resolve, reject) => {
-      /*  for (var key of obj.file.entries()) {
-			console.log(key[0] + ', ' + key[1])
-		}*/
-        axios.post(url + '/editprofile',file,{
-            headers: {
-                "Content-Type": "multipart/form-data",
-                 
-            }
-        }).then(response => {
+     
+        axios.post(url  + '/editprofile', user).then(response => {
             
       // console.log('test response', response)
           //  localStorage.token = response.data.data.token
@@ -60,9 +52,13 @@ export function tripsuggestService(form) {
     }) 
 }
 
-export function ajoutermessageService(username,idchat,message) {
+export function ajoutermessageService(obj) {
     return new Promise((resolve, reject) => {
-        axios.post(url + '/ajoutermessage',{username,idchat,message}).then(response => {
+        axios.post(url + '/ajoutermessage',obj, {
+            headers: {
+              'Content-Type': 'multipart/form-data'
+            }
+        }).then(response => {
             console.log(response.data.data)
         //  resolve(userq)
             resolve(response.data.data)

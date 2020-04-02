@@ -1,11 +1,11 @@
 <template>
   <div id="editprofil">
   
-    <form method="POST"  encType="multipart/form-data" @submit.prevent="editProfile">
+    <form>
       <fieldset class="cadre_edit">
        
     
-      <input  type="file" name="resume" @change="onfileSelected">
+      <input  type="file" name="resume" @change="onfileSelected()">
      
           
           <img src="https://bulma.io/images/placeholders/96x96.png" class="cercle f1" alt="Placeholder image">
@@ -78,6 +78,7 @@
           <div class="column is-4">
             <button
               class="button boutton_edit is-link is-rounded "
+              @click="editProfile()"
               type="submit"
             >Edit</button>
           </div>
@@ -96,24 +97,19 @@ export default {
   mixins: [UserMixin],
   data() {
     return {
-      selectedFile:null
     };
   },
   methods: {
     onfileSelected(event){
-      this.selectedFile=event.target.files[0]
-      console.log(this.selectedFile)
+      console.log(event)
     },
     editProfile() {
-      var formData = new FormData();
-formData.append("image", this.selectedFile);
-
     //  var token = localStorage.getItem("token");
-      this.$store.dispatch('editprofil', formData).then(data => {
+      this.$store.dispatch('editprofil',this.user).then(data => {
             // this.mounted()
-             /* this.$router.push({
+              this.$router.push({
                 name: "dashboardtriper"
-              });*/
+              });
      })     
     }
   },

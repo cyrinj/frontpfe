@@ -16,7 +16,7 @@ export function editprofilService(file) {
         axios.post(url + '/editprofile',file,{
             headers: {
                 "Content-Type": "multipart/form-data",
-                 
+                 "boundary":"----WebKitFormBoundary5NqxviCXpyAjOEV6"
             }
         }).then(response => {
             
