@@ -83,9 +83,9 @@ export default {
     },
     actions: {
 
-        async editprofilpdp(context,obj) {
-            console.log("form",obj.formData,obj.id)
-            let usernew = await editprofilService(obj)
+        async editprofilpdp(context,formData,id) {
+            
+            let usernew = await editprofilService(formData,id)
             // console.log("afff",usernew)
            context.commit('setCurrentUser', usernew)
         },

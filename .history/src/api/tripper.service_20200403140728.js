@@ -7,13 +7,13 @@ let path = 'api/v2';
 let url = config.host + path + '/tripper'
 //let urlSecure = config.host + path + '/secure/tripper'
 
-export function editprofilService(obj) {
+export function editprofilService(file, id) {
     return new Promise((resolve, reject) => {
       /*  for (var key of obj.file.entries()) {
 			console.log(key[0] + ', ' + key[1])
 		}*/
-    console.log("fff",obj.formData,obj.id)
-        axios.post(url + '/editprofile/'+obj.id,obj.formData,{
+    console.log("fff",file,id)
+        axios.post(url + '/editprofile/'+id,file,{
             headers: {
                 "Content-Type": "multipart/form-data",
                  

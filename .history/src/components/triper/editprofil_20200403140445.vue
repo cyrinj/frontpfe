@@ -111,10 +111,7 @@ export default {
       formData.append('test', this.file);
       // console.log('test formadata', formData.get("test"))
      //  editprofilService(formData,this.user._id ).then(data => console.log('test data ', data))
-let obj = {}
-obj.formData=formData
-obj.id=this.user._id
-this.$store.dispatch('editprofilpdp', obj).then(data => {})
+ this.$store.dispatch('editprofilpdp', formData,this.user._id).then(data => {})
    },
     editProfile() {
       var formData = new FormData();

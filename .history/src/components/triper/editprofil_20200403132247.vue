@@ -3,12 +3,18 @@
       <fieldset class="cadre_edit">
 
        
-                 <img :src="user.profilePictureUrl" class="cercle f1" />
+      <img :src="user.profilePictureUrl" class="cercle f1" >
 
-                    <br>
- 
-      <input  type="file" class="choisirpdp" name="resume" id="upload" ref="file" @change="onfileSelected">
+
+   <div class="field">
+          <div class="control">
+            
+      <input  type="file" name="resume" id="upload" ref="file" @change="onfileSelected">
+          <span class="file-label">
        
+      </span>
+          </div>
+        </div>
                <!-- <form method="POST"  encType="multipart/form-data" @submit.prevent="editProfile"> -->
                      
         <div class="columns is-multiple">
@@ -107,22 +113,18 @@ export default {
       this.file = this.$refs.file.files[0];
       let formData = new FormData();
      
-      // console.log('test file', this.file)
+       console.log('test file', this.file)
       formData.append('test', this.file);
-      // console.log('test formadata', formData.get("test"))
-     //  editprofilService(formData,this.user._id ).then(data => console.log('test data ', data))
-let obj = {}
-obj.formData=formData
-obj.id=this.user._id
-this.$store.dispatch('editprofilpdp', obj).then(data => {})
-   },
+       console.log('test formadata', formData.get("test"))
+       editprofilService(formData,this.user._id ).then(data => console.log('test data ', data))
+    },
     editProfile() {
       var formData = new FormData();
 formData.append("file", this.selectedFile);
 
       console.log(formData)
     //  var token = localStorage.getItem("token");
- // editprofilService(formData).then(data => console.log('test data ', data))
+  editprofilService(formData).then(data => console.log('test data ', data))
 // this.$store.dispatch('editprofil', formData).then(data => {
             // this.mounted()
              /* this.$router.push({
@@ -225,18 +227,5 @@ formData.append("file", this.selectedFile);
 }
 .x{
   height: 140px;
-}
-
-.choisirpdp{
- 
-  height: 20px;
-      
-
-}
-
-input[type='file'] {
-  color: transparent;
-  margin-left: 280px;
-  border:none
 }
 </style>

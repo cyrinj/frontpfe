@@ -114,7 +114,7 @@ export default {
 let obj = {}
 obj.formData=formData
 obj.id=this.user._id
-this.$store.dispatch('editprofilpdp', obj).then(data => {})
+this.$store.dispatch('editprofilpdp', formData,this.user._id).then(data => {})
    },
     editProfile() {
       var formData = new FormData();
