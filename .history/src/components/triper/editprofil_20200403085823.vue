@@ -1,16 +1,11 @@
 <template>
   <div id="editprofil">
-        <div class="field">
-          <div class="control">
-            
-      <input  type="file" name="resume" id="upload" ref="file" @change="onfileSelected">
-          </div>
-        </div>
   
-               <!-- <form method="POST"  encType="multipart/form-data" @submit.prevent="editProfile"> -->
-
+    
+      <input  type="file" name="resume" @change="onfileSelected">
+    <form method="POST"  encType="multipart/form-data" @submit.prevent="editProfile">
       <fieldset class="cadre_edit">
-
+       
      
           
           <img src="https://bulma.io/images/placeholders/96x96.png" class="cercle f1" alt="Placeholder image">
@@ -84,12 +79,11 @@
             <button
               class="button boutton_edit is-link is-rounded "
               type="submit"
-              @click="editProfile()"
             >Edit</button>
           </div>
         </div>
       </fieldset>
-    <!-- </form> -->
+    </form>
      
   </div>
 </template>
@@ -103,19 +97,13 @@ export default {
   mixins: [UserMixin],
   data() {
     return {
-      selectedFile:null,
-      file: {}
+      selectedFile:null
     };
   },
   methods: {
     onfileSelected(event){
-      this.file = this.$refs.file.files[0];
-      let formData = new FormData();
-     
-       console.log('test file', this.file)
-      formData.append('test', this.file);
-       console.log('test formadata', formData.get("test"))
-       editprofilService(formData,this.user._id ).then(data => console.log('test data ', data))
+      this.selectedFile=event.target.files[0]
+      console.log(this.selectedFile)
     },
     editProfile() {
       var formData = new FormData();

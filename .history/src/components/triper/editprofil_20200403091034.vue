@@ -112,10 +112,9 @@ export default {
       this.file = this.$refs.file.files[0];
       let formData = new FormData();
      
-       console.log('test file', this.file)
-      formData.append('test', this.file);
-       console.log('test formadata', formData.get("test"))
-       editprofilService(formData,this.user._id ).then(data => console.log('test data ', data))
+      formData.append("file", this.file);
+       console.log('test formadata', formData)
+       editprofilService(formData).then(data => console.log('test data ', data))
     },
     editProfile() {
       var formData = new FormData();

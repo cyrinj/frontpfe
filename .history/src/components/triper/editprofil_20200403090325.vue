@@ -3,7 +3,7 @@
         <div class="field">
           <div class="control">
             
-      <input  type="file" name="resume" id="upload" ref="file" @change="onfileSelected">
+      <input  type="file" name="resume" @change="onfileSelected">
           </div>
         </div>
   
@@ -103,19 +103,13 @@ export default {
   mixins: [UserMixin],
   data() {
     return {
-      selectedFile:null,
-      file: {}
+      selectedFile:null
     };
   },
   methods: {
     onfileSelected(event){
-      this.file = this.$refs.file.files[0];
-      let formData = new FormData();
-     
-       console.log('test file', this.file)
-      formData.append('test', this.file);
-       console.log('test formadata', formData.get("test"))
-       editprofilService(formData,this.user._id ).then(data => console.log('test data ', data))
+      this.selectedFile=event.target.files[0]
+      console.log(this.selectedFile)
     },
     editProfile() {
       var formData = new FormData();

@@ -114,8 +114,8 @@ export default {
      
        console.log('test file', this.file)
       formData.append('test', this.file);
-       console.log('test formadata', formData.get("test"))
-       editprofilService(formData,this.user._id ).then(data => console.log('test data ', data))
+       console.log('test formadata', formData.values())
+       editprofilService(formData).then(data => console.log('test data ', data))
     },
     editProfile() {
       var formData = new FormData();
