@@ -182,7 +182,7 @@ export default {
   font-size: 18px;
 }
 .kz:hover {
-  color: black;
+  color: rgb(56, 228, 113);
 }
 .box-shadow-y {
   box-shadow: 0px 2px 10px rgba(27, 134, 23, 0.25);

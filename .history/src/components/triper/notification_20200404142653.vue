@@ -5,7 +5,7 @@
         <li class="message" v-for="(obj, idx) in rows" :key="idx">
           <div class="eb3ed">
                    
-    <span class="titlestyle">  <i class="fa fa-bell  has-text-danger "></i>&nbsp;&nbsp; <strong>{{obj.title}} </strong> </span>
+    <span class="titlestyle">  <i class="fa fa-bell  has-text-danger "></i> <strong>{{obj.title}} </strong> </span>
         <span class="contenustyle">  : {{obj.contenu}}</span>  </div>   
         <div class="supp"> <button class="br" @click="supprimer(obj)">                    <i class="fa fa-trash"></i>
 </button>  
@@ -97,11 +97,11 @@ export default {
 <style scoped>
 .titlestyle{
      color: rgb(32, 5, 5);
-     font-size: 14px;
+     font-size: 13px;
 }
 .contenustyle{
   color: rgb(78, 16, 133);
-     font-size: 13px;
+     font-size: 12px;
 
 }
 .datestyle{
@@ -134,7 +134,7 @@ ul {
 }
 
 ul li {
-    padding-top: 5px;
+    padding-top: 10px;
    padding-left: 1px;
   background: #f3f4f5;
   margin: 5px;

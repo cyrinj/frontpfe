@@ -48,10 +48,9 @@
           <!--  <a class="navbar-link kzspecial"></a> -->
           <div class="navbar-dropdown is-right">
             <a class="navbar-item arr changecolor">
-              <router-link to="/editprofil" class="routerr"> <i class="fas fa-sliders-h"></i>&nbsp;&nbsp;&nbsp;Acount Settings</router-link>
+              <router-link to="/editprofil">Edit Profil</router-link>
             </a>
-
-            <a v-on:click="userLogout()" class="navbar-item arr changecolor"><i class="fas fa-sign-out-alt"></i>&nbsp;&nbsp;&nbsp;Logout</a>
+            <a v-on:click="userLogout()" class="navbar-item arr changecolor">Logout</a>
           </div>
         </div>
         
@@ -156,16 +155,14 @@ export default {
 </script>
 <style scoped>
 .titlestyle {
-  color: rgb(136, 31, 162);
-    font-size: 13px;
-
+  color: rgb(114, 108, 108);
 }
 .contenustyle {
   color: rgb(8, 0, 15);
   font-size: 12px;
 }
 .datestyle {
-  color: rgb(136, 31, 162);
+  color: rgb(8, 0, 15);
 
   margin-left: 220px;
   font-size: 10px;
@@ -177,12 +174,12 @@ export default {
   color: rgb(14, 31, 20);
 }
 .kz {
-  color: rgb(136, 31, 162);
+  color: rgb(152, 146, 187);
   border-radius: 2em / 5em;
   font-size: 18px;
 }
 .kz:hover {
-  color: black;
+  color: rgb(56, 228, 113);
 }
 .box-shadow-y {
   box-shadow: 0px 2px 10px rgba(27, 134, 23, 0.25);
@@ -211,17 +208,16 @@ a.vv:hover {
 }
 .navbar-dropdown {
   background-color: rgb(252, 248, 248);
- 
+  color: black;
  
   
 }
 a.f:hover {
   background-color: blue;
-  color:  rgb(136, 31, 162);
+  color: blue;
 }
 a.changecolor {
   background-color: rgb(235, 226, 226);
-  color:black;
 }
 ul.nn {
   margin-left: 5px;
@@ -239,16 +235,8 @@ ul.nn {
   height: 83px;
 }
 a.arr {
-    border-style: solid none solid none;
-
-  background-color: rgb(248, 238, 238);
-  color: rgb(136, 31, 162);
-  border-width: 0.5px;
-  border-color: rgb(228, 223, 217);
-}
-
-a.arr:hover{
-     color: black;
+  background-color: rgb(235, 226, 226);
+  color: rgb(159, 175, 164);
 }
 nav {
   border-bottom: 1px solid rgba(0, 0, 0, 0.09);
@@ -279,13 +267,7 @@ nav {
   scrollbar-width: thin;
 }
 .seeall{
-    color: rgb(77, 72, 72);
+    color: black;
     margin-left: 130px;
-    text-decoration: underline;
 }
-
-.routerr{
-  color: rgb(136, 31, 162);
-}
-
 </style>

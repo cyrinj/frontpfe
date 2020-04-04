@@ -3,7 +3,7 @@
 <div>
   <button class="reafficher" @click="reafficher()">Wantotrip Admin&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</button>
  <div class="cadre_status" v-show="x">
-   <button class="chatbox2" @click="show()">Wantotrip Admin&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</button>
+   <button class="chatbox2" @click="show()">&nbsp;&nbsp;Wantotrip Admin&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</button>
   <section class="chat-box">
     <div class="chat-box-list-container" ref="chatbox">
   
@@ -183,7 +183,7 @@ span {
   flex-direction: column;
   list-style-type: none;
   background-color: rgb(201, 197, 241);
-  color: rgb(255, 253, 253);
+  color: rgb(107, 101, 101);
  text-align: left;
   width: 20vw;
   height: 30px;

@@ -21,7 +21,7 @@
       <textarea rows="1" type="text" v-model="usermsg" @keyup.enter="send" />
     </div>
     <div class="soustext">
-      <button @click="send">
+      <button @click="send()">
         <i class="fas fa-paper-plane "></i>
       </button>
     </div>
@@ -31,7 +31,6 @@
 </template>
 
 <script>
-import UserMixin from "@/mixins/user.mixin.js";
 import {
   getchatService,
   ajoutermessageService
@@ -45,6 +44,7 @@ export default {
   name: "chat",
   data() {
     return {
+      user:null,
       x:false,
       messageVal: "",
       messages: [],
@@ -61,15 +61,11 @@ export default {
  
 
   mounted() {
-    this.socket.emit('user_connected', this.user.username)
-    var self = this;
-      getchatService(this.user.id).then(data => {
-      this.idchat = data[0]._id;
-      this.messages = data[0].messages;
-      this.socket.emit("first", this.messages, this.idchat);
-    });
-
-  },
+        this.socket.on('MESSAGE', (data) => {
+            this.messages = [...this.messages, data];
+            // you can also do this.messages.push(data)
+        });
+    },
 
   methods: {
     reafficher(){
@@ -79,28 +75,13 @@ export default {
        this.x=false
     },
     send() {
-      var self = this;
-
-      ajoutermessageService(this.user.username, this.idchat, this.usermsg);
-      this.socket.emit("msg", this.user.username, this.usermsg, this.idchat);
-     this.socket.on("get", function(chat) {
-        console.log("why")
-        for (var i = 0; i < chat.length; i++) {
-          if (chat[i].id == self.idchat) {
-            self.messages = chat[i].messages;
-          }
+            
+            this.socket.emit('SEND_MESSAGE', {
+                user: this.user,
+                message: this.usermsg
+            });
+            this.usermsg = ''
         }
-      });
-      /*  this.socket.on("get", function(messages) {
-        console.log("heyyyy")
-          self.messages = messages;
-      });*/
-      this.usermsg = "";
-
-      this.$nextTick(() => {
-        this.$refs.chatbox.scrollTop = this.$refs.chatbox.scrollHeight;
-      });
-    }
   }
 };
 </script>

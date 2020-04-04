@@ -5,7 +5,7 @@
         <li class="message" v-for="(obj, idx) in rows" :key="idx">
           <div class="eb3ed">
                    
-    <span class="titlestyle">  <i class="fa fa-bell  has-text-danger "></i>&nbsp;&nbsp; <strong>{{obj.title}} </strong> </span>
+    <span class="titlestyle">  <i class="fa fa-bell  has-text-danger "></i> <strong>{{obj.title}} </strong> </span>
         <span class="contenustyle">  : {{obj.contenu}}</span>  </div>   
         <div class="supp"> <button class="br" @click="supprimer(obj)">                    <i class="fa fa-trash"></i>
 </button>  

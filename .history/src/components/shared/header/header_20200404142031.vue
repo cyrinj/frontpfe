@@ -177,12 +177,12 @@ export default {
   color: rgb(14, 31, 20);
 }
 .kz {
-  color: rgb(136, 31, 162);
+  color: rgb(152, 146, 187);
   border-radius: 2em / 5em;
   font-size: 18px;
 }
 .kz:hover {
-  color: black;
+  color: rgb(56, 228, 113);
 }
 .box-shadow-y {
   box-shadow: 0px 2px 10px rgba(27, 134, 23, 0.25);

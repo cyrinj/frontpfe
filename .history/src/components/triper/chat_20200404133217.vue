@@ -21,7 +21,7 @@
       <textarea rows="1" type="text" v-model="usermsg" @keyup.enter="send" />
     </div>
     <div class="soustext">
-      <button @click="send">
+      <button @click="send()">
         <i class="fas fa-paper-plane "></i>
       </button>
     </div>
@@ -79,28 +79,13 @@ export default {
        this.x=false
     },
     send() {
-      var self = this;
-
-      ajoutermessageService(this.user.username, this.idchat, this.usermsg);
-      this.socket.emit("msg", this.user.username, this.usermsg, this.idchat);
-     this.socket.on("get", function(chat) {
-        console.log("why")
-        for (var i = 0; i < chat.length; i++) {
-          if (chat[i].id == self.idchat) {
-            self.messages = chat[i].messages;
-          }
+            
+            this.socket.emit('SEND_MESSAGE', {
+                user: this.user,
+                message: this.usermsg
+            });
+            this.message = ''
         }
-      });
-      /*  this.socket.on("get", function(messages) {
-        console.log("heyyyy")
-          self.messages = messages;
-      });*/
-      this.usermsg = "";
-
-      this.$nextTick(() => {
-        this.$refs.chatbox.scrollTop = this.$refs.chatbox.scrollHeight;
-      });
-    }
   }
 };
 </script>

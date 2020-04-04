@@ -156,16 +156,14 @@ export default {
 </script>
 <style scoped>
 .titlestyle {
-  color: rgb(136, 31, 162);
-    font-size: 13px;
-
+  color: rgb(114, 108, 108);
 }
 .contenustyle {
   color: rgb(8, 0, 15);
   font-size: 12px;
 }
 .datestyle {
-  color: rgb(136, 31, 162);
+  color: rgb(8, 0, 15);
 
   margin-left: 220px;
   font-size: 10px;
@@ -177,12 +175,12 @@ export default {
   color: rgb(14, 31, 20);
 }
 .kz {
-  color: rgb(136, 31, 162);
+  color: rgb(152, 146, 187);
   border-radius: 2em / 5em;
   font-size: 18px;
 }
 .kz:hover {
-  color: black;
+  color: rgb(56, 228, 113);
 }
 .box-shadow-y {
   box-shadow: 0px 2px 10px rgba(27, 134, 23, 0.25);
@@ -211,7 +209,7 @@ a.vv:hover {
 }
 .navbar-dropdown {
   background-color: rgb(252, 248, 248);
- 
+  color: black;
  
   
 }
@@ -279,12 +277,11 @@ nav {
   scrollbar-width: thin;
 }
 .seeall{
-    color: rgb(77, 72, 72);
+    color: black;
     margin-left: 130px;
-    text-decoration: underline;
 }
 
-.routerr{
+.navbar-item{
   color: rgb(136, 31, 162);
 }
 

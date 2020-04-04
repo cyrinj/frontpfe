@@ -1,9 +1,9 @@
 
 <template>
 <div>
-  <button class="reafficher" @click="reafficher()">Wantotrip Admin&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</button>
+  <button class="reafficher" @click="reafficher()">Wantotrip Admin&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;X</button>
  <div class="cadre_status" v-show="x">
-   <button class="chatbox2" @click="show()">Wantotrip Admin&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</button>
+   <button class="chatbox2" @click="show()">&nbsp;&nbsp;Wantotrip Admin&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;X</button>
   <section class="chat-box">
     <div class="chat-box-list-container" ref="chatbox">
   
@@ -58,8 +58,6 @@ export default {
     };
   },
 
- 
-
   mounted() {
     this.socket.emit('user_connected', this.user.username)
     var self = this;
@@ -109,11 +107,11 @@ export default {
 <style scoped>
 .reafficher{
   
-    background-color: rgb(201, 197, 241);
+    background-color: rgb(241, 197, 197);
  text-align: left;
   width: 20vw;
   height: 30px;
-  color: rgb(255, 253, 253);
+  color: rgb(107, 101, 101);
 
   border-block-end-color: rgb(208, 207, 228);
   font-size: 16px;
@@ -183,7 +181,7 @@ span {
   flex-direction: column;
   list-style-type: none;
   background-color: rgb(201, 197, 241);
-  color: rgb(255, 253, 253);
+  color: rgb(107, 101, 101);
  text-align: left;
   width: 20vw;
   height: 30px;
