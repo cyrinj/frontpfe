@@ -201,7 +201,7 @@ export default {
 }
 
 .cv{
-  background-color: rgb(199, 117, 219);
+  background-color: rgb(28, 3, 34);
   color: white;
   margin-top: 10px;
 }

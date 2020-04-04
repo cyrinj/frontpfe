@@ -5,24 +5,14 @@
               <div class="column is-4">
        
                  <img :src="user.profilePictureUrl" class="cercle f1" />
-  <!--    <input  type="file" class="choisirpdp" name="resume" id="upload" ref="file" @change="onfileSelected">-->
-<div class="file">
-  <label class="file-label">
-    <input class="file-input" type="file" name="resume" id="upload" ref="file" @change="onfileSelected">
-    <span class="file-cta">
-    
-      update
-     
-     
-    </span>
-  </label>
-</div>
+      <input  type="file" class="choisirpdp" name="resume" id="upload" ref="file" @change="onfileSelected">
+
                   </div>
   <div class="column is-4">
     <br><br>
-    <label class="mylu">{{username1}}</label><br>
-     <label class="myl">{{email1}}</label><br>
-      <label class="myl">{{pays1}}</label>
+    <label class="mylu">{{this.user.username}}</label><br>
+     <label class="myl">{{this.user.email}}</label><br>
+      <label class="myl">{{this.user.pays}}</label>
   </div>
   </div>
      <form  @submit.prevent="editProfileDonnees"> 
@@ -89,7 +79,7 @@
             <input
               class="input_edit_x"
               type="date"
-              v-model="date_naissance1"
+              v-model="user.date_naissance"
               placeholder="Date_Birthday"
             />
           </div>
@@ -117,11 +107,7 @@ export default {
   data() {
     return {
       selectedFile:null,
-      file: {},
-      username1:null,
-      email1:null,
-      pays1:null,
-      date_naissance1:null
+      file: {}
     };
   },
   methods: {
@@ -142,41 +128,21 @@ this.$store.dispatch('editprofilpdp', obj).then(data => {})
    
     //  var token = localStorage.getItem("token");
  // editprofilService(formData).then(data => console.log('test data ', data))
- this.user.date_naissance=this.date_naissance1
  this.$store.dispatch('editprofildonnees', this.user).then(data => {
             // this.mounted()
              /* this.$router.push({
                 name: "dashboardtriper"
-              });*/0.
-    })  
-  /*  this.$router.go({
-          path: "editprofil",
-          force: true
-        });   */
+              });*/
+    })     
     }
   },
   mounted() {
-        this.username1=this.user.username
-        this.email1=this.user.email
-        this.pays1=this.user.pays
-        this.date_naissance1=this.user.date_naissance[0]+this.user.date_naissance[1]+this.user.date_naissance[2]+this.user.date_naissance[3]+this.user.date_naissance[4]+this.user.date_naissance[5]+this.user.date_naissance[6]+this.user.date_naissance[7]+this.user.date_naissance[8]+this.user.date_naissance[9]
+        
   }
 };
 </script>
 
 <style scoped>
-
-
-.file-cta{
- width: 59px;
-  height: 20px;
-  background-color:#e6d9f3 ;
-  border: none;
-  margin-left: 60px;
-  color: white;
-  font-size: 12px;
-}
-
 .f1 {display:inline-block; margin-left: 30px; margin-top: 12px;} 
 .f2 {display:inline-block; margin-top: 23px;} 
 .cercle{
@@ -186,9 +152,9 @@ this.$store.dispatch('editprofilpdp', obj).then(data => {})
   
 }
 .bn{
-   border-style: none none  dashed none;
-  border-width:1px;
-  border-color: #c5aedb;
+   border-style: none none solid none;
+  border-width:2px;
+  border-color: #9e7cc0;
 }
 .mylu{
   color: rgb(32, 31, 31);
@@ -269,7 +235,6 @@ this.$store.dispatch('editprofilpdp', obj).then(data => {})
   margin-top: 5px;
   width: 150px;
   background-color: #9e7cc0;
-  color: white;
 }
 .df{
   position: absolute;

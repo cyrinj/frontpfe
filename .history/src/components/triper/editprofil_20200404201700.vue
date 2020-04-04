@@ -89,7 +89,7 @@
             <input
               class="input_edit_x"
               type="date"
-              v-model="date_naissance1"
+              v-model="user.date_naissance"
               placeholder="Date_Birthday"
             />
           </div>
@@ -120,8 +120,7 @@ export default {
       file: {},
       username1:null,
       email1:null,
-      pays1:null,
-      date_naissance1:null
+      pays1:null
     };
   },
   methods: {
@@ -142,7 +141,6 @@ this.$store.dispatch('editprofilpdp', obj).then(data => {})
    
     //  var token = localStorage.getItem("token");
  // editprofilService(formData).then(data => console.log('test data ', data))
- this.user.date_naissance=this.date_naissance1
  this.$store.dispatch('editprofildonnees', this.user).then(data => {
             // this.mounted()
              /* this.$router.push({
@@ -159,7 +157,6 @@ this.$store.dispatch('editprofilpdp', obj).then(data => {})
         this.username1=this.user.username
         this.email1=this.user.email
         this.pays1=this.user.pays
-        this.date_naissance1=this.user.date_naissance[0]+this.user.date_naissance[1]+this.user.date_naissance[2]+this.user.date_naissance[3]+this.user.date_naissance[4]+this.user.date_naissance[5]+this.user.date_naissance[6]+this.user.date_naissance[7]+this.user.date_naissance[8]+this.user.date_naissance[9]
   }
 };
 </script>

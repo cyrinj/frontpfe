@@ -11,7 +11,7 @@
     <input class="file-input" type="file" name="resume" id="upload" ref="file" @change="onfileSelected">
     <span class="file-cta">
     
-      update
+        <i class="fas fa-upload has-text-white"></i>
      
      
     </span>
@@ -89,7 +89,7 @@
             <input
               class="input_edit_x"
               type="date"
-              v-model="date_naissance1"
+              v-model="user.date_naissance"
               placeholder="Date_Birthday"
             />
           </div>
@@ -120,8 +120,7 @@ export default {
       file: {},
       username1:null,
       email1:null,
-      pays1:null,
-      date_naissance1:null
+      pays1:null
     };
   },
   methods: {
@@ -142,24 +141,22 @@ this.$store.dispatch('editprofilpdp', obj).then(data => {})
    
     //  var token = localStorage.getItem("token");
  // editprofilService(formData).then(data => console.log('test data ', data))
- this.user.date_naissance=this.date_naissance1
  this.$store.dispatch('editprofildonnees', this.user).then(data => {
             // this.mounted()
              /* this.$router.push({
                 name: "dashboardtriper"
-              });*/0.
+              });*/
     })  
-  /*  this.$router.go({
+    this.$router.go({
           path: "editprofil",
           force: true
-        });   */
+        });   
     }
   },
   mounted() {
         this.username1=this.user.username
         this.email1=this.user.email
         this.pays1=this.user.pays
-        this.date_naissance1=this.user.date_naissance[0]+this.user.date_naissance[1]+this.user.date_naissance[2]+this.user.date_naissance[3]+this.user.date_naissance[4]+this.user.date_naissance[5]+this.user.date_naissance[6]+this.user.date_naissance[7]+this.user.date_naissance[8]+this.user.date_naissance[9]
   }
 };
 </script>
@@ -168,13 +165,11 @@ this.$store.dispatch('editprofilpdp', obj).then(data => {})
 
 
 .file-cta{
- width: 59px;
+ width: 46px;
   height: 20px;
-  background-color:#e6d9f3 ;
+  background-color:#c4addb ;
   border: none;
-  margin-left: 60px;
-  color: white;
-  font-size: 12px;
+  margin-left: 66px;
 }
 
 .f1 {display:inline-block; margin-left: 30px; margin-top: 12px;} 
@@ -186,7 +181,7 @@ this.$store.dispatch('editprofilpdp', obj).then(data => {})
   
 }
 .bn{
-   border-style: none none  dashed none;
+   border-style: none none solid none;
   border-width:1px;
   border-color: #c5aedb;
 }
