@@ -1,61 +1,32 @@
 <template>
-  <div id="seealltrip">
+  <div id="seealltrips">
     <fieldset class="cadre_status">
-      <div class="columns is-multiple">
-        <div class="column is-4">
+        <div class="columns is-multiple">
+        <div class="column is-6 ">
+         
           <ul v-for="item in rowData1" :key="item.id">
-            <div class="infos">
-               <div >    <i class="fas fa-heart has-text-danger"></i>      {{item.title}}</div>
-           
-             <div >  <i class="fas fa-user-shield   has-text-link"></i> {{item.blogger}}</div>
-            <div >    <i class="fas fa-map-marker-alt has-text-warning"></i>  {{item.from}}-{{item.to}}</div>
-          
-        
-           </div>
             <button class="container" @click="showme(item)">
               <img :src="item.image" />
+        
+              
+       <!--       <div class="top-left">{{item.title}} <br>{{item.theme}}<br> {{item.from}}-{{item.to}}</div>  -->
+         <div class="top-left">{{item.title}}</div> 
             </button>
           </ul>
-    </div>
-      <div class="column is-4">
+        
+        </div>
+                <div class="column is-6">
           <ul v-for="item in rowData2" :key="item.id">
-              <div class="infos">
-               <div >    <i class="fas fa-heart has-text-danger"></i>      {{item.title}}</div>
-           
-              <div >  <i class="fas fa-user-shield   has-text-link"></i> {{item.blogger}}</div>
-            <div >    <i class="fas fa-map-marker-alt has-text-warning"></i>  {{item.from}}-{{item.to}}</div>
-          
-        
-           </div>
             <button class="container" @click="showme(item)">
               <img :src="item.image" />
 
-         <!--     <div class="bottom-left">{{item.from}}-{{item.to}}</div>
-              <div class="top-left">{{item.title}}</div>
-              <div class="bottom-right">{{item.blogger}}</div>-->
+                           <div class="top-left">{{item.title}} <br>{{item.theme}}<br> {{item.from}}-{{item.to}}</div>
+
             </button>
           </ul>
         </div>
-        <div class="column is-4">
-          <ul v-for="item in rowData3" :key="item.id">
-             <div class="infos">
-               <div >    <i class="fas fa-heart has-text-danger"></i>      {{item.title}}</div>
-           
-             <div >  <i class="fas fa-user-shield   has-text-link"></i> {{item.blogger}}</div>
-            <div >    <i class="fas fa-map-marker-alt has-text-warning"></i>  {{item.from}}-{{item.to}}</div>
-          
-        
-           </div>
-            <button class="container" @click="showme(item)">
-              <img :src="item.image" />
 
-             
-            </button>
-          </ul>
         </div>
-      </div>
-
-     
     </fieldset>
   </div>
 </template>
@@ -63,27 +34,27 @@
 <script>
 
 export default {
-  name: "seealltrip",
+  name: "seealltrips",
   data() {
     return {
       rowData1: [],
       rowData2: [],
-      rowData3: [],
+     
 
-      milieu1: null,
+      milieu: null,
       milieu2: null,
       rowData: [
         {
           id:"1",
+          continent : "Europe",
           country:"France",
           image:
-            "http://localhost:3000/uploads/5e7392d2b331251c1b872619/trip.jpg",
-          title: "Discover France ",
+          "http://localhost:3000/uploads/5e7392d2b331251c1b872619/trip.jpg",
+          title: "Know more about life in Bali ",
           from: "15 Juin",
           to: "20 Juin",
-          blogger: "Rahalista",
-          price: "1500",
-          theme: "Adventure",
+          theme: "A",
+          pourcentage:null,
             program: [
         "On this day, we will meet at our hotel in Moshi which is situated in a quiet location in the foothills of Kilimanjaro. There, we will have our trip briefing and welcoming ceremony. Night at the Hotel. ",
         "An early start of the first day will allow us to take some time for any adjustments to our packing before leaving for the park gate. From the gate (1800m) the path climbs with a gradual gradient and a never-tiring route in a forest full of flowers. A last ramp leads to the lovely rocky rise and metal constructions of the Machame Hut (3000m).(B,L,D) Climb 1200 meters walking time: 4 to 5 hours ",
@@ -96,73 +67,77 @@ export default {
           image:
             "http://localhost:3000/uploads/5e7392d2b331251c1b872619/trip.jpg",
 
-          title: "Discover Kilimanjaro",
+          title: "Discover Kilimanjaro with Rahalista ",
           from: "15 Juin",
           to: "20 Juin",
           blogger: "Aziz",
-          price: "1500"
+          price: "1500",
+          theme: "Adventure",
         },
         {
           id:"3",
           image:
             "http://localhost:3000/uploads/5e7392d2b331251c1b872619/trip.jpg",
 
-          title: "Discover Kilimanjaro  ",
+          title: "Discover Kilimanjaro with Rahalista ",
           from: "15 Juin",
           to: "20 Juin",
           blogger: "Aziz",
-          price: "1500"
+          price: "1500",
+          theme: "Adventure",
         },
         {
           id:"4",
           image:
             "http://localhost:3000/uploads/5e7392d2b331251c1b872619/trip.jpg",
 
-          title: "Discover Kilimanjaro ",
+          title: "Discover Kilimanjaro with Rahalista ",
           from: "15 Juin",
           to: "20 Juin",
           blogger: "Aziz",
-          price: "1500"
+          price: "1500",
+          theme: "Adventure",
         },
         {
           id:"5",
           image:
             "http://localhost:3000/uploads/5e7392d2b331251c1b872619/trip.jpg",
 
-          title: "Discover Kilimanjaro ",
+          title: "Discover Kilimanjaro with Rahalista ",
           from: "15 Juin",
           to: "20 Juin",
           blogger: "Aziz",
-          price: "1500"
+          price: "1500",
+          theme: "Adventure"
         },
         {
           id:"6",
           image:
             "http://localhost:3000/uploads/5e7392d2b331251c1b872619/trip.jpg",
 
-          title: "Discover Kilimanjaro ",
+          title: "Discover Kilimanjaro with Rahalista ",
           from: "15 Juin",
           to: "20 Juin",
           blogger: "Aziz",
-          price: "1500"
+          price: "1500",
+          theme: "Adventure"
         }
       ]
     };
   },
 
   mounted() {
-    // this.$store.dispatch("tripsproposés").then(data => {
+   //  this.$store.dispatch("tripsaccepted").then(data => {
 
     //  this.rowData = data;
      /* this.milieu = this.rowData.length / 2;
       this.rowData1 = this.rowData.slice(0, this.milieu);
       this.rowData2 = this.rowData.slice(this.milieu, this.rows.length);*/
   //  });
-    this.milieu1 = this.rowData.length / 3;
-    this.milieu2 = (this.rowData.length / 3) * 2;
-    this.rowData1 = this.rowData.slice(0, this.milieu1);
-    this.rowData2 = this.rowData.slice(this.milieu1, this.milieu2);
-    this.rowData3 = this.rowData.slice(this.milieu2, this.rowData.length);
+    this.milieu = this.rowData.length / 2;
+    this.rowData1 = this.rowData.slice(0, this.milieu);
+    this.rowData2 = this.rowData.slice(this.milieu,  this.rowData.length);
+  
   
   },
 
@@ -170,7 +145,7 @@ export default {
     showme(item) {
       //console.log("thisseeall",item)
       this.$router.push({
-        name: "demande_agency",
+        name: "demande_blogger",
         params: { objtrip : item}
       });
         },
@@ -180,10 +155,7 @@ export default {
 </script>
 
 <style scoped>
-.infos{
-  margin-left: 10px;
-   font-size: 14px;
-}
+
 .cadre_status {
   position: absolute;
   left: 365px;
@@ -191,15 +163,13 @@ export default {
   width: 950px;
   background-color: white;
   height: 505px;
+  border: 1px solid rgb(235, 229, 229);
   padding-right: 32px;
   padding-right: 32px;
   padding-top: 20px;
   overflow-y: scroll;
   scrollbar-color: rgb(208, 207, 228) rgb(226, 233, 226);
   scrollbar-width: thin;
-     box-shadow: 4px 2px 10px rgb(216, 223, 216);
- border-top-left-radius: 20px;
-   border-bottom-left-radius: 20px;
 }
 .container {
   position: relative;
@@ -208,7 +178,7 @@ export default {
   background-color: white;
   border: none;
    cursor:pointer;
-       display: block;
+     display: block;
   margin-left: auto;
   margin-right: auto;
 }
@@ -218,9 +188,6 @@ export default {
   position: absolute;
   bottom: 8px;
   left: 16px;
-    background-color: rgb(255, 251, 251);
-  color: rgb(39, 35, 35);
-  border-radius: 5px;
 }
 
 /* Top left text */
@@ -228,10 +195,8 @@ export default {
   position: absolute;
   top: 8px;
   left: 16px;
-  background-color: rgb(216, 209, 209);
+  background-color: rgb(136, 131, 131);
   color: white;
-    border-radius: 5px;
-
 }
 
 /* Top right text */
@@ -246,10 +211,6 @@ export default {
   position: absolute;
   bottom: 8px;
   right: 16px;
-    background-color: rgb(89, 66, 151);
-  color: white;
-    border-radius: 5px;
-
 }
 
 /* Centered text */

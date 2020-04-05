@@ -163,9 +163,7 @@ export default {
   width: 850px;
   background-color: white;
   height: 505px;
-   box-shadow: 4px 2px 10px rgb(216, 223, 216);
- border-top-left-radius: 20px;
-   border-bottom-left-radius: 20px;
+  border: 1px solid rgb(235, 229, 229);
   overflow: auto;
   padding-top: 15px;
   scrollbar-color: rebeccapurple rgb(56, 228, 113);

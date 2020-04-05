@@ -1,14 +1,19 @@
 <template>
-  <div id="demande_blogger">
-    <fieldset class="cadre_status box-shadow-form ">
-      
-           
-              <div class="l">
+  <div id="demande_agency">
+    <fieldset class="cadre_status box-shadow-form">
+      <div class="columns is-multiple l">
+        <div class="column">
+            <div>
+              <div>
                 <h3 class="titre">
                   {{item.title}}
                  
                 </h3>
-               
+                <br />
+                 <span class="icon has-text-warning ei">
+                  <i class="fas fa-user-shield"></i>
+                </span>
+                {{item.blogger}}
                 <br />
               
                 <span class="icon has-text-success ei">
@@ -38,50 +43,20 @@
                   <hr />
                 </ul>
                 <br />
+               
+              </div>
             
-           <div class="columns is-multiple sous">
-             <div class="column is-6">
+            </div>
               <textarea
                   class="t1"
                   placeholder="Any suggestion?"
-                   v-model="reservation.suggestion"
+                   v-model="demande.suggestion"
                 ></textarea>
-             </div>
-             <div class="column is-4 xnb">
-               <label class="labelstyle">Number of participants</label><br>
-                 <input
-                        class="input is-small "
-                        type="number"
-                         placeholder="Number participants"
-                         min="5" max="20"
-                        v-model="reservation.participants"
-                      />
-                     
-<label class="labelstyle">Start Date</label>
- <input
-                        class="input is-small "
-                        type="date"
-                         placeholder="Number participants"
-                        
-                        v-model="reservation.from"
-                      /> 
-                      <br>
-                      <label class="labelstyle">End Date</label>
-                      <input
-                        class="input is-small "
-                        type="date"
-                         placeholder="Number participants"
-                    
-                        v-model="reservation.to"
-                      />
+                <br>
+                    <button @click="sendDemande()" class="button is-link">Send</button>
 
-                                          <button @click="sendDemande()" class="button is-link">Send</button>
-
-            </div>
-          
-           </div>    
-
-       </div>
+        </div>
+      </div>
     </fieldset>
   </div>
 </template>
@@ -90,35 +65,33 @@
 import { sendDemandeService } from "@/api/agency.service.js";
 import UserMixin from '@/mixins/user.mixin.js';
 
+import axios from "axios";
 export default {
 
-  name: "demande_blogger",
+  name: "demande_agency",
     mixins: [UserMixin],
 
    props: ['objtrip'],
   data() {
     return {
-      
-        item:{},
-          reservation: {
+        demande: {
             owner :this.user,
              suggestion : "",
-             trip : "",
-             participants :5,
-             from : "",
-             to:""
-        }
+             trip : ""
+        },
+        item:{},
     };
   },
   methods: {
        sendDemande(){
-         this.reservation.trip=this.objtrip
-             this.$store.dispatch('reservationsuggest',this.reservation).then(data => {
+                  this.demande.trip=this.objtrip
+
+             this.$store.dispatch('demandesuggest',this.demande).then(data => {
            // console.log("aziz")
-     })  
-      this.$router.push({
-        name: "status_reservation",
-      });  
+     })    
+        this.$router.push({
+        name: "status_demande",
+      });
        }
    
   },
@@ -132,7 +105,6 @@ export default {
   mounted() {
    // this.$store.dispatch("tripstatus").then(data => {
      //console.log("ggg",this.objtrip)
-     console.log("hhh",this.objtrip)
       this.item = this.objtrip;
      // console.log("whta",his.item, this.objtrip)
      /* this.milieu = this.rowData.length / 2;
@@ -163,9 +135,7 @@ export default {
   width: 850px;
   background-color: white;
   height: 505px;
-   box-shadow: 4px 2px 10px rgb(216, 223, 216);
- border-top-left-radius: 20px;
-   border-bottom-left-radius: 20px;
+  border: 1px solid rgb(235, 229, 229);
   overflow: auto;
   padding-top: 15px;
   scrollbar-color: rebeccapurple rgb(56, 228, 113);
@@ -257,38 +227,18 @@ table {
   background-color: red;
 }
 .t1{
-   width: 380px;
-
-   height: 290px;
+   width: 602px;
+   height: 280px;
    border: 2px solid rgb(224, 224, 216);
     overflow:hidden;
-    margin-left: 60px;
+    margin-left:110px;
     resize: none;
 
-    
 }
 
 .button{
     margin-top: 15px;
-    margin-left: 175px;
-}
-
-.cntr{
-  width: 300px;
-  border: black;
-  border: solid;
-}
-
-.input{
-  margin-bottom: 15px;
-  margin-top: 8px;
-}
-
-label{
-  color: blueviolet;
+    margin-left: 350px;
 }
  
- .xnb{
-   margin-left: 90px;
- }
 </style>

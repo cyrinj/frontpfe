@@ -191,15 +191,13 @@ export default {
   width: 950px;
   background-color: white;
   height: 505px;
+  border: 1px solid rgb(235, 229, 229);
   padding-right: 32px;
   padding-right: 32px;
   padding-top: 20px;
   overflow-y: scroll;
   scrollbar-color: rgb(208, 207, 228) rgb(226, 233, 226);
   scrollbar-width: thin;
-     box-shadow: 4px 2px 10px rgb(216, 223, 216);
- border-top-left-radius: 20px;
-   border-bottom-left-radius: 20px;
 }
 .container {
   position: relative;
