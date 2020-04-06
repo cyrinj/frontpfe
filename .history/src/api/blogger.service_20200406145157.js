@@ -22,7 +22,7 @@ export function reservationstatusService() {
 
 export function tripsacceptedService() {
     return new Promise((resolve, reject) => {
-        axios.post('http://localhost:3000/api/v2/host/allhosted').then(response => {
+        axios.post(url + '/alltripsacceptedbywantotrip').then(response => {
             resolve(response.data.data)
         }).catch(err => reject(err))
     }) 

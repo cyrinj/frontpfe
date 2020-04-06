@@ -142,24 +142,22 @@ export default {
   },
 
   mounted() {
-   /*  this.$store.dispatch("tripsaccepted").then(data => {
-
-      this.rowData = data;
+    // this.$store.dispatch("tripsaccepted").then(data => {
+ return new Promise((resolve, reject) => {
+        axios.get('http://localhost:3000/api/v2/host/allhosted').then(response => {
+           this.rowData =response.data.data;
      // console.log("seee",this.rowData)
       this.milieu = this.rowData.length / 2;
       this.rowData1 = this.rowData.slice(0, this.milieu);
-      this.rowData2 = this.rowData.slice(this.milieu, this.rowData.length);
-    });*/
-      return new Promise((resolve, reject) => {
-        axios.get('http://localhost:3000/api/v2/host/allhosted').then(response => {
-       this.rowData = response.data.data;
-       this.milieu = this.rowData.length / 2;
-       this.rowData1 = this.rowData.slice(0, this.milieu);
-       this.rowData2 = this.rowData.slice(this.milieu, this.rowData.length);
+      this.rowData2 = this.rowData.slice(this.milieu, this.rows.length);
+   // });
+    this.milieu = this.rowData.length / 2;
+    this.rowData1 = this.rowData.slice(0, this.milieu);
+    this.rowData2 = this.rowData.slice(this.milieu,  this.rowData.length);
             resolve(response.data.data)
         }).catch(err => reject(err))
     }) 
- 
+     
   
   
   },

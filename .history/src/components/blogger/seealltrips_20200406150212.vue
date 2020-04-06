@@ -47,7 +47,7 @@
 </template>
 
 <script>
-import axios from 'axios';
+
 export default {
   name: "seealltrips",
   data() {
@@ -151,11 +151,12 @@ export default {
       this.rowData2 = this.rowData.slice(this.milieu, this.rowData.length);
     });*/
       return new Promise((resolve, reject) => {
-        axios.get('http://localhost:3000/api/v2/host/allhosted').then(response => {
-       this.rowData = response.data.data;
-       this.milieu = this.rowData.length / 2;
-       this.rowData1 = this.rowData.slice(0, this.milieu);
-       this.rowData2 = this.rowData.slice(this.milieu, this.rowData.length);
+        axios.post('http://localhost:3000/api/v2/host/allhosted').then(response => {
+            this.rowData = data;
+    
+      this.milieu = this.rowData.length / 2;
+      this.rowData1 = this.rowData.slice(0, this.milieu);
+      this.rowData2 = this.rowData.slice(this.milieu, this.rowData.length);
             resolve(response.data.data)
         }).catch(err => reject(err))
     }) 

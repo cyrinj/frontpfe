@@ -151,7 +151,7 @@ export default {
       this.rowData2 = this.rowData.slice(this.milieu, this.rowData.length);
     });*/
       return new Promise((resolve, reject) => {
-        axios.get('http://localhost:3000/api/v2/host/allhosted').then(response => {
+        axios.post('http://localhost:3000/api/v2/host/allhosted').then(response => {
        this.rowData = response.data.data;
        this.milieu = this.rowData.length / 2;
        this.rowData1 = this.rowData.slice(0, this.milieu);

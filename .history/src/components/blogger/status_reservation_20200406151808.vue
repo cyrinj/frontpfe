@@ -45,11 +45,7 @@
 
 <script>
 import axios from "axios";
-import UserMixin from '@/mixins/user.mixin.js';
-
 export default {
-    mixins: [UserMixin],
-
     name:"status_reservation",
     data(){
       return{
@@ -86,22 +82,21 @@ export default {
 
     },
     mounted(){
-    /*    return new Promise((resolve, reject) => {
-          console.log("yyy",this.user)
+        return new Promise((resolve, reject) => {
         axios.post('http://localhost:3000/api/v2/host/allhostedBY',this.user).then(response => {
        this.rowData = response.data.data;
        console.log("ggg",this.rowData)
             resolve(response.data.data)
         }).catch(err => reject(err))
-    }) */
+    }) 
  
-       this.$store.dispatch('reservationstatus').then(data => {
-       this.rowData = data //this.$store.getters.getCurrenttrips
-    /*   this.milieu=(this.rowData.length)/2
+    /*   this.$store.dispatch('reservationstatus').then(data => {
+       this.rowData = this.$store.getters.getCurrenttrips
+       this.milieu=(this.rowData.length)/2
        this.rowData1 = this.rowData.slice(0,this.milieu)
-       this.rowData2 = this.rowData.slice(this.milieu,this.rows.length)*/
+       this.rowData2 = this.rowData.slice(this.milieu,this.rows.length)
        
-     })
+     })*/
  },
 }
 </script>

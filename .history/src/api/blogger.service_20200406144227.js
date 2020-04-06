@@ -12,8 +12,8 @@ let url = config.host + path + '/host'
 
 export function reservationstatusService() {
     return new Promise((resolve, reject) => {
-        axios.get('http://localhost:3000/api/v2/tripper/alltripsbyuser').then(response => {
-            console.log("hhhhhh")
+        console.log("gggggggggggg")
+        axios.post('http://localhost:3000/api/v2/host/allhosted').then(response => {
             resolve(response.data.data)
         }).catch(err => reject(err))
     }) 
@@ -22,7 +22,7 @@ export function reservationstatusService() {
 
 export function tripsacceptedService() {
     return new Promise((resolve, reject) => {
-        axios.post('http://localhost:3000/api/v2/host/allhosted').then(response => {
+        axios.post(url + '/alltripsacceptedbywantotrip').then(response => {
             resolve(response.data.data)
         }).catch(err => reject(err))
     }) 
