@@ -36,8 +36,7 @@
 
         <div class="columns is-multiple sous">
           <div class="column is-6">
-                   <textarea class="t1" placeholder="Your Motiviation?" v-model="reservation.motivation"></textarea>
-
+            <textarea class="t1" placeholder="Any suggestion?" v-model="reservation.suggestion"></textarea>
           </div>
           <div class="column is-4 xnb">
             <label class="labelstyle">Number of participants</label>
@@ -46,14 +45,12 @@
               class="input is-small"
               type="number"
               placeholder="Number participants"
-              :min="item.min"
-              :max="item.max"
-              v-model="reservation.max_eff"
+              min="5"
+              max="20"
+              v-model="reservation.host_nbr"
             />
-            <textarea class="t2" placeholder="Any suggestion?" v-model="reservation.special_request"></textarea>
 
-
-        <!--    <label class="labelstyle">Start Date</label>
+            <label class="labelstyle">Start Date</label>
             <input
               class="input is-small"
               type="date"
@@ -67,7 +64,7 @@
               type="date"
               placeholder="Number participants"
               v-model="reservation.to"
-            />-->
+            />
 
             <button @click="sendDemande()" class="button is-link">Send</button>
           </div>
@@ -90,59 +87,31 @@ export default {
     return {
       item: {},
       reservation: {
-       // email: String,
-       hostid: String,   //owner
-       trip: {title:""},
-       // date_depart: Date,
-        date_denvois: "",
+        email: String,
+        date_depart: Date,
         host_nbr: Number,
         workshop: {
           workshp_nbr: Number,
           logistics_workshop: String,
           content: String
         },
-       // min_eff: Number,
+        min_eff: Number,
         max_eff: Number,
-        special_request: "",
-        motivation: "",
+        special_request: String,
+        motivation: String,
         status: String,
-        tripid:String,
+        hostid: String,
+        suggestion: String,
+        trip: {title:String},
+        host_nbr: Number
       }
     };
   },
   methods: {
-     moment: function () {
-    return moment();
-  },
     sendDemande() {
       this.reservation.hostid = this.user._id;
-      this.reservation.trip.title = this.objtrip.title;
-      console.log("t1",this.objtrip.id)
-      console.log("t2",this.objtrip._id)
-      this.reservation.tripid=this.objtrip._id
-            let date_ob = new Date();
-
-                 //current date
-                 let date = ("0" + date_ob.getDate()).slice(-2);
-
-                 // current month
-                 let month = ("0" + (date_ob.getMonth() + 1)).slice(-2);
-                 
-                 // current year
-                 let year = date_ob.getFullYear();
-                 
-                 // current hours
-                 let hours = date_ob.getHours();
-                 
-                 // current minutes
-                 let minutes = date_ob.getMinutes();
-                 
-                 // current seconds
-                 let seconds = date_ob.getSeconds();
-
-              let   d= year + "-" + month + "-" + date + " " + hours + ":" + minutes + ":" + seconds
-      this.reservation.date_denvois=d
-      console.log("ggghjkl", this.reservation.trip.title);
+      this.reservation.trip = this.objtrip.title;
+      console.log("ggghjkl", this.objtrip.title);
       this.$store
         .dispatch("reservationsuggest", this.reservation)
         .then(data => {
@@ -289,19 +258,11 @@ table {
 }
 .t1 {
   width: 380px;
+
   height: 290px;
   border: 2px solid rgb(224, 224, 216);
   overflow: hidden;
   margin-left: 60px;
-  resize: none;
-}
-
-.t2 {
-  width: 250px;
-  height: 160px;
-  border: 2px solid rgb(224, 224, 216);
-  overflow: hidden;
- 
   resize: none;
 }
 

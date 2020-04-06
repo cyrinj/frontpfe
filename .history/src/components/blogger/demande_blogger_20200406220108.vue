@@ -92,7 +92,7 @@ export default {
       reservation: {
        // email: String,
        hostid: String,   //owner
-       trip: {title:""},
+       trip: {title:String},
        // date_depart: Date,
         date_denvois: "",
         host_nbr: Number,
@@ -106,7 +106,6 @@ export default {
         special_request: "",
         motivation: "",
         status: String,
-        tripid:String,
       }
     };
   },
@@ -117,9 +116,6 @@ export default {
     sendDemande() {
       this.reservation.hostid = this.user._id;
       this.reservation.trip.title = this.objtrip.title;
-      console.log("t1",this.objtrip.id)
-      console.log("t2",this.objtrip._id)
-      this.reservation.tripid=this.objtrip._id
             let date_ob = new Date();
 
                  //current date

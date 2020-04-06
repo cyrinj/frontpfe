@@ -36,8 +36,7 @@
 
         <div class="columns is-multiple sous">
           <div class="column is-6">
-                   <textarea class="t1" placeholder="Your Motiviation?" v-model="reservation.motivation"></textarea>
-
+            <textarea class="t1" placeholder="Any suggestion?" v-model="reservation.special_request"></textarea>
           </div>
           <div class="column is-4 xnb">
             <label class="labelstyle">Number of participants</label>
@@ -46,12 +45,10 @@
               class="input is-small"
               type="number"
               placeholder="Number participants"
-              :min="item.min"
-              :max="item.max"
-              v-model="reservation.max_eff"
+              min="5"
+              max="20"
+              v-model="reservation.host_nbr"
             />
-            <textarea class="t2" placeholder="Any suggestion?" v-model="reservation.special_request"></textarea>
-
 
         <!--    <label class="labelstyle">Start Date</label>
             <input
@@ -92,7 +89,7 @@ export default {
       reservation: {
        // email: String,
        hostid: String,   //owner
-       trip: {title:""},
+       trip: {title:String},
        // date_depart: Date,
         date_denvois: "",
         host_nbr: Number,
@@ -104,9 +101,8 @@ export default {
        // min_eff: Number,
         max_eff: Number,
         special_request: "",
-        motivation: "",
+        motivation: String,
         status: String,
-        tripid:String,
       }
     };
   },
@@ -117,9 +113,6 @@ export default {
     sendDemande() {
       this.reservation.hostid = this.user._id;
       this.reservation.trip.title = this.objtrip.title;
-      console.log("t1",this.objtrip.id)
-      console.log("t2",this.objtrip._id)
-      this.reservation.tripid=this.objtrip._id
             let date_ob = new Date();
 
                  //current date
@@ -289,19 +282,11 @@ table {
 }
 .t1 {
   width: 380px;
+
   height: 290px;
   border: 2px solid rgb(224, 224, 216);
   overflow: hidden;
   margin-left: 60px;
-  resize: none;
-}
-
-.t2 {
-  width: 250px;
-  height: 160px;
-  border: 2px solid rgb(224, 224, 216);
-  overflow: hidden;
- 
   resize: none;
 }
 

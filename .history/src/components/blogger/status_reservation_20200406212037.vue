@@ -2,7 +2,7 @@
 <div id="status_reservation">
  <fieldset class="cadre_status ">
   <!-- <button @click="sh()">sh</button> -->
-
+{{rowData}}
       <div class="scroller_status">
     <table class="customers_status" id="montab">
 
@@ -30,8 +30,8 @@
    <td>{{ item.trip.from }}
        <td>{{ item.trip.to }}</td>
         <td>{{ item.trip.theme }}</td>
-          <td>{{ item.date_denvois}}</td>
-            <td>{{ item. max_eff}}</td>
+          <td>{{ item.dateenvois}}</td>
+            <td>{{ item.host_nbr}}</td>
            <td>{{ item.status }}</td>
 </tr>
       </tbody>

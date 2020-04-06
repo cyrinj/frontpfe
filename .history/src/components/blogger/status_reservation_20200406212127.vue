@@ -30,8 +30,8 @@
    <td>{{ item.trip.from }}
        <td>{{ item.trip.to }}</td>
         <td>{{ item.trip.theme }}</td>
-          <td>{{ item.date_denvois}}</td>
-            <td>{{ item. max_eff}}</td>
+          <td>{{ item.dateenvois}}</td>
+            <td>{{ item.host_nbr}}</td>
            <td>{{ item.status }}</td>
 </tr>
       </tbody>

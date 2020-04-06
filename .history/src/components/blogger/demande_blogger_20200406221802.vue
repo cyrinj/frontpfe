@@ -118,7 +118,7 @@ export default {
       this.reservation.hostid = this.user._id;
       this.reservation.trip.title = this.objtrip.title;
       console.log("t1",this.objtrip.id)
-      console.log("t2",this.objtrip._id)
+      console.log("t1",this.objtrip._id)
       this.reservation.tripid=this.objtrip._id
             let date_ob = new Date();
 

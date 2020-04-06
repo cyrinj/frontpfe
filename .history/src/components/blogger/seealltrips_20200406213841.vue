@@ -14,7 +14,7 @@
         
            </div>
             <button class="container" @click="showme(item)">
-              <img :src="item.pictures.cover" />
+              <img :src="item.image" />
         
               
       <!--     <div class="top-left">{{item.title}} <br>{{item.theme}}<br> {{item.from}}-{{item.to}}</div> 

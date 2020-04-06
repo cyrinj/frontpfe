@@ -8,8 +8,7 @@ Vue.use(Notifications)
 import VueGoodWizard from 'vue-good-wizard';
 Vue.use(VueGoodWizard);
 import store from  './store'
-import moment from 'vue-moment';
-Vue.use(moment);
+
 
 import VueFormWizard from 'vue-form-wizard'
 import 'vue-form-wizard/dist/vue-form-wizard.min.css'
