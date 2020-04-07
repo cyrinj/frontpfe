@@ -154,7 +154,6 @@ export default {
          this.reservation.trip.title = this.objtrip.trip.title;
       this.reservation.tripid=this.objtrip.trip._id
       this.reservation._id=this.objtrip._id
-      this.reservation.date_denvois=this.objtrip.date_denvois
       let date_ob = new Date();
 
                  //current date
@@ -176,8 +175,7 @@ export default {
                  let seconds = date_ob.getSeconds();
 
               let   d= year + "-" + month + "-" + date + " " + hours + ":" + minutes + ":" + seconds
-              this.reservation.last_update=d
-              
+              this.reservation.last_upadate=d
        this.$store
         .dispatch("reservationupdate", this.reservation)
         .then(data => {

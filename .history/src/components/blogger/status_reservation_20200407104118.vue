@@ -12,7 +12,6 @@
             <th>To</th>
             <th>Theme</th>
             <th>Date envois</th>
-              <th>Last update</th>
             <th>Number participants</th>
 
             <th>Status</th>
@@ -27,7 +26,6 @@
               <td>{{ item.trip.to }}</td>
               <td>{{ item.trip.theme }}</td>
               <td>{{ item.date_denvois}}</td>
-                <td>{{ item.last_update}}</td>
               <td>{{ item. max_eff}}</td>
               <td width="10%" style="text-align:center">
                 {{ item.status }}
@@ -93,13 +91,6 @@ export default {
     sh() {
       console.log("trah", this.rowData);
     },
-    update(item){
-  
-   this.$router.push({
-                name: "demande_blogger",
-                params: { objtrip: item }
-              });
-},
 
     supprimer(item) {
       var r = confirm("Do you want to delete the trip");
@@ -113,7 +104,6 @@ export default {
   mounted() {
       this.$store.dispatch("reservationstatus",this.user).then(data => {
           this.rowData = data
-          console.log("ok",this.rowData);
           (async () => {
             this.rowData.forEach(async e => {
               await axios

@@ -1,4 +1,4 @@
-import { reservationupdateService,reservationdeleteService,sendReservationService, tripsacceptedService , reservationstatusService } from '@/api/blogger.service.js'
+import { reservationdeleteService,sendReservationService, tripsacceptedService , reservationstatusService } from '@/api/blogger.service.js'
 //import {   getCurrentUser} from   './store/auth.store.js'
 export default {
     state: {
@@ -37,16 +37,6 @@ export default {
  
             }
          },
-
-         setCurrentreservationsUpdate(state, reservation) {
-            // console.log("afficher", state.trips[0])
-             for (var i = 0; i < state.reservations.length; i++) {
-                 if (state.reservations[i]._id == reservation._id) {
-                     state.reservations[i] = reservation
-                     return 
-                 }
-             }
-         },
     },
     actions: {
 
@@ -62,8 +52,8 @@ export default {
 
         },
 
-        async reservationstatus(context,user) {
-            let reservationsnew = await reservationstatusService(user)
+        async reservationstatus(context) {
+            let reservationsnew = await reservationstatusService()
             context.commit('setCurrentreservation', reservationsnew)
             return reservationsnew
         },
@@ -74,13 +64,6 @@ export default {
             //console.log("hey",item._id)
             //let tripsnew = this.getters.getCurrenttrips.data.data
             context.commit('setCurrenttripsdelete', item._id)
-
-        },
-
-        async reservationupdate(context, reservation) {
-            //  console.log("111",item)
-            await reservationupdateService(reservation)
-            context.commit('setCurrenttripsUpdate', reservation)
 
         },
 

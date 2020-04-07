@@ -51,13 +51,4 @@ export function reservationdeleteService(reservation) {
 }
 
 
-export function reservationupdateService(reservation) {
-  
-    return new Promise((resolve, reject) => {
-        axios.post(url + '/update',reservation).then(response => {
-            resolve(response.data.data)
-        }).catch(err => reject(err))
-    }) 
-}
-
 

@@ -46,6 +46,8 @@ export default {
                      return 
                  }
              }
+ 
+             console.log("hettt", state.reservations[i])
          },
     },
     actions: {

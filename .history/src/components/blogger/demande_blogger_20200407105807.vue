@@ -96,7 +96,6 @@ export default {
        trip: {title:""},
        // date_depart: Date,
         date_denvois: "",
-        last_update : "",
         host_nbr: Number,
         workshop: {
           workshp_nbr: Number,
@@ -118,10 +117,9 @@ export default {
   },
     sendDemande() {
       this.reservation.hostid = this.user._id;
-      if(this.x==0)
-      { this.reservation.trip.title = this.objtrip.title;
+      this.reservation.trip.title = this.objtrip.title;
       this.reservation.tripid=this.objtrip._id
-        let date_ob = new Date();
+            let date_ob = new Date();
 
                  //current date
                  let date = ("0" + date_ob.getDate()).slice(-2);
@@ -143,49 +141,11 @@ export default {
 
               let   d= year + "-" + month + "-" + date + " " + hours + ":" + minutes + ":" + seconds
       this.reservation.date_denvois=d
-      this.reservation.last_update=d
       this.$store
         .dispatch("reservationsuggest", this.reservation)
         .then(data => {
           // console.log("aziz")
         });
-        }
-      else {
-         this.reservation.trip.title = this.objtrip.trip.title;
-      this.reservation.tripid=this.objtrip.trip._id
-      this.reservation._id=this.objtrip._id
-      this.reservation.date_denvois=this.objtrip.date_denvois
-      let date_ob = new Date();
-
-                 //current date
-                 let date = ("0" + date_ob.getDate()).slice(-2);
-
-                 // current month
-                 let month = ("0" + (date_ob.getMonth() + 1)).slice(-2);
-                 
-                 // current year
-                 let year = date_ob.getFullYear();
-                 
-                 // current hours
-                 let hours = date_ob.getHours();
-                 
-                 // current minutes
-                 let minutes = date_ob.getMinutes();
-                 
-                 // current seconds
-                 let seconds = date_ob.getSeconds();
-
-              let   d= year + "-" + month + "-" + date + " " + hours + ":" + minutes + ":" + seconds
-              this.reservation.last_update=d
-              
-       this.$store
-        .dispatch("reservationupdate", this.reservation)
-        .then(data => {
-          // console.log("aziz")
-        });
-      }
-     
-          
      this.$router.push({
         name: "status_reservation"
       });

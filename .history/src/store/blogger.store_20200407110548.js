@@ -1,4 +1,4 @@
-import { reservationupdateService,reservationdeleteService,sendReservationService, tripsacceptedService , reservationstatusService } from '@/api/blogger.service.js'
+import { reservationdeleteService,sendReservationService, tripsacceptedService , reservationstatusService } from '@/api/blogger.service.js'
 //import {   getCurrentUser} from   './store/auth.store.js'
 export default {
     state: {
@@ -46,6 +46,8 @@ export default {
                      return 
                  }
              }
+ 
+             console.log("hettt", state.reservations[i])
          },
     },
     actions: {
@@ -79,7 +81,7 @@ export default {
 
         async reservationupdate(context, reservation) {
             //  console.log("111",item)
-            await reservationupdateService(reservation)
+            await tripupdateService(reservation)
             context.commit('setCurrenttripsUpdate', reservation)
 
         },

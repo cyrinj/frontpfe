@@ -10,15 +10,13 @@ let url = config.host + path + '/host'
 
 
 
-export function reservationstatusService(user) {
+export function reservationstatusService() {
     return new Promise((resolve, reject) => {
-        axios
-          .post("http://localhost:3000/api/v2/host/allhostedBY",user)
-          .then(response => {
-            resolve(response.data.data);
-          })
-          .catch(err => reject(err));
-      });
+        axios.get('http://localhost:3000/api/v2/tripper/alltripsbyuser').then(response => {
+            console.log("hhhhhh")
+            resolve(response.data.data)
+        }).catch(err => reject(err))
+    }) 
 }
 
 
@@ -50,14 +48,5 @@ export function reservationdeleteService(reservation) {
     }) 
 }
 
-
-export function reservationupdateService(reservation) {
-  
-    return new Promise((resolve, reject) => {
-        axios.post(url + '/update',reservation).then(response => {
-            resolve(response.data.data)
-        }).catch(err => reject(err))
-    }) 
-}
 
 
