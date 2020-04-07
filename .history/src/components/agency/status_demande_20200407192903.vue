@@ -73,14 +73,6 @@ export default {
       supp(){  document.getElementById("montab").deleteRow(0);
 },
 
-  update(item){
-  
-   this.$router.push({
-                name: "demande_agency",
-                params: { objtrip: item }
-              });
-},
-
  supprimer(item) {
       var r = confirm("Do you want to delete the trip");
       if (r == true) {

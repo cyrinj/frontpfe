@@ -176,7 +176,7 @@ export default {
     if(this.objtrip.trip==null)
     this.item = this.objtrip;
     else {this.item=this.objtrip.trip
-    this.demande.note=this.objtrip.note
+    this.deamande.note=this.objtrip.note
     this.x=1}
   }
 };

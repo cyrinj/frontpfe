@@ -28,15 +28,7 @@
         <td>{{ item.trip.theme }}</td>
           <td>{{ item.date_denvois}}</td>
            <td>{{ item.last_update}}</td>
-           <td width="10%" style="text-align:center">{{ item.status }}
-              <br />
-                <button class="btn" @click="update(item)">
-                  <i class="fa fa-calendar-check"></i>
-                </button>
-                <button class="btn1" @click="supprimer(item)">
-                  <i class="fa fa-trash"></i>
-                </button>
-           </td>
+           <td width="10%" style="text-align:center">{{ item.status }}</td>
 </tr>
       </tbody>
    
@@ -72,23 +64,6 @@ export default {
     methods : {
       supp(){  document.getElementById("montab").deleteRow(0);
 },
-
-  update(item){
-  
-   this.$router.push({
-                name: "demande_agency",
-                params: { objtrip: item }
-              });
-},
-
- supprimer(item) {
-      var r = confirm("Do you want to delete the trip");
-      if (r == true) {
-        this.$store.dispatch("demandedelete", item).then(data => {
-          // console.log("aziz")
-        });
-      }
-    }
 
 
     },

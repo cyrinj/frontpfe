@@ -37,15 +37,14 @@ export default {
              }
          },
 
-         setCurrentdemandesdelete(state, demande_id) {
+         setCurrentdemandesUpdate(state, reservation) {
             // console.log("afficher", state.trips[0])
-            for (var i = 0; i <state.demandes.length; i++) {
-                if (state.demandes[i]._id == demande_id) {
-                   state.demandes.splice(i, 1);
-                    break
-                }
- 
-            }
+             for (var i = 0; i < state.reservations.length; i++) {
+                 if (state.reservations[i]._id == reservation._id) {
+                     state.reservations[i] = reservation
+                     return 
+                 }
+             }
          },
     },
     actions: {

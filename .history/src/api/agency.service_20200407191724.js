@@ -46,15 +46,3 @@ export function demandeupdateService(reservation) {
 }
 
 
-export function demandedeleteService(demande) {
-  
-    return new Promise((resolve, reject) => {
-      // console.log(url + '/alltripsbyuser')
-        axios.post('http://localhost:3000/api/v2/agency/deleteoffer',demande).then(response => {
-           // console.log("fff",item)
-        //  resolve(userq)
-            resolve(response.data.data)
-        }).catch(err => reject(err))
-    }) 
-}
-

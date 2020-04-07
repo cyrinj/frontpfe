@@ -13,30 +13,20 @@
     <th>To</th>
      <th>Theme</th>
      <th>Date envois</th>
-      <th>Last update</th>
        <th>Status</th>
   </tr>
    
       <tbody>
     
       <tr v-for="(item,idx) in rowData" :key="idx" >
-  <td>{{ item.trip.title}}</td>
+ <!-- <td>{{ item.trip.title}}</td>
 <td>{{ item.trip.country }}</td>
-  
+   <td>{{ item.trip.blogger}}</td>
    <td>{{ item.trip.from }}
        <td>{{ item.trip.to }}</td>
-        <td>{{ item.trip.theme }}</td>
-          <td>{{ item.date_denvois}}</td>
-           <td>{{ item.last_update}}</td>
-           <td width="10%" style="text-align:center">{{ item.status }}
-              <br />
-                <button class="btn" @click="update(item)">
-                  <i class="fa fa-calendar-check"></i>
-                </button>
-                <button class="btn1" @click="supprimer(item)">
-                  <i class="fa fa-trash"></i>
-                </button>
-           </td>
+        <td>{{ item.trip.theme }}</td>-->
+          <td>{{ item.dateenvois}}</td>
+           <td>{{ item.status }}</td>
 </tr>
       </tbody>
    
@@ -73,30 +63,12 @@ export default {
       supp(){  document.getElementById("montab").deleteRow(0);
 },
 
-  update(item){
-  
-   this.$router.push({
-                name: "demande_agency",
-                params: { objtrip: item }
-              });
-},
-
- supprimer(item) {
-      var r = confirm("Do you want to delete the trip");
-      if (r == true) {
-        this.$store.dispatch("demandedelete", item).then(data => {
-          // console.log("aziz")
-        });
-      }
-    }
-
 
     },
      mounted(){
       
         this.$store.dispatch("demandestatus",this.user).then(data => {
           this.rowData = data
-          console.log("ok",this.rowData);
           (async () => {
             this.rowData.forEach(async e => {
               await axios
@@ -110,8 +82,6 @@ export default {
           })();
         
     })
-
-        console.log("ok",this.rowData);
        
        /*
        this.$store.dispatch('demandestatus').then(data => {

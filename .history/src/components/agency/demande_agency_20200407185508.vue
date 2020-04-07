@@ -82,7 +82,6 @@ export default {
            trip: {title:""},
            date_denvois: "",
            last_update : "",
-           status:"",
         },
         item:{},
     };
@@ -117,7 +116,7 @@ export default {
       this.demande.date_denvois=d
       this.demande.last_update=d
       this.$store
-        .dispatch("demandesuggest", this.demande)
+        .dispatch("demandesuggest", this.reservation)
         .then(data => {
           // console.log("aziz")
         });
@@ -151,7 +150,7 @@ export default {
               this.demande.last_update=d
               
        this.$store
-        .dispatch("demandeupdate", this.demande)
+        .dispatch("demandeupdate", this.reservation)
         .then(data => {
           // console.log("aziz")
         });
@@ -176,7 +175,7 @@ export default {
     if(this.objtrip.trip==null)
     this.item = this.objtrip;
     else {this.item=this.objtrip.trip
-    this.demande.note=this.objtrip.note
+    this.deamande.note=this.objtrip.note
     this.x=1}
   }
 };

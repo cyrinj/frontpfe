@@ -1,4 +1,4 @@
-import { demandedeleteService,demandeupdateService, sendDemandeService, tripsproposésService , demandestatusService } from '@/api/agency.service.js'
+import { demandeupdateService, sendDemandeService, tripsproposésService , demandestatusService } from '@/api/agency.service.js'
 //import {   getCurrentUser} from   './store/auth.store.js'
 export default {
     state: {
@@ -36,17 +36,6 @@ export default {
                  }
              }
          },
-
-         setCurrentdemandesdelete(state, demande_id) {
-            // console.log("afficher", state.trips[0])
-            for (var i = 0; i <state.demandes.length; i++) {
-                if (state.demandes[i]._id == demande_id) {
-                   state.demandes.splice(i, 1);
-                    break
-                }
- 
-            }
-         },
     },
     actions: {
 
@@ -63,10 +52,10 @@ export default {
 
         },
 
-        async demandestatus(context,agency) {
-            let demandesnew = await demandestatusService(agency)
+        async demandestatus(context) {
+            let demandesnew = await demandestatusService()
             context.commit('setCurrentdemandes', demandesnew)
-            return demandesnew
+            return tripsnew
         },
 
         async demandeupdate(context, demande) {
@@ -75,16 +64,6 @@ export default {
             context.commit('setCurrentdemandesUpdate', demande)
 
         },
-
-        async demandedelete(context, item) {
-            console.log("111",item)
-          await demandedeleteService(item)
-           //console.log("hey",item._id)
-           //let tripsnew = this.getters.getCurrenttrips.data.data
-           context.commit('setCurrentdemandesdelete', item._id)
-
-       },
-
 
 
     }

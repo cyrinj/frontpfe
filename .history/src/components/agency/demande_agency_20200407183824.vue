@@ -74,7 +74,6 @@ export default {
    props: ['objtrip'],
   data() {
     return {
-       x:0,
         demande: {
            tripid:"",
            hostid:"",
@@ -82,86 +81,20 @@ export default {
            trip: {title:""},
            date_denvois: "",
            last_update : "",
-           status:"",
         },
         item:{},
     };
   },
   methods: {
        sendDemande(){
-                this.demande.hostid = this.user._id;
-      if(this.x==0)
-      { this.demande.trip.title = this.objtrip.title;
-      this.demande.tripid=this.objtrip._id
-        let date_ob = new Date();
+                  this.demande.trip=this.objtrip
 
-                 //current date
-                 let date = ("0" + date_ob.getDate()).slice(-2);
-
-                 // current month
-                 let month = ("0" + (date_ob.getMonth() + 1)).slice(-2);
-                 
-                 // current year
-                 let year = date_ob.getFullYear();
-                 
-                 // current hours
-                 let hours = date_ob.getHours();
-                 
-                 // current minutes
-                 let minutes = date_ob.getMinutes();
-                 
-                 // current seconds
-                 let seconds = date_ob.getSeconds();
-
-              let   d= year + "-" + month + "-" + date + " " + hours + ":" + minutes + ":" + seconds
-      this.demande.date_denvois=d
-      this.demande.last_update=d
-      this.$store
-        .dispatch("demandesuggest", this.demande)
-        .then(data => {
-          // console.log("aziz")
-        });
-        }
-      else {
-         this.demande.trip.title = this.objtrip.trip.title;
-      this.demande.tripid=this.objtrip.trip._id
-      this.demande._id=this.objtrip._id
-      this.demande.date_denvois=this.objtrip.date_denvois
-      let date_ob = new Date();
-
-                 //current date
-                 let date = ("0" + date_ob.getDate()).slice(-2);
-
-                 // current month
-                 let month = ("0" + (date_ob.getMonth() + 1)).slice(-2);
-                 
-                 // current year
-                 let year = date_ob.getFullYear();
-                 
-                 // current hours
-                 let hours = date_ob.getHours();
-                 
-                 // current minutes
-                 let minutes = date_ob.getMinutes();
-                 
-                 // current seconds
-                 let seconds = date_ob.getSeconds();
-
-              let   d= year + "-" + month + "-" + date + " " + hours + ":" + minutes + ":" + seconds
-              this.demande.last_update=d
-              
-       this.$store
-        .dispatch("demandeupdate", this.demande)
-        .then(data => {
-          // console.log("aziz")
-        });
-      }
-     
-          
-     this.$router.push({
-        name: "status_demande"
+             this.$store.dispatch('demandesuggest',this.demande).then(data => {
+           // console.log("aziz")
+     })    
+        this.$router.push({
+        name: "status_demande",
       });
-    
        }
    
   },
@@ -173,11 +106,14 @@ export default {
                
             },*/
   mounted() {
-    if(this.objtrip.trip==null)
-    this.item = this.objtrip;
-    else {this.item=this.objtrip.trip
-    this.demande.note=this.objtrip.note
-    this.x=1}
+   // this.$store.dispatch("tripstatus").then(data => {
+     //console.log("ggg",this.objtrip)
+      this.item = this.objtrip;
+     // console.log("whta",his.item, this.objtrip)
+     /* this.milieu = this.rowData.length / 2;
+      this.rowData1 = this.rowData.slice(0, this.milieu);
+      this.rowData2 = this.rowData.slice(this.milieu, this.rows.length);*/
+   // });
   }
 };
 </script>

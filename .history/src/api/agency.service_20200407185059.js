@@ -10,9 +10,9 @@ let url = config.host + path + '/agency'
 
 
 
-export function demandestatusService(agency) {
+export function demandestatusService() {
     return new Promise((resolve, reject) => {
-        axios.post('http://localhost:3000/api/v2/agency/agencyoffers',agency).then(response => {
+        axios.post(url + '/alldemandesbyagency').then(response => {
             resolve(response.data.data)
         }).catch(err => reject(err))
     }) 
@@ -29,7 +29,7 @@ export function tripsproposésService() {
 
 export function sendDemandeService(demande) {
     return new Promise((resolve, reject) => {
-        axios.post('http://localhost:3000/api/v2/agency/makeOFFER', demande).then(response => {
+        axios.post(url + '/submitdemandeagency', demande).then(response => {
             resolve(response.data.data)
         }).catch(err => reject(err))
     }) 
@@ -45,16 +45,4 @@ export function demandeupdateService(reservation) {
     }) 
 }
 
-
-export function demandedeleteService(demande) {
-  
-    return new Promise((resolve, reject) => {
-      // console.log(url + '/alltripsbyuser')
-        axios.post('http://localhost:3000/api/v2/agency/deleteoffer',demande).then(response => {
-           // console.log("fff",item)
-        //  resolve(userq)
-            resolve(response.data.data)
-        }).catch(err => reject(err))
-    }) 
-}
 
