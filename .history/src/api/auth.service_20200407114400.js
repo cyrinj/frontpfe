@@ -1,7 +1,7 @@
 import config from '../config/dev.json'
 import axios from 'axios'
 
-let url = config.host + '/api/v1'
+let url = config.host + /'api/v1'
 let urlSecure = config.host + '/api/v1' + '/secure'
 let path = '/api/v2';
 let url1 = config.host + path + '/tripper'
