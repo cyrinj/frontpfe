@@ -105,7 +105,6 @@
                     id="bb"
                     v-model="ddd"
                     list="countries"
-                    name="countriess"
                     v-on:keyup.enter="submitkey"
                   />
                   <datalist id="countries">
@@ -206,7 +205,6 @@ export default {
       step: 1,
       ddd: "",
       variable_qui_maide_pour_laffichage: 0,
-      countries1:["aa"],
       countries: [
         "Afghanistan",
         "Albania",

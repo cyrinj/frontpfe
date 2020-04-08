@@ -105,11 +105,10 @@
                     id="bb"
                     v-model="ddd"
                     list="countries"
-                    name="countriess"
                     v-on:keyup.enter="submitkey"
                   />
                   <datalist id="countries">
-                    <option v-for="(option,idx) in countries" :key="idx">{{option}}</option>
+                    <option ng-repeat="option in countries" :key="option" :value="option"/>
                   </datalist>
                 </div>
 
@@ -206,7 +205,6 @@ export default {
       step: 1,
       ddd: "",
       variable_qui_maide_pour_laffichage: 0,
-      countries1:["aa"],
       countries: [
         "Afghanistan",
         "Albania",

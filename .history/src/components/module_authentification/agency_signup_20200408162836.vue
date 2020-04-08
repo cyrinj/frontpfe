@@ -14,81 +14,79 @@
             <hr class="login-hr" />
             <div v-if="step === 1">
               <div class="box">
-                <form>
-                  <div class="field">
-                    <div class="control">
-                      <input
-                        id="username"
-                        class="input"
-                        type="text"
-                        placeholder="Agency name"
-                        v-model="user.username"
-                        required
-                      />
-                    </div>
+                <div class="field">
+                  <div class="control">
+                    <input
+                      id="username"
+                      class="input"
+                      type="text"
+                      placeholder="Agency name"
+                      v-model="user.username"
+                      required
+                    />
                   </div>
-                  <div class="field">
-                    <div class="control">
-                      <input
-                        id="email"
-                        class="input"
-                        type="email"
-                        placeholder="Your Email"
-                        v-model="user.email"
-                        required
-                      />
-                    </div>
+                </div>
+                <div class="field">
+                  <div class="control">
+                    <input
+                      id="email"
+                      class="input"
+                      type="email"
+                      placeholder="Your Email"
+                      v-model="user.email"
+                      required
+                    />
                   </div>
-                  <div class="field">
-                    <div class="control">
-                      <input
-                        id="password"
-                        class="input"
-                        type="password"
-                        placeholder="Your Password"
-                        v-model="user.password"
-                        required
-                      />
-                    </div>
+                </div>
+                <div class="field">
+                  <div class="control">
+                    <input
+                      id="password"
+                      class="input"
+                      type="password"
+                      placeholder="Your Password"
+                      v-model="user.password"
+                      required
+                    />
                   </div>
-                  <div class="field">
-                    <div class="control">
-                      <input
-                        id="confirmpassword"
-                        class="input"
-                        type="password"
-                        placeholder="Your Password"
-                        v-model="confirmpassword"
-                        required
-                      />
-                    </div>
+                </div>
+                <div class="field">
+                  <div class="control">
+                    <input
+                      id="confirmpassword"
+                      class="input"
+                      type="password"
+                      placeholder="Your Password"
+                      v-model="confirmpassword"
+                      required
+                    />
                   </div>
-                  <div class="field">
-                    <div class="control">
-                      <input
-                        id="securityquestion"
-                        class="input"
-                        type="text"
-                        placeholder="Security question"
-                        v-model="user.securityquestion"
-                        required
-                      />
-                    </div>
+                </div>
+                <div class="field">
+                  <div class="control">
+                    <input
+                      id="securityquestion"
+                      class="input"
+                      type="text"
+                      placeholder="Security question"
+                      v-model="user.securityquestion"
+                      required
+                    />
                   </div>
-                  <div class="field">
-                    <div class="control">
-                      <input
-                        id="response"
-                        class="input"
-                        type="text"
-                        placeholder="Response"
-                        v-model="user.response"
-                        required
-                      />
-                    </div>
+                </div>
+                <div class="field">
+                  <div class="control">
+                    <input
+                      id="response"
+                      class="input"
+                      type="text"
+                      placeholder="Response"
+                      v-model="user.response"
+                      required
+                    />
                   </div>
-                  <button class="button is-info is-rounded next1" @click="next1()">Next</button>
-                </form>
+                </div>
+                <button class="button is-info is-rounded next1" @click="next1()">Next</button>
               </div>
             </div>
 
@@ -105,7 +103,6 @@
                     id="bb"
                     v-model="ddd"
                     list="countries"
-                    name="countriess"
                     v-on:keyup.enter="submitkey"
                   />
                   <datalist id="countries">
@@ -122,65 +119,62 @@
             </div>
             <div v-if="step === 3">
               <div class="box">
-                <form>
-                  <div class="select">
-                    <select class="select" id="status" @change="onChange($event)">
-                      <option value disabled selected>Your Status ?</option>
-                      <option value="Agency" class="op">Agency</option>
-                      <option value="Local Guid" class="op">Local Guid</option>
-                    </select>
+                <div class="select">
+                  <select class="select" v-model="user.status" >
+                    <option value="Agency" class="op">Agecny</option>
+                    <option value="Local Guid" class="op">Local Guid</option>
+                  </select>
+                </div>
+                <div class="field">
+                  <div class="control">
+                    <input
+                      id="backupemail"
+                      class="input"
+                      type="email"
+                      placeholder="Your Backup Email"
+                      v-model="user.backupemail"
+                    />
                   </div>
-                  <div class="field">
-                    <div class="control">
-                      <input
-                        id="backupemail"
-                        class="input"
-                        type="email"
-                        placeholder="Your Backup Email"
-                        v-model="user.backupemail"
-                      />
-                    </div>
-                  </div>
+                </div>
 
-                  <div class="field">
-                    <div class="control">
-                      <input
-                        id="website"
-                        class="input"
-                        type="text"
-                        placeholder="Website"
-                        v-model="user.URL.website"
-                        required
-                      />
-                    </div>
+                <div class="field">
+                  <div class="control">
+                    <input
+                      id="website"
+                      class="input"
+                      type="text"
+                      placeholder="Website"
+                      v-model="user.website"
+                      required
+                    />
                   </div>
-                  <div class="field">
-                    <div class="control">
-                      <input
-                        id="facebook"
-                        class="input"
-                        type="text"
-                        placeholder="Facebook"
-                        v-model="user.URL.facebook"
-                        required
-                      />
-                    </div>
+                </div>
+                <div class="field">
+                  <div class="control">
+                    <input
+                      id="facebook"
+                      class="input"
+                      type="text"
+                      placeholder="Facebook"
+                      v-model="user.facebook"
+                      required
+                    />
                   </div>
-                  <div class="field">
-                    <div class="control">
-                      <input
-                        id="tripadvisor"
-                        class="input"
-                        type="text"
-                        placeholder="Trip advisor"
-                        v-model="user.URL.tripadvisor"
-                        required
-                      />
-                    </div>
+                </div>
+                <div class="field">
+                  <div class="control">
+                    <input
+                      id="tripaadvisor"
+                      class="input"
+                      type="text"
+                      placeholder="Trip advisor"
+                      v-model="user.tripadvisor"
+                      required
+                    />
                   </div>
-                  <button class="button previous is-rounded is-white" @click="prev2()">Previous</button>
-                  <button class="button next1 is-rounded is-info" @click="submit()">Send</button>
-                </form>
+                </div>
+                <button class="button previous is-rounded is-white" @click="prev2()">Previous</button>
+                <button class="button next1 is-rounded is-info" @click="submit()">Send</button>
               </div>
             </div>
           </div>
@@ -198,15 +192,13 @@ export default {
   data() {
     return {
       url: "http://localhost:3000",
-      user: { URL: {} },
+      user: {},
       reach: [],
       email: "",
       password: "",
       confirmpassword: "",
       step: 1,
       ddd: "",
-      variable_qui_maide_pour_laffichage: 0,
-      countries1:["aa"],
       countries: [
         "Afghanistan",
         "Albania",
@@ -435,12 +427,11 @@ export default {
   },
   methods: {
     myFunction1() {
-      var inpObjusername = document.getElementById("username");
       var inpObjpassword = document.getElementById("password");
       var inpObjemail = document.getElementById("email");
-
+      var inpObjbackupemail = document.getElementById("backupemail");
       var inpObjconfirmpassword = document.getElementById("confirmpassword");
-
+      var inpObjusername = document.getElementById("username");
       var inpObjsecurityquestion = document.getElementById("securityquestion");
       var inpObjresponse = document.getElementById("response");
 
@@ -514,13 +505,6 @@ export default {
       var inpObjwebsite = document.getElementById("website");
       var inpObjfacebook = document.getElementById("facebook");
       var inpObjtripadvisor = document.getElementById("tripadvisor");
-      var inpObjstatus = document.getElementById("status");
-
-      if (this.user.status == null || this.user.status == "") {
-        inpObjstatus.setCustomValidity("Please choose your status");
-      } else {
-        inpObjstatus.setCustomValidity("");
-      }
 
       if (this.user.URL.website == null || this.user.URL.website == "") {
         inpObjwebsite.setCustomValidity("Please enter your url website");
@@ -538,7 +522,7 @@ export default {
         this.user.URL.tripadvisor == null ||
         this.user.URL.tripadvisor == ""
       ) {
-        inpObjtripadvisor.setCustomValidity("Please enter your trip advisor");
+        inpObjtripadvisor.setCustomValidity("Please enter your response");
       } else {
         inpObjtripadvisor.setCustomValidity("");
       }
@@ -556,25 +540,16 @@ export default {
         return true;
       }
     },
-    existdeja(namecountry){
-         for (var i=0;i<this.reach.length;i++)
-         {
-           if(this.reach[i]==namecountry)
-           {
-             return true
-           }
-         }
-         return false
-    },
     submitkey() {
       var x = document.getElementById("cont");
       var datalist = this.ddd;
       this.ddd = "";
-      var exist = this.existdeja(datalist)
-     if(exist==false)
-     {
       var aEl = document.createElement("button");
       aEl.setAttribute("id", datalist);
+      /* aEl.href = "/news_events/";
+      var spanEl = document.createElement("span");
+      spanEl.classList.add("picon-p-add-news");
+      aEl.appendChild(spanEl);*/
       aEl.insertAdjacentText("beforeend", datalist);
       aEl.onclick = this.cv;
       aEl.style.color = "blue";
@@ -587,7 +562,6 @@ export default {
       aEl.style.display = "inline-block";
       x.appendChild(aEl);
       this.reach.push(datalist);
-      }
       console.log("after click data list", this.reach);
     },
     cv(datalist) {
@@ -600,10 +574,6 @@ export default {
       }
       x.remove();
       console.log("after click sur name country for delete", this.reach);
-    },
-    onChange(event) {
-      this.user.status = event.target.value;
-      this.variable_qui_maide_pour_laffichage = 1;
     },
     validate() {
       var msg;
@@ -621,53 +591,47 @@ export default {
       }
     },
     next1() {
-      //  var x = this.myFunction1();
-      var x = true;
-      if (x == true) {
-        this.step++;
-        setTimeout(
-          function() {
-            var e = document.getElementById("cont");
-            for (var i = 0; i < this.reach.length; i++) {
-              var datalist = this.reach[i];
-              var aEl = document.createElement("button");
-              aEl.setAttribute("id", datalist);
-              aEl.href = "/news_events/";
-              var spanEl = document.createElement("span");
-              spanEl.classList.add("picon-p-add-news");
-              aEl.appendChild(spanEl);
-              aEl.insertAdjacentText("beforeend", datalist);
-              aEl.onclick = this.cv;
-              aEl.style.color = "blue";
-              aEl.style.backgroundColor = "white";
-              aEl.style.height = "30px";
-              aEl.style.border = "solid";
-              aEl.style.borderWidth = "0.2px";
-              aEl.style.float = "left";
-              aEl.style.borderColor = "whitesmoke";
-              aEl.style.display = "inline-block";
-              e.appendChild(aEl);
-            }
-          }.bind(this),
-          10
-        );
+        var x = this.myFunction1();
 
-        console.log("after next1 ", this.reach);
-      }
+       if(x==true)
+{
+      this.step++;
+      setTimeout(
+        function() {
+          var e = document.getElementById("cont");
+          for (var i = 0; i < this.reach.length; i++) {
+            var datalist = this.reach[i];
+            var aEl = document.createElement("button");
+            aEl.setAttribute("id", datalist);
+            aEl.href = "/news_events/";
+            var spanEl = document.createElement("span");
+            spanEl.classList.add("picon-p-add-news");
+            aEl.appendChild(spanEl);
+            aEl.insertAdjacentText("beforeend", datalist);
+            aEl.onclick = this.cv;
+            aEl.style.color = "blue";
+            aEl.style.backgroundColor = "white";
+            aEl.style.height = "30px";
+            aEl.style.border = "solid";
+            aEl.style.borderWidth = "0.2px";
+            aEl.style.float = "left";
+            aEl.style.borderColor = "whitesmoke";
+            aEl.style.display = "inline-block";
+            e.appendChild(aEl);
+          }
+        }.bind(this),
+        10
+      );
+
+      console.log("after next1 ", this.reach);
+}
     },
 
     next2() {
       const myNode = document.getElementById("cont");
       myNode.innerHTML = "";
       console.log("after next2 ", this.reach);
-      if (this.variable_qui_maide_pour_laffichage == 1) {
-        setTimeout(
-          function() {
-            document.getElementById("status").value = this.user.status;
-          }.bind(this),
-          10
-        );
-      }
+
       this.step++;
     },
     prev1() {
@@ -717,19 +681,17 @@ export default {
     },
 
     submit() {
-      var x = this.myFunction2();
+       var x = this.myFunction2();
 
-      if (x == true) {
-        this.user.reach = this.reach;
-        this.user.role = "agency";
-        /* var inpObjstatus = document.getElementById("status");
-        user.status = inpObjstatus.options[inpObjstatus.selectedIndex].value;*/
-        // console.log("status",this.user.status)
-        registerService(this.user);
-        this.$router.push({
-          name: "login"
-        });
-      }
+       if(x==true){
+      this.user.reach = this.reach;
+      this.user.role = "agency";
+      registerService(this.user);
+      this.$router.push({
+        name: "login"
+      });
+
+    }
     }
   }
 };
@@ -748,8 +710,8 @@ hr.login-hr {
 }
 .dtn {
   width: 100%;
-  border-radius: 3px;
-  height: 27px;
+  border-radius: 5px;
+  height: 37px;
 
   background-color: rgb(246, 244, 244);
   margin-bottom: 13px;

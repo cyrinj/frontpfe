@@ -104,12 +104,11 @@
                     class="dtn"
                     id="bb"
                     v-model="ddd"
-                    list="countries"
-                    name="countriess"
+                    list="countries1"
                     v-on:keyup.enter="submitkey"
                   />
-                  <datalist id="countries">
-                    <option v-for="(option,idx) in countries" :key="idx">{{option}}</option>
+                  <datalist id="countries1">
+                    <option v-for="(option,idx) in countries1" :key="idx">{{option}}</option>
                   </datalist>
                 </div>
 
