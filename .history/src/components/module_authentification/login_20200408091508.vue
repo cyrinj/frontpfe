@@ -47,14 +47,14 @@
                   </div>
                   <button
                   @click=" myFunction()"
-                    class="button   is-rounded  is-fullwidth"
+                    class="button  is-info is-rounded  is-fullwidth"
                   >Login</button>
                 </form>
               </div>
               <p class="has-text-grey">
                 <button class="b"  @click="inscription()">sign up</button> &nbsp;·&nbsp;
                 <button class="b"  @click="forgotPassword()">forgotpassword</button> &nbsp;·&nbsp;
-        <router-link to="agency_signup">  <button class="bAgency"  @click="signupAgency()">Agency?</button></router-link>      
+                <button class="bAgency"  @click="signupAgency()">Agency?</button>
               </p>
             </div>
           </div>
@@ -188,14 +188,9 @@ hr.login-hr {
 
 .bAgency{
     border:none;
-    background-color: rgb(102, 132, 209);
+    background-color: rgb(87, 115, 199);
    font-size: 17px;
-   color: white;
+   color: rgb(255, 255, 255);
    border-radius: 5px;
-   cursor: pointer;
-}
-.button{
-  color: white;
-   background-color: rgb(102, 132, 209);
 }
 </style>

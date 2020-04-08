@@ -54,7 +54,7 @@
               <p class="has-text-grey">
                 <button class="b"  @click="inscription()">sign up</button> &nbsp;·&nbsp;
                 <button class="b"  @click="forgotPassword()">forgotpassword</button> &nbsp;·&nbsp;
-        <router-link to="agency_signup">  <button class="bAgency"  @click="signupAgency()">Agency?</button></router-link>      
+                <button class="bAgency"  @click="signupAgency()">Agency?</button>
               </p>
             </div>
           </div>
@@ -192,7 +192,6 @@ hr.login-hr {
    font-size: 17px;
    color: white;
    border-radius: 5px;
-   cursor: pointer;
 }
 .button{
   color: white;

@@ -192,7 +192,6 @@ hr.login-hr {
    font-size: 17px;
    color: white;
    border-radius: 5px;
-   cursor: pointer;
 }
 .button{
   color: white;
