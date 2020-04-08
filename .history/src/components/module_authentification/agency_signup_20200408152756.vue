@@ -178,6 +178,12 @@
                       />
                     </div>
                   </div>
+
+                  <!--  <button
+                 @click=" myFunction()"
+                  class="button is-info is-rounded  is-fullwidth"
+                  type="submit"
+                  >Sign Up</button>-->
                   <button
                     class="button previous is-rounded is-white"
                     @click="prev2()"
@@ -567,11 +573,11 @@ export default {
       aEl.style.border = "solid";
        aEl.style.borderWidth ="0.2px"
       aEl.style.borderColor = "whitesmoke";
-      aEl.style.float ="left"
       aEl.style.display = "inline-block";
+      // aEl.addEventListener("click", this.cv(datalist));
       x.appendChild(aEl);
       this.reach.push(datalist);
-      console.log("after click data list", this.reach);
+      console.log("mytable", this.reach);
     },
     cv(datalist) {
       var x = document.getElementById(datalist.explicitOriginalTarget.id);
@@ -582,7 +588,7 @@ export default {
         }
       }
       x.remove();
-      console.log("after click sur name country for delete", this.reach);
+      console.log("mytable", this.reach);
     },
     validate() {
       var msg;
@@ -600,10 +606,37 @@ export default {
       }
     },
     next1() {
-        //  var x = this.myFunction1();
+     
+    /* var parent = document.querySelector('.content');
+ var children = parent.children;
+console.log("chlidren :",children)*/
+
+
+
+      //  var x = this.myFunction1();
 
       //  if(x==true)
      
+       /*  for (var i = 0; i < this.reach.length; i++) {
+      
+      var datalist = this.reach[i];
+      var aEl = document.createElement("button");
+      aEl.setAttribute("id", datalist);
+      aEl.href = "/news_events/";
+      var spanEl = document.createElement("span");
+      spanEl.classList.add("picon-p-add-news");
+      aEl.appendChild(spanEl);
+      aEl.insertAdjacentText("beforeend", datalist);
+      aEl.onclick = this.cv;
+      aEl.style.color = "blue";
+      aEl.style.backgroundColor = "white";
+      aEl.style.height = "30px";
+      aEl.style.border = "solid";
+       aEl.style.borderWidth ="0.2px"
+      aEl.style.borderColor = "whitesmoke";
+      aEl.style.display = "inline-block";
+       x1.appendChild(aEl);
+      }*/
       this.step++;
       setTimeout(function () {
    var e = document.getElementById("cont");
@@ -623,28 +656,32 @@ export default {
       aEl.style.height = "30px";
       aEl.style.border = "solid";
        aEl.style.borderWidth ="0.2px"
-        aEl.style.float ="left"
       aEl.style.borderColor = "whitesmoke";
       aEl.style.display = "inline-block";
        e.appendChild(aEl);
       }
 }.bind(this), 10)
-  
-  console.log("after next1 ", this.reach)
+  //  window.onload = this.doStuff();
+
+
     },
- 
+   /*  doStuff() {
+    var e = document.getElementById("cont");
+    if(e==null)
+    {console.log("heyyyy",e)}
+    else      console.log("heyyy111111111y")
+
+},*/
      next2() {
       const myNode = document.getElementById("cont");
   myNode.innerHTML = '';
-     console.log("after next2 ", this.reach)
-
+   console.log("test111",this.reach)
       this.step++;
     },
     prev1() {
         const myNode = document.getElementById("cont");
   myNode.innerHTML = '';
-     console.log("after prev1 ", this.reach)
-
+   console.log("test111",this.reach)
       this.step--;
     },
      prev2() {
@@ -668,14 +705,11 @@ export default {
       aEl.style.height = "30px";
       aEl.style.border = "solid";
        aEl.style.borderWidth ="0.2px"
-        aEl.style.float ="left"
       aEl.style.borderColor = "whitesmoke";
       aEl.style.display = "inline-block";
        e.appendChild(aEl);
       }
 }.bind(this), 10)
-  console.log("after prev2 ", this.reach)
-
     },
     userRegister() {
       /*   var x = this.myFunction();
@@ -686,15 +720,15 @@ export default {
               });*/
     },
 
-    submit(){
-      this.user.reach =this.reach
-      this.user.role="agency"
+    sumbmit(){
        registerService(this.user)
               this.$router.push({
                 name: "login"
               });
     },
-  
+    test(){
+      console.log("load")
+    }
   }
 };
 </script>

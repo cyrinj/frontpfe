@@ -686,9 +686,7 @@ export default {
               });*/
     },
 
-    submit(){
-      this.user.reach =this.reach
-      this.user.role="agency"
+    sumbmit(){
        registerService(this.user)
               this.$router.push({
                 name: "login"
