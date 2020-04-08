@@ -1,0 +1,642 @@
+<template>
+  <div>
+    <div v-if="step === 1">
+      <div class="box">
+        <form>
+          <div class="columns is-multiple bn">
+            <div class="column is-6">
+              <label class="mylabel">Username</label>
+              <div class="field">
+                <div class="control">
+                  <input
+                    id="username"
+                    class="input is-small"
+                    type="text"
+                    placeholder="Agency name"
+                    v-model="user.username"
+                  />
+                </div>
+              </div>
+              <label class="mylabel">Email</label>
+              <div class="field">
+                <div class="control">
+                  <input
+                    id="email"
+                    class="input is-small"
+                    type="email"
+                    placeholder="Your Email"
+                    v-model="user.email"
+                  />
+                </div>
+              </div>
+
+              <label class="mylabel">Telephone</label>
+              <div class="field">
+                <div class="control">
+                  <input
+                    id="response"
+                    class="input is-small"
+                    type="text"
+                    placeholder="Telephone"
+                    v-model="user.telephone"
+                  />
+                </div>
+              </div>
+            </div>
+            <div class="column is-6">
+              <label class="mylabel">Country</label>
+              <div class="field">
+                <div class="control">
+                  <input
+                    class="dtn1"
+                    id="bb"
+                    v-model="user.pays"
+                    list="countries111"
+                    name="countriess"
+                  />
+                  <datalist id="countries111">
+                    <option v-for="(option,idx) in countries" :key="idx">{{option}}</option>
+                  </datalist>
+                </div>
+              </div>
+              <label class="mylabel">Email</label>
+              <div class="field">
+                <div class="control">
+                  <input
+                    id="email"
+                    class="input is-small"
+                    type="email"
+                    placeholder="Your Backup Email"
+                    v-model="user.backupemail"
+                  />
+                </div>
+              </div>
+              <label class="mylabel">Adress</label>
+              <div class="field">
+                <div class="control">
+                  <input
+                    id="response"
+                    class="input is-small"
+                    type="text"
+                    placeholder="Adress"
+                    v-model="user.adresse"
+                  />
+                </div>
+              </div>
+            
+              
+            </div>
+          </div>
+          <button class="button is-info is-rounded next1" @click="moreInfo()">More Informations</button>
+        </form>
+      </div>
+    </div>
+
+    <div v-if="step === 2">
+      <div class="box">
+        <form>
+          <div class="columns is-multiple bn">
+            <div class="column is-6">
+              <label class="mylabel">Website</label>
+              <div class="field">
+                <div class="control">
+                  <input
+                    id="username"
+                    class="input is-small"
+                    type="text"
+                    placeholder="Website url"
+                    v-model="user.website"
+                  />
+                </div>
+              </div>
+              <label class="mylabel">Facebook</label>
+              <div class="field">
+                <div class="control">
+                  <input
+                    id="facebook"
+                    class="input is-small"
+                    type="text"
+                    placeholder="Facebook url"
+                    v-model="user.facebook"
+                  />
+                </div>
+              </div>
+                 <label class="mylabel">Sequrity question</label>
+              <div class="field">
+                <div class="control">
+                  <input
+                    id="securityquestion"
+                    class="input is-small"
+                    type="text"
+                    placeholder="Security question"
+                    v-model="user.securityquestion"
+                  />
+                </div>
+              </div>
+            </div>
+            <div class="column is-6">
+              <label class="mylabel">Trip advisor</label>
+              <div class="field">
+                <div class="control">
+                  <input
+                    id="email"
+                    class="input is-small"
+                    type="text"
+                    placeholder="Your Trip Advisor"
+                    v-model="user.tripadvisor"
+                  />
+                </div>
+              </div>
+              <label class="mylabel">Status</label>
+              <div class="field">
+                <div class="control">
+                  <input
+                    id="response"
+                    class="input is-small"
+                    type="text"
+                    placeholder="Status"
+                    v-model="user.status"
+                    disabled
+                  />
+                </div>
+              </div>
+              <label class="mylabel">Response</label>
+              <div class="field">
+                <div class="control">
+                  <input
+                    id="response"
+                    class="input is-small"
+                    type="text"
+                    placeholder="Response"
+                    v-model="user.response"
+                  />
+                </div>
+              </div>
+             
+
+             
+            </div>
+          
+          </div>
+             <button
+                  class="button previous is-rounded is-light"
+                  @click.prevent="prev1()"
+                >Previous</button>
+                    <button class="button is-info is-rounded next1" @click="moreInfo2()">More Informations</button>
+
+        </form>
+      </div>
+    </div>
+     <div v-if="step === 3">
+      <div class="box">
+       <label class="llb">Click on the country name to delete it from your list</label>
+              <br />
+              <div id="cont" class="m is-grouped is-grouped-multiline"></div>
+                 <label class="llb">Countries</label>
+               <div class="control">
+                  <input
+                    class="dtn"
+                    id="bb"
+                    v-model="ddd"
+                    list="countries"
+                    name="countries"
+                    v-on:keyup.enter="submitkey"
+                  />
+                  <datalist id="countries">
+                    <option v-for="(option,idx) in countries" :key="idx">{{option}}</option>
+                  </datalist>
+                </div>
+                <br>
+                   <button
+                  class="button previous is-rounded is-light"
+                  @click.prevent="prev2()"
+                >Previous</button>
+                    <button class="button is-info is-rounded next1" @click="edit()">Edit</button>
+      </div>
+     </div>
+  </div>
+</template>
+
+<script>
+import UserMixin from "@/mixins/user.mixin.js";
+
+export default {
+  mixins: [UserMixin],
+  data() {
+    return {
+      ddd: "",
+      countries: [
+        "Afghanistan",
+        "Albania",
+        "Algeria",
+        "Andorra",
+        "Angola",
+        "Anguilla",
+        "Antigua & Barbuda",
+        "Argentina",
+        "Armenia",
+        "Aruba",
+        "Australia",
+        "Austria",
+        "Azerbaijan",
+        "Bahamas",
+        "Bahrain",
+        "Bangladesh",
+        "Barbados",
+        "Belarus",
+        "Belgium",
+        "Belize",
+        "Benin",
+        "Bermuda",
+        "Bhutan",
+        "Bolivia",
+        "Bosnia & Herzegovina",
+        "Botswana",
+        "Brazil",
+        "British Virgin Islands",
+        "Brunei",
+        "Bulgaria",
+        "Burkina Faso",
+        "Burundi",
+        "Cambodia",
+        "Cameroon",
+        "Canada",
+        "Cape Verde",
+        "Cayman Islands",
+        "Central Arfrican Republic",
+        "Chad",
+        "Chile",
+        "China",
+        "Colombia",
+        "Congo",
+        "Cook Islands",
+        "Costa Rica",
+        "Cote D Ivoire",
+        "Croatia",
+        "Cuba",
+        "Curacao",
+        "Cyprus",
+        "Czech Republic",
+        "Denmark",
+        "Djibouti",
+        "Dominica",
+        "Dominican Republic",
+        "Ecuador",
+        "Egypt",
+        "El Salvador",
+        "Equatorial Guinea",
+        "Eritrea",
+        "Estonia",
+        "Ethiopia",
+        "Falkland Islands",
+        "Faroe Islands",
+        "Fiji",
+        "Finland",
+        "France",
+        "French Polynesia",
+        "French West Indies",
+        "Gabon",
+        "Gambia",
+        "Georgia",
+        "Germany",
+        "Ghana",
+        "Gibraltar",
+        "Greece",
+        "Greenland",
+        "Grenada",
+        "Guam",
+        "Guatemala",
+        "Guernsey",
+        "Guinea",
+        "Guinea Bissau",
+        "Guyana",
+        "Haiti",
+        "Honduras",
+        "Hong Kong",
+        "Hungary",
+        "Iceland",
+        "India",
+        "Indonesia",
+        "Iran",
+        "Iraq",
+        "Ireland",
+        "Isle of Man",
+        "Israel",
+        "Italy",
+        "Jamaica",
+        "Japan",
+        "Jersey",
+        "Jordan",
+        "Kazakhstan",
+        "Kenya",
+        "Kiribati",
+        "Kosovo",
+        "Kuwait",
+        "Kyrgyzstan",
+        "Laos",
+        "Latvia",
+        "Lebanon",
+        "Lesotho",
+        "Liberia",
+        "Libya",
+        "Liechtenstein",
+        "Lithuania",
+        "Luxembourg",
+        "Macau",
+        "Macedonia",
+        "Madagascar",
+        "Malawi",
+        "Malaysia",
+        "Maldives",
+        "Mali",
+        "Malta",
+        "Marshall Islands",
+        "Mauritania",
+        "Mauritius",
+        "Mexico",
+        "Micronesia",
+        "Moldova",
+        "Monaco",
+        "Mongolia",
+        "Montenegro",
+        "Montserrat",
+        "Morocco",
+        "Mozambique",
+        "Myanmar",
+        "Namibia",
+        "Nauro",
+        "Nepal",
+        "Netherlands",
+        "Netherlands Antilles",
+        "New Caledonia",
+        "New Zealand",
+        "Nicaragua",
+        "Niger",
+        "Nigeria",
+        "North Korea",
+        "Norway",
+        "Oman",
+        "Pakistan",
+        "Palau",
+        "Palestine",
+        "Panama",
+        "Papua New Guinea",
+        "Paraguay",
+        "Peru",
+        "Philippines",
+        "Poland",
+        "Portugal",
+        "Puerto Rico",
+        "Qatar",
+        "Reunion",
+        "Romania",
+        "Russia",
+        "Rwanda",
+        "Saint Pierre & Miquelon",
+        "Samoa",
+        "San Marino",
+        "Sao Tome and Principe",
+        "Saudi Arabia",
+        "Senegal",
+        "Serbia",
+        "Seychelles",
+        "Sierra Leone",
+        "Singapore",
+        "Slovakia",
+        "Slovenia",
+        "Solomon Islands",
+        "Somalia",
+        "South Africa",
+        "South Korea",
+        "South Sudan",
+        "Spain",
+        "Sri Lanka",
+        "St Kitts & Nevis",
+        "St Lucia",
+        "St Vincent",
+        "Sudan",
+        "Suriname",
+        "Swaziland",
+        "Sweden",
+        "Switzerland",
+        "Syria",
+        "Taiwan",
+        "Tajikistan",
+        "Tanzania",
+        "Thailand",
+        "Timor L'Este",
+        "Togo",
+        "Tonga",
+        "Trinidad & Tobago",
+        "Tunisia",
+        "Turkey",
+        "Turkmenistan",
+        "Turks & Caicos",
+        "Tuvalu",
+        "Uganda",
+        "Ukraine",
+        "United Arab Emirates",
+        "United Kingdom",
+        "United States of America",
+        "Uruguay",
+        "Uzbekistan",
+        "Vanuatu",
+        "Vatican City",
+        "Venezuela",
+        "Vietnam",
+        "Virgin Islands (US)",
+        "Yemen",
+        "Zambia",
+        "Zimbabwe"
+      ],
+      step: 1
+    };
+  },
+  mounted() {
+    console.log("my user", this.user);
+  },
+
+  methods: {
+         existdeja(namecountry){
+         for (var i=0;i<this.user.reach.length;i++)
+         {
+           if(this.user.reach[i]==namecountry)
+           {
+             return true
+           }
+         }
+         return false
+    },
+    submitkey() {
+      var x = document.getElementById("cont");
+      var datalist = this.ddd;
+      this.ddd = "";
+      var exist = this.existdeja(datalist)
+     if(exist==false)
+     {
+      var aEl = document.createElement("button");
+      aEl.setAttribute("id", datalist);
+      aEl.insertAdjacentText("beforeend", datalist);
+      aEl.onclick = this.cv;
+      aEl.style.color = "blue";
+      aEl.style.backgroundColor = "white";
+      aEl.style.height = "30px";
+      aEl.style.border = "solid";
+      aEl.style.borderWidth = "0.2px";
+      aEl.style.borderColor = "whitesmoke";
+      aEl.style.float = "left";
+      aEl.style.display = "inline-block";
+      x.appendChild(aEl);
+      this.user.reach.push(datalist);
+      }
+      console.log("after click data list", this.user.reach);
+    },
+      cv(datalist) {
+      var x = document.getElementById(datalist.explicitOriginalTarget.id);
+      for (var i = 0; i < this.user.reach.length; i++) {
+        if (this.user.reach[i] == datalist.explicitOriginalTarget.id) {
+          this.user.reach.splice(i, 1);
+          break;
+        }
+      }
+      x.remove();
+      console.log("after click sur name country for delete", this.user.reach);
+    },
+    prev1(){
+        this.step--;
+    },
+        prev2(){
+        this.step--;
+    },
+    moreInfo2() {
+        this.step++
+         setTimeout(
+          function() {
+            var e = document.getElementById("cont");
+            for (var i = 0; i < this.user.reach.length; i++) {
+              var datalist = this.user.reach[i];
+              var aEl = document.createElement("button");
+              aEl.setAttribute("id", datalist);
+              aEl.href = "/news_events/";
+              var spanEl = document.createElement("span");
+              spanEl.classList.add("picon-p-add-news");
+              aEl.appendChild(spanEl);
+              aEl.insertAdjacentText("beforeend", datalist);
+              aEl.onclick = this.cv;
+              aEl.style.color = "blue";
+              aEl.style.backgroundColor = "white";
+              aEl.style.height = "30px";
+              aEl.style.border = "solid";
+              aEl.style.borderWidth = "0.2px";
+              aEl.style.float = "left";
+              aEl.style.borderColor = "whitesmoke";
+              aEl.style.display = "inline-block";
+              e.appendChild(aEl);
+            }
+          }.bind(this),
+          10
+        );
+    },
+    moreInfo() {
+      this.step++;
+     
+    },
+
+    edit(){
+        return new Promise((resolve, reject) => {
+        axios.post('http://localhost:3000/api/v2/agency/editprofileagency',this.user).then(response => {
+            
+      // console.log('test response', response)
+          //  localStorage.token = response.data.data.token
+         
+            //console.log("hey",userq)
+            resolve(response.data.data)
+        }).catch(err => reject(err))
+    }) 
+
+     this.$router.push({
+                name: "dashboardtriper"
+              });
+    }
+  }
+};
+</script>
+
+
+<style scoped>
+.box {
+  position: absolute;
+  left: 550px;
+  top: 150px;
+  width: 500px;
+}
+
+.mylabel {
+  font-size: 13px;
+}
+
+.dtn {
+  width: 100%;
+  height: 29px;
+}
+.hey {
+  border-style: none none solid none;
+  border-width: 1px;
+  border-block-end-color: rgb(250, 247, 247);
+
+  color: rgb(82, 79, 79);
+}
+.next1 {
+  float: right;
+}
+
+.previous {
+  float: left;
+  border: solid;
+  border-width: 0.5px;
+  border-color: rgb(235, 243, 235);
+}
+
+.llb {
+  font-size: 13.5px;
+  float: left;
+
+  margin-bottom: 10px;
+    
+
+}
+
+.m {
+  border-radius: 10px;
+  background-color: rgb(246, 244, 244);
+
+  border: solid;
+  border-width: 0.5px;
+  border-color: whitesmoke;
+  height:250px;
+  overflow-y: scroll;
+  scrollbar-color: rgb(208, 207, 228) rgb(172, 216, 172);
+  width: 85%;
+  scrollbar-width: thin;
+  overflow: hidden;
+  margin-bottom: 10px;
+  
+}
+.dtn {
+  width: 85%;
+  border-radius: 3px;
+  height: 27px;
+
+  background-color: white;
+  
+}
+
+.dtn1{
+   width: 100%;
+  border-radius: 3px;
+  height: 27px;
+
+  background-color: white;
+ 
+}
+</style>

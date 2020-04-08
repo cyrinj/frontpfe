@@ -205,7 +205,7 @@ export default {
     },
     userRegister() {
             var x = this.myFunction();
-            this.user.role="tripper"
+            
               registerService(this.user)
               this.$router.push({
                 name: "login"

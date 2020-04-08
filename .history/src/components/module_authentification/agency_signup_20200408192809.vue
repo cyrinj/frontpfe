@@ -149,7 +149,7 @@
                         class="input"
                         type="text"
                         placeholder="Website"
-                        v-model="user.website"
+                        v-model="user.URL.website"
                         required
                       />
                     </div>
@@ -161,7 +161,7 @@
                         class="input"
                         type="text"
                         placeholder="Facebook"
-                        v-model="user.facebook"
+                        v-model="user.URL.facebook"
                         required
                       />
                     </div>
@@ -173,7 +173,7 @@
                         class="input"
                         type="text"
                         placeholder="Trip advisor"
-                        v-model="user.tripadvisor"
+                        v-model="user.URL.tripadvisor"
                         required
                       />
                     </div>
@@ -198,7 +198,7 @@ export default {
   data() {
     return {
       url: "http://localhost:3000",
-      user: {  },
+      user: { URL: {} },
       reach: [],
       email: "",
       password: "",
@@ -522,21 +522,21 @@ export default {
         inpObjstatus.setCustomValidity("");
       }
 
-      if (this.user.website == null || this.user.website == "") {
+      if (this.user.URL.website == null || this.user.URL.website == "") {
         inpObjwebsite.setCustomValidity("Please enter your url website");
       } else {
         inpObjwebsite.setCustomValidity("");
       }
 
-      if (this.user.facebook == null || this.user.facebook == "") {
+      if (this.user.URL.facebook == null || this.user.URL.facebook == "") {
         inpObjfacebook.setCustomValidity("Please enter your url facebook");
       } else {
         inpObjfacebook.setCustomValidity("");
       }
 
       if (
-        this.user.tripadvisor == null ||
-        this.user.tripadvisor == ""
+        this.user.URL.tripadvisor == null ||
+        this.user.URL.tripadvisor == ""
       ) {
         inpObjtripadvisor.setCustomValidity("Please enter your trip advisor");
       } else {
@@ -544,12 +544,12 @@ export default {
       }
 
       if (
-        this.user.website == null ||
-        this.user.website == "" ||
-        this.user.facebook == null ||
-        this.user.facebook == "" ||
-        this.user.tripadvisor == null ||
-        this.user.tripadvisor == ""
+        this.user.URL.website == null ||
+        this.user.URL.website == "" ||
+        this.user.URL.facebook == null ||
+        this.user.URL.facebook == "" ||
+        this.user.URL.tripadvisor == null ||
+        this.user.URL.tripadvisor == ""
       ) {
         return false;
       } else {
@@ -621,8 +621,8 @@ export default {
       }
     },
     next1() {
-      //  var x = this.myFunction1();
-    var x= true
+        var x = this.myFunction1();
+    
       if (x == true) {
         this.step++;
         setTimeout(

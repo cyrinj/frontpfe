@@ -130,7 +130,7 @@
             </span>Edit Profil
           </button>
         </router-link>
-         <router-link to="/editprofilagency" v-if="user.role=='agency'">
+         <router-link to="/editprofil" v-if="user.role=='agency'">
           <button class="dgh">
             <span class="icon has-text-success e3">
               <i class="fas fa-user-tie"></i>
